@@ -1,0 +1,288 @@
+{
+  "asset": "foundry-alpha-v001",
+  "version": "v001",
+  "status": "proposed visual design and scale",
+  "axes": {
+    "up": "+Y",
+    "primaryServiceAxis": "+X"
+  },
+  "dimensionsMetresXYZ": [
+    668.7327,
+    137.82,
+    342.0
+  ],
+  "root": "foundry-alpha-root",
+  "subsystems": [
+    {
+      "node": "foundry-alpha-fluid-transfer-spine",
+      "mesh": 0,
+      "localPivotMetres": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 5320,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-photovoltaic-yoke",
+      "mesh": 1,
+      "localPivotMetres": [
+        -252,
+        6,
+        0
+      ],
+      "triangles": 1640,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-separation-plant",
+      "mesh": 2,
+      "localPivotMetres": [
+        210,
+        0,
+        0
+      ],
+      "triangles": 1272,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-solar-port",
+      "mesh": 3,
+      "localPivotMetres": [
+        -252,
+        6,
+        -132
+      ],
+      "triangles": 980,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-solar-starboard",
+      "mesh": 3,
+      "localPivotMetres": [
+        -252,
+        6,
+        132
+      ],
+      "triangles": 980,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-tank-valve-manifold",
+      "mesh": 4,
+      "localPivotMetres": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 720,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-tanker-collar",
+      "mesh": 5,
+      "localPivotMetres": [
+        300,
+        0,
+        0
+      ],
+      "triangles": 792,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-thermal-collector",
+      "mesh": 6,
+      "localPivotMetres": [
+        -210,
+        12,
+        0
+      ],
+      "triangles": 468,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-water-vessel-1-port",
+      "mesh": 7,
+      "localPivotMetres": [
+        -114,
+        6,
+        -60
+      ],
+      "triangles": 1384,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-water-vessel-1-starboard",
+      "mesh": 7,
+      "localPivotMetres": [
+        -114,
+        6,
+        60
+      ],
+      "triangles": 1384,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-water-vessel-2-port",
+      "mesh": 7,
+      "localPivotMetres": [
+        0,
+        6,
+        -60
+      ],
+      "triangles": 1384,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-water-vessel-2-starboard",
+      "mesh": 7,
+      "localPivotMetres": [
+        0,
+        6,
+        60
+      ],
+      "triangles": 1384,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-water-vessel-3-port",
+      "mesh": 7,
+      "localPivotMetres": [
+        114,
+        6,
+        -60
+      ],
+      "triangles": 1384,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-alpha-water-vessel-3-starboard",
+      "mesh": 7,
+      "localPivotMetres": [
+        114,
+        6,
+        60
+      ],
+      "triangles": 1384,
+      "primitives": 1
+    }
+  ],
+  "palette": [
+    {
+      "name": "foundry-alpha-chalk",
+      "linearBaseColor": [
+        0.7200000286102295,
+        0.6899999976158142,
+        0.6000000238418579
+      ],
+      "roughness": 0.5400000214576721,
+      "metallic": 0.23000000417232513
+    },
+    {
+      "name": "foundry-alpha-porcelain",
+      "linearBaseColor": [
+        0.8899999856948853,
+        0.8700000047683716,
+        0.7699999809265137
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.17000000178813934
+    },
+    {
+      "name": "foundry-alpha-ash",
+      "linearBaseColor": [
+        0.30000001192092896,
+        0.3100000023841858,
+        0.28999999165534973
+      ],
+      "roughness": 0.47999998927116394,
+      "metallic": 0.550000011920929
+    },
+    {
+      "name": "foundry-alpha-graphite",
+      "linearBaseColor": [
+        0.07199999690055847,
+        0.08500000089406967,
+        0.0860000029206276
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "foundry-alpha-iron",
+      "linearBaseColor": [
+        0.20000000298023224,
+        0.22599999606609344,
+        0.22599999606609344
+      ],
+      "roughness": 0.3499999940395355,
+      "metallic": 0.800000011920929
+    },
+    {
+      "name": "foundry-alpha-carbon",
+      "linearBaseColor": [
+        0.026000000536441803,
+        0.03500000014901161,
+        0.03700000047683716
+      ],
+      "roughness": 0.6899999976158142,
+      "metallic": 0.23999999463558197
+    },
+    {
+      "name": "foundry-alpha-oxide",
+      "linearBaseColor": [
+        0.3449999988079071,
+        0.11500000208616257,
+        0.04600000008940697
+      ],
+      "roughness": 0.49000000953674316,
+      "metallic": 0.46000000834465027
+    },
+    {
+      "name": "foundry-alpha-brass",
+      "linearBaseColor": [
+        0.5199999809265137,
+        0.3400000035762787,
+        0.13500000536441803
+      ],
+      "roughness": 0.3799999952316284,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "foundry-alpha-glass",
+      "linearBaseColor": [
+        0.03500000014901161,
+        0.07800000160932541,
+        0.08799999952316284
+      ],
+      "roughness": 0.18000000715255737,
+      "metallic": 0.5299999713897705
+    }
+  ],
+  "materials": [
+    "foundry-alpha-v001-palette"
+  ],
+  "stats": {
+    "uniqueMeshes": 8,
+    "meshNodes": 14,
+    "uniqueTriangles": 12576,
+    "visibleTriangles": 20476,
+    "opaqueDrawsPerPass": 14,
+    "bytes": 799848
+  },
+  "dependencies": {
+    "generator": "assets/spacecraft/foundries/generate.py",
+    "exporter": "assets/spacecraft/spacecraft_export.py",
+    "blender": "5.3.0",
+    "externalRuntimeFiles": [],
+    "embeddedImages": [
+      "foundry-alpha-v001-base",
+      "foundry-alpha-v001-orm"
+    ],
+    "requiredExtensions": [],
+    "geometryKit": "assets/spacecraft/industrial_kit.py"
+  },
+  "role": "Volatile processing, water storage and propellant production",
+  "roleStatus": "canon-v2.0"
+}

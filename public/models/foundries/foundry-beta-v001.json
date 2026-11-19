@@ -1,0 +1,277 @@
+{
+  "asset": "foundry-beta-v001",
+  "version": "v001",
+  "status": "proposed visual design and scale",
+  "axes": {
+    "up": "+Y",
+    "primaryServiceAxis": "+X"
+  },
+  "dimensionsMetresXYZ": [
+    644.7327,
+    126.6187,
+    342.0
+  ],
+  "root": "foundry-beta-root",
+  "subsystems": [
+    {
+      "node": "foundry-beta-billet-dispatch",
+      "mesh": 0,
+      "localPivotMetres": [
+        282,
+        -12,
+        0
+      ],
+      "triangles": 792,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-furnace-cradles",
+      "mesh": 1,
+      "localPivotMetres": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 2000,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-mill-transfer-line",
+      "mesh": 2,
+      "localPivotMetres": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 3400,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-photovoltaic-yoke",
+      "mesh": 3,
+      "localPivotMetres": [
+        -246,
+        6,
+        0
+      ],
+      "triangles": 1640,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-reduction-pot-a",
+      "mesh": 4,
+      "localPivotMetres": [
+        -144,
+        0,
+        -42
+      ],
+      "triangles": 816,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-reduction-pot-b",
+      "mesh": 4,
+      "localPivotMetres": [
+        -48,
+        0,
+        -42
+      ],
+      "triangles": 816,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-rolling-stand-1",
+      "mesh": 5,
+      "localPivotMetres": [
+        18,
+        0,
+        0
+      ],
+      "triangles": 240,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-rolling-stand-2",
+      "mesh": 5,
+      "localPivotMetres": [
+        72,
+        0,
+        0
+      ],
+      "triangles": 240,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-rolling-stand-3",
+      "mesh": 5,
+      "localPivotMetres": [
+        132,
+        0,
+        0
+      ],
+      "triangles": 240,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-sealed-feed-conveyor",
+      "mesh": 6,
+      "localPivotMetres": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 1068,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-solar-port",
+      "mesh": 7,
+      "localPivotMetres": [
+        -246,
+        6,
+        -132
+      ],
+      "triangles": 980,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-solar-starboard",
+      "mesh": 7,
+      "localPivotMetres": [
+        -246,
+        6,
+        132
+      ],
+      "triangles": 980,
+      "primitives": 1
+    },
+    {
+      "node": "foundry-beta-thermal-collector",
+      "mesh": 8,
+      "localPivotMetres": [
+        -204,
+        12,
+        0
+      ],
+      "triangles": 744,
+      "primitives": 1
+    }
+  ],
+  "palette": [
+    {
+      "name": "foundry-beta-chalk",
+      "linearBaseColor": [
+        0.7200000286102295,
+        0.6899999976158142,
+        0.6000000238418579
+      ],
+      "roughness": 0.5400000214576721,
+      "metallic": 0.23000000417232513
+    },
+    {
+      "name": "foundry-beta-porcelain",
+      "linearBaseColor": [
+        0.8899999856948853,
+        0.8700000047683716,
+        0.7699999809265137
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.17000000178813934
+    },
+    {
+      "name": "foundry-beta-ash",
+      "linearBaseColor": [
+        0.30000001192092896,
+        0.3100000023841858,
+        0.28999999165534973
+      ],
+      "roughness": 0.47999998927116394,
+      "metallic": 0.550000011920929
+    },
+    {
+      "name": "foundry-beta-graphite",
+      "linearBaseColor": [
+        0.07199999690055847,
+        0.08500000089406967,
+        0.0860000029206276
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "foundry-beta-iron",
+      "linearBaseColor": [
+        0.20000000298023224,
+        0.22599999606609344,
+        0.22599999606609344
+      ],
+      "roughness": 0.3499999940395355,
+      "metallic": 0.800000011920929
+    },
+    {
+      "name": "foundry-beta-carbon",
+      "linearBaseColor": [
+        0.026000000536441803,
+        0.03500000014901161,
+        0.03700000047683716
+      ],
+      "roughness": 0.6899999976158142,
+      "metallic": 0.23999999463558197
+    },
+    {
+      "name": "foundry-beta-oxide",
+      "linearBaseColor": [
+        0.3449999988079071,
+        0.11500000208616257,
+        0.04600000008940697
+      ],
+      "roughness": 0.49000000953674316,
+      "metallic": 0.46000000834465027
+    },
+    {
+      "name": "foundry-beta-brass",
+      "linearBaseColor": [
+        0.5199999809265137,
+        0.3400000035762787,
+        0.13500000536441803
+      ],
+      "roughness": 0.3799999952316284,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "foundry-beta-glass",
+      "linearBaseColor": [
+        0.03500000014901161,
+        0.07800000160932541,
+        0.08799999952316284
+      ],
+      "roughness": 0.18000000715255737,
+      "metallic": 0.5299999713897705
+    }
+  ],
+  "materials": [
+    "foundry-beta-v001-palette"
+  ],
+  "stats": {
+    "uniqueMeshes": 9,
+    "meshNodes": 13,
+    "uniqueTriangles": 11680,
+    "visibleTriangles": 13956,
+    "opaqueDrawsPerPass": 13,
+    "bytes": 748228
+  },
+  "dependencies": {
+    "generator": "assets/spacecraft/foundries/generate.py",
+    "exporter": "assets/spacecraft/spacecraft_export.py",
+    "blender": "5.3.0",
+    "externalRuntimeFiles": [],
+    "embeddedImages": [
+      "foundry-beta-v001-base",
+      "foundry-beta-v001-orm"
+    ],
+    "requiredExtensions": [],
+    "geometryKit": "assets/spacecraft/industrial_kit.py"
+  },
+  "role": "Metals refining and bulk fabrication",
+  "roleStatus": "canon-v2.0"
+}

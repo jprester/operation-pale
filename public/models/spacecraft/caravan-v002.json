@@ -1,0 +1,340 @@
+{
+  "asset": "caravan-v002",
+  "version": "v002",
+  "status": "proposed visual design and scale",
+  "axes": {
+    "up": "+Y",
+    "bow": "+X"
+  },
+  "dimensionsMetresXYZ": [
+    536.0,
+    97.1576,
+    190.9841
+  ],
+  "root": "caravan-root",
+  "subsystems": [
+    {
+      "node": "caravan-cargo-saddles",
+      "mesh": 0,
+      "localPivotMetres": [
+        4.999998092651367,
+        -4.268043041229248,
+        0
+      ],
+      "triangles": 400,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-docking-transfer-node",
+      "mesh": 1,
+      "localPivotMetres": [
+        131,
+        0,
+        0
+      ],
+      "triangles": 1972,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-forward-habitat",
+      "mesh": 2,
+      "localPivotMetres": [
+        202.5,
+        3.330982208251953,
+        0
+      ],
+      "triangles": 6288,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-freight-cassette-fore-port",
+      "mesh": 3,
+      "localPivotMetres": [
+        90,
+        -10,
+        -33.5
+      ],
+      "triangles": 3276,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-freight-cassette-fore-starboard",
+      "mesh": 3,
+      "localPivotMetres": [
+        90,
+        -10,
+        33.5
+      ],
+      "triangles": 3276,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-fusion-manoeuvring-bank",
+      "mesh": 4,
+      "localPivotMetres": [
+        -210.5,
+        1.1999998092651367,
+        0
+      ],
+      "triangles": 5768,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-habitat-identification",
+      "mesh": 5,
+      "localPivotMetres": [
+        203.25,
+        33.45000076293945,
+        11.800000190734863
+      ],
+      "triangles": 324,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-interstellar-drive-yoke",
+      "mesh": 6,
+      "localPivotMetres": [
+        -188.22085571289062,
+        0,
+        0
+      ],
+      "triangles": 2376,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-load-spine",
+      "mesh": 7,
+      "localPivotMetres": [
+        2.859588623046875,
+        0,
+        0
+      ],
+      "triangles": 2228,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-precision-workshop-aft-port",
+      "mesh": 8,
+      "localPivotMetres": [
+        -80,
+        -10,
+        -33.5
+      ],
+      "triangles": 3644,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-precision-workshop-aft-starboard",
+      "mesh": 8,
+      "localPivotMetres": [
+        -80,
+        -10,
+        33.5
+      ],
+      "triangles": 3644,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-precision-workshop-mid-port",
+      "mesh": 8,
+      "localPivotMetres": [
+        5,
+        -10,
+        -33.5
+      ],
+      "triangles": 3644,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-radiator-port-aft",
+      "mesh": 9,
+      "localPivotMetres": [
+        -155,
+        10.5,
+        -15
+      ],
+      "triangles": 476,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-radiator-port-fore",
+      "mesh": 10,
+      "localPivotMetres": [
+        -129,
+        10.5,
+        -15
+      ],
+      "triangles": 476,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-radiator-pump-gallery",
+      "mesh": 11,
+      "localPivotMetres": [
+        -140.99998474121094,
+        2.9095191955566406,
+        0
+      ],
+      "triangles": 400,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-radiator-starboard-aft",
+      "mesh": 12,
+      "localPivotMetres": [
+        -155,
+        10.5,
+        15
+      ],
+      "triangles": 476,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-radiator-starboard-fore",
+      "mesh": 13,
+      "localPivotMetres": [
+        -129,
+        10.5,
+        15
+      ],
+      "triangles": 476,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-reaction-mass-and-transfer",
+      "mesh": 14,
+      "localPivotMetres": [
+        -156.390380859375,
+        -13.898909568786621,
+        0
+      ],
+      "triangles": 1616,
+      "primitives": 1
+    },
+    {
+      "node": "caravan-seed-industry-open-process-bed",
+      "mesh": 15,
+      "localPivotMetres": [
+        5,
+        -9.773685455322266,
+        34.5
+      ],
+      "triangles": 1012,
+      "primitives": 1
+    }
+  ],
+  "palette": [
+    {
+      "name": "caravan-chalk",
+      "linearBaseColor": [
+        0.7200000286102295,
+        0.6899999976158142,
+        0.6000000238418579
+      ],
+      "roughness": 0.5400000214576721,
+      "metallic": 0.23000000417232513
+    },
+    {
+      "name": "caravan-porcelain",
+      "linearBaseColor": [
+        0.8899999856948853,
+        0.8700000047683716,
+        0.7699999809265137
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.17000000178813934
+    },
+    {
+      "name": "caravan-ash",
+      "linearBaseColor": [
+        0.30000001192092896,
+        0.3100000023841858,
+        0.28999999165534973
+      ],
+      "roughness": 0.47999998927116394,
+      "metallic": 0.550000011920929
+    },
+    {
+      "name": "caravan-graphite",
+      "linearBaseColor": [
+        0.07199999690055847,
+        0.08500000089406967,
+        0.0860000029206276
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "caravan-iron",
+      "linearBaseColor": [
+        0.20000000298023224,
+        0.22599999606609344,
+        0.22599999606609344
+      ],
+      "roughness": 0.3499999940395355,
+      "metallic": 0.800000011920929
+    },
+    {
+      "name": "caravan-carbon",
+      "linearBaseColor": [
+        0.026000000536441803,
+        0.03500000014901161,
+        0.03700000047683716
+      ],
+      "roughness": 0.6899999976158142,
+      "metallic": 0.23999999463558197
+    },
+    {
+      "name": "caravan-oxide",
+      "linearBaseColor": [
+        0.3449999988079071,
+        0.11500000208616257,
+        0.04600000008940697
+      ],
+      "roughness": 0.49000000953674316,
+      "metallic": 0.46000000834465027
+    },
+    {
+      "name": "caravan-brass",
+      "linearBaseColor": [
+        0.5199999809265137,
+        0.3400000035762787,
+        0.13500000536441803
+      ],
+      "roughness": 0.3799999952316284,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "caravan-glass",
+      "linearBaseColor": [
+        0.03500000014901161,
+        0.07800000160932541,
+        0.08799999952316284
+      ],
+      "roughness": 0.18000000715255737,
+      "metallic": 0.5299999713897705
+    }
+  ],
+  "materials": [
+    "caravan-v002-palette"
+  ],
+  "stats": {
+    "uniqueMeshes": 16,
+    "meshNodes": 19,
+    "uniqueTriangles": 31208,
+    "visibleTriangles": 41772,
+    "opaqueDrawsPerPass": 19,
+    "bytes": 1987068
+  },
+  "dependencies": {
+    "generator": "assets/spacecraft/caravan/generate.py",
+    "exporter": "assets/spacecraft/spacecraft_export.py",
+    "blender": "5.3.0",
+    "externalRuntimeFiles": [],
+    "embeddedImages": [
+      "caravan-v002-base",
+      "caravan-v002-orm"
+    ],
+    "requiredExtensions": []
+  }
+}

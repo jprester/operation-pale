@@ -1,0 +1,153 @@
+{
+  "asset": "cradle-v001",
+  "version": "v001",
+  "status": "proposed visual design and scale",
+  "axes": {
+    "up": "+Y",
+    "bow": "+X"
+  },
+  "dimensionsMetresXYZ": [
+    26.0,
+    11.4031,
+    10.2
+  ],
+  "root": "cradle-root",
+  "subsystems": [
+    {
+      "node": "cradle-handling-bed",
+      "mesh": 0,
+      "localPivotMetres": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 500,
+      "primitives": 1
+    },
+    {
+      "node": "cradle-service-uprights",
+      "mesh": 1,
+      "localPivotMetres": [
+        0,
+        0,
+        0
+      ],
+      "triangles": 160,
+      "primitives": 1
+    }
+  ],
+  "palette": [
+    {
+      "name": "cradle-chalk",
+      "linearBaseColor": [
+        0.7200000286102295,
+        0.6899999976158142,
+        0.6000000238418579
+      ],
+      "roughness": 0.5400000214576721,
+      "metallic": 0.23000000417232513
+    },
+    {
+      "name": "cradle-porcelain",
+      "linearBaseColor": [
+        0.8899999856948853,
+        0.8700000047683716,
+        0.7699999809265137
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.17000000178813934
+    },
+    {
+      "name": "cradle-ash",
+      "linearBaseColor": [
+        0.30000001192092896,
+        0.3100000023841858,
+        0.28999999165534973
+      ],
+      "roughness": 0.47999998927116394,
+      "metallic": 0.550000011920929
+    },
+    {
+      "name": "cradle-graphite",
+      "linearBaseColor": [
+        0.07199999690055847,
+        0.08500000089406967,
+        0.0860000029206276
+      ],
+      "roughness": 0.41999998688697815,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "cradle-iron",
+      "linearBaseColor": [
+        0.20000000298023224,
+        0.22599999606609344,
+        0.22599999606609344
+      ],
+      "roughness": 0.3499999940395355,
+      "metallic": 0.800000011920929
+    },
+    {
+      "name": "cradle-carbon",
+      "linearBaseColor": [
+        0.026000000536441803,
+        0.03500000014901161,
+        0.03700000047683716
+      ],
+      "roughness": 0.6899999976158142,
+      "metallic": 0.23999999463558197
+    },
+    {
+      "name": "cradle-oxide",
+      "linearBaseColor": [
+        0.3449999988079071,
+        0.11500000208616257,
+        0.04600000008940697
+      ],
+      "roughness": 0.49000000953674316,
+      "metallic": 0.46000000834465027
+    },
+    {
+      "name": "cradle-brass",
+      "linearBaseColor": [
+        0.5199999809265137,
+        0.3400000035762787,
+        0.13500000536441803
+      ],
+      "roughness": 0.3799999952316284,
+      "metallic": 0.6700000166893005
+    },
+    {
+      "name": "cradle-glass",
+      "linearBaseColor": [
+        0.03500000014901161,
+        0.07800000160932541,
+        0.08799999952316284
+      ],
+      "roughness": 0.18000000715255737,
+      "metallic": 0.5299999713897705
+    }
+  ],
+  "materials": [
+    "cradle-v001-palette"
+  ],
+  "stats": {
+    "uniqueMeshes": 2,
+    "meshNodes": 2,
+    "uniqueTriangles": 660,
+    "visibleTriangles": 660,
+    "opaqueDrawsPerPass": 2,
+    "bytes": 45188
+  },
+  "dependencies": {
+    "generator": "assets/spacecraft/staging/generate.py",
+    "exporter": "assets/spacecraft/spacecraft_export.py",
+    "blender": "5.3.0",
+    "externalRuntimeFiles": [],
+    "embeddedImages": [
+      "cradle-v001-base",
+      "cradle-v001-orm"
+    ],
+    "requiredExtensions": []
+  }
+}

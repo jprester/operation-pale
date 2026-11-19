@@ -1,0 +1,20 @@
+Operation: Pale — Earth imagery credits
+
+Earth Day Map, Earth Night Map and Earth Clouds by Solar System Scope (INOVE).
+The publisher credits NASA Blue Marble imagery and geodata as inputs to its Earth maps.
+Collection and licensing statement: https://www.solarsystemscope.com/textures/
+License for all three source textures and our texture derivatives: Creative Commons Attribution 4.0 International (CC BY 4.0).
+License: https://creativecommons.org/licenses/by/4.0/
+
+Original files:
+Earth Day Map — https://www.solarsystemscope.com/textures/download/2k_earth_daymap.jpg
+Earth Night Map — https://www.solarsystemscope.com/textures/download/2k_earth_nightmap.jpg
+Earth Clouds — https://www.solarsystemscope.com/textures/download/2k_earth_clouds.jpg
+
+Local adaptations:
+surface.webp — 2048 × 1024 daytime albedo, transcoded to WebP.
+earth-lights.webp — 2048 × 1024 grayscale mask of warm emissions extracted from the night composite, displayed with a warm tint on the unlit hemisphere.
+earth-clouds.webp — cloud coverage converted to grayscale, resized to 1536 × 768 and transcoded to WebP.
+earth.webp — a cropped still of the opening Earth rendering using all three maps, the scene lighting, and an illustrative atmosphere.
+
+Lighting, cloud drift and accelerated rotation are artistic choices for the introduction.

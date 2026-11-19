@@ -1,0 +1,7 @@
+.model-inspector{width:min(1320px,100%);margin:auto;padding:24px;color:#e6e3d9;font:15px/1.5 system-ui,sans-serif}
+.model-inspector h1{font-size:clamp(26px,4vw,42px);letter-spacing:-.04em;margin:0 0 18px}
+.inspection-tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.inspection-tools label{display:flex;gap:8px;align-items:center}
+.inspection-tools button,.inspection-tools select,.inspection-tools input::file-selector-button{border:1px solid #67695e;background:#292c28;color:#eee9da;border-radius:3px;padding:6px 10px}
+.inspection-view{height:clamp(300px,64vh,800px);border:1px solid #62665c}
+.model-inspector p{margin:10px 0;color:#c3c3b7}.model-inspector .model-error{color:#e7b990;overflow-wrap:anywhere}
