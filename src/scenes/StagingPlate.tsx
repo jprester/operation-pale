@@ -8,7 +8,7 @@ const Pass=lazy(()=>import('./OrbitalPass'));
 function Journey({time,moving}:{time:number;moving:boolean}) {
   const [lost,setLost]=useState(false);
   const [ready,setReady]=useState(false);
-  const phase=time<198?'gamma':time<206?'handoff':time<212?'transit':time<218?'pullback':time<220 || time>=287?'network':time<224?'warden':'lantern';
+  const phase=time<220?'gamma':time<228?'handoff':time<234?'transit':time<240?'pullback':time<242 || time>=309?'network':time<246?'warden':'lantern';
   const label={gamma:'Foundry Gamma / finishing bay',handoff:'Cislunar space / tug handoff',transit:'In transit / Earth approach',pullback:'Earth orbit / tracked consignment',network:'Earth orbit / staged units',warden:'Warden / orbital command',lantern:'Lantern / stratospheric relay'}[phase];
   return <div className="journey">
     <img className="journey-still" alt={label} src={'/art/staging/'+phase+'.webp'}/>
@@ -48,7 +48,7 @@ export function StagingPlate({time,reduced,visible,assembly}:{time:number;reduce
   return <div className="plate staging-plate" data-staging={kind}>
     <div className="shot-window" aria-label={shot.name}>
       {source ? <DocumentaryInsert photo={{...source,start:shot.at,end:shot.at+9,composition:'inset'}} time={time} reduced={reduced}/> :
-      (time<227 || kind==='tableau') ? <Journey time={time} moving={!reduced && visible}/> :
+      (time<249 || kind==='tableau') ? <Journey time={time} moving={!reduced && visible}/> :
       kind==='ground' ? <GroundSurvey local={local} reduced={reduced}/> :
       kind==='record' || kind==='freight' ? <Register freight={kind==='freight'} local={local} reduced={reduced}/> :
       kind==='assembly' ? assembly(local) :

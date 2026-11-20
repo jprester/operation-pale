@@ -1,0 +1,42 @@
+{
+  "city": {
+    "id": "iss064e023814",
+    "credit": "NASA",
+    "title": "iss064e023814",
+    "url": "https://images.nasa.gov/details/iss064e023814",
+    "image": "https://images-assets.nasa.gov/image/iss064e023814/iss064e023814~medium.jpg",
+    "alt": "Tokyo and Yokohama illuminated around Tokyo Bay at night."
+  },
+  "industry": {
+    "id": "KSC-04pd1296",
+    "credit": "NASA",
+    "title": "KSC-04pd1296",
+    "url": "https://images.nasa.gov/details/KSC-04pd1296",
+    "image": "https://images-assets.nasa.gov/image/KSC-04pd1296/KSC-04pd1296~medium.jpg",
+    "alt": "Mobile crane at a high bay of the Vehicle Assembly Building."
+  },
+  "launch": {
+    "id": "s69-39525",
+    "credit": "NASA",
+    "title": "APOLLO XI - LAUNCH - KSC",
+    "url": "https://images.nasa.gov/details/s69-39525",
+    "image": "https://images-assets.nasa.gov/image/s69-39525/s69-39525~medium.jpg",
+    "alt": "Saturn V lifting off from Kennedy Space Center."
+  },
+  "station": {
+    "id": "s132e012208",
+    "credit": "NASA",
+    "title": "Flyaround view of ISS after undocking",
+    "url": "https://images.nasa.gov/details/s132e012208",
+    "image": "https://images-assets.nasa.gov/image/s132e012208/s132e012208~medium.jpg",
+    "alt": "The International Space Station above the limb of Earth."
+  },
+  "galaxy": {
+    "id": "PIA10748",
+    "credit": "NASA/JPL-Caltech",
+    "title": "Our Milky Way Gets a Makeover  Artist Concept",
+    "url": "https://images.nasa.gov/details/PIA10748",
+    "image": "https://images-assets.nasa.gov/image/PIA10748/PIA10748~medium.jpg",
+    "alt": "Illustrated face-on view of the Milky Way with a central bar and spiral arms."
+  }
+}

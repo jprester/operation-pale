@@ -1,5 +1,5 @@
 import {lazy,Suspense,useState} from 'react';
-import {atlasSites,belt,earth,freightLinks,localOrbits,orbitPoint,solarOrbits,sun,type Point} from '../data/atlas';
+import {atlasSites,belt,caravanArrival,earth,freightLinks,localOrbits,orbitPoint,solarOrbits,sun,type Point} from '../data/atlas';
 import {preparationMonth,type MapScale} from '../data/road';
 import { SceneBoundary } from './SceneBoundary';
 const Ground=lazy(()=>import('./AtlasGround'));
@@ -7,7 +7,7 @@ const Ground=lazy(()=>import('./AtlasGround'));
 import {StagingOverlay} from './StagingAtlas';
 import type {StagingKind} from '../data/staging';
 
-export function SolarAtlas({initial,time,moving,staging}:{initial:MapScale;time:number;moving:boolean;staging?:StagingKind}) {
+export function SolarAtlas({initial,time,moving,staging,focus=0,focusSite=caravanArrival}:{initial:MapScale;time:number;moving:boolean;staging?:StagingKind;focus?:number;focusSite?:Point}) {
   const [scale,setScale]=useState(initial);
   const [deployment,setDeployment]=useState(true);
   const [ready,setReady]=useState(false);
@@ -19,20 +19,24 @@ export function SolarAtlas({initial,time,moving,staging}:{initial:MapScale;time:
   const solar=scale==='solar';
   const center=solar?sun:earth;
   const links=solar?[['Asteroid works','Earth']]:freightLinks;
-  const t=moving?Math.min(1,(time-32)/10):1;
+  const t=moving?Math.min(1,Math.max(0,time-65)/10):1;
   const caravan:Point=[494-65*t,30+31*t];
-  return <section className="solar-atlas" aria-label="Expedition atlas">
+  const zoom = 1 + 3.5*focus;
+  const w=520/zoom, h=280/zoom;
+  const cx=focusSite[0]-(focusSite[0]-260)*(1-focus)/zoom;
+  const cy=focusSite[1]-(focusSite[1]-140)*(1-focus)/zoom;
+  return <section style={{'--atlas-label-opacity':Math.max(0,1-2.5*focus), '--atlas-type-scale':1/zoom} as React.CSSProperties} className="solar-atlas" aria-label="Expedition atlas">
     <div className="atlas-tools" aria-label="Map scale">{(['solar','local'] as const).map(value=>
       <button key={value} aria-pressed={scale===value} onClick={()=>setScale(value)}>{value==='solar'?'Solar System':'Earth–Moon'}</button>)}
       {!solar && month>=10 && <button aria-pressed={deployment} onClick={()=>setDeployment(!deployment)}>Deployment</button>}</div>
     <div className="atlas-field">
-      {moving && !lost && <div className="atlas-ground"><SceneBoundary onLost={()=>setLost(true)}><Suspense fallback={null}>
+      {moving && focus===0 && !lost && <div className="atlas-ground"><SceneBoundary onLost={()=>setLost(true)}><Suspense fallback={null}>
         <Ground scale={scale} onReady={()=>setReady(true)} onLost={()=>setLost(true)}/>
       </Suspense></SceneBoundary></div>}
-      <svg viewBox="0 0 520 280" role="img" aria-label={solar?'Illustrative arrival, planetary orbits and asteroid belt':'Earth, Moon and successive industrial sites with cargo connections'}>
-        {(!ready || lost || !moving) && <g>{(solar?solarOrbits:localOrbits).map(r=><ellipse key={r} cx={center[0]} cy={center[1]} rx={r} ry={r*.52} fill="none" stroke="#79715b"/>)}
+      <svg viewBox={`${cx-w/2} ${cy-h/2} ${w} ${h}`} role="img" aria-label={solar?'Illustrative arrival, planetary orbits and asteroid belt':'Earth, Moon and successive industrial sites with cargo connections'}>
+        {(!ready || lost || !moving || focus>0) && <g>{(solar?solarOrbits:localOrbits).map(r=><ellipse key={r} cx={center[0]} cy={center[1]} rx={r} ry={r*.52} fill="none" stroke="#79715b"/>)}
           {solar && belt.map(([x,y],i)=><circle key={i} cx={x} cy={y} r=".85" fill="#a59c81"/>)}</g>}
-        {solar && <g><path d="M494 30L429 61" stroke="#d7bc8c" strokeDasharray="3 4"/><path transform={`translate(${caravan})`} d="m-6 3 5-8 8 1-5 5z" fill="#eee3c8"/><text x={caravan[0]-10} y={caravan[1]-9} textAnchor="end">Caravan</text>
+        {solar && <g><path d="M494 30L429 61" stroke="#d7bc8c" strokeDasharray="3 4"/><path transform={`translate(${caravan}) scale(${1/zoom})`} d="m-6 3 5-8 8 1-5 5z" fill="#eee3c8"/><text x={caravan[0]-10} y={caravan[1]-9} textAnchor="end">Caravan</text>
           <text className="atlas-region" x="118" y="96">MAIN BELT</text></g>}
         {(solar || showLogistics) && links.map(([source,target],i)=>{
           const a=sites.find(s=>s.label===source)?.p,b=sites.find(s=>s.label===target)?.p;

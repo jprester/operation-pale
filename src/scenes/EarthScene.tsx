@@ -120,7 +120,7 @@ export default function EarthScene(props: ShotProps & { onReady: () => void; onL
     return Boolean(context);
   });
   if (!supported) return null;
-  return <Canvas orthographic camera={{ position: [0,0,5], far: 20 }} frameloop="demand"
+  return <Canvas orthographic resize={{offsetSize:true}} camera={{ position: [0,0,5], far: 20 }} frameloop="demand"
     dpr={[1, 1.4]} gl={{ alpha: true, antialias: true }} fallback={null}
     onCreated={({ gl }) => {
       props.onReady();

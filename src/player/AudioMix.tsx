@@ -1,3 +1,4 @@
+import {FilmIcon} from './FilmIcon';
 import { useEffect, useState, type RefObject } from 'react';
 
 const masters = import.meta.glob<string>('../media/audio/road-to-earth.mp3', {
@@ -41,8 +42,8 @@ export function AudioMix({media, elapsed, running, read}: Props) {
     {src && <audio ref={media} src={src} preload="metadata" muted={muted}
       onLoadedMetadata={()=>setReady(true)} onError={()=>setFailed(true)}
       onSeeked={()=>{const a=media.current; if(a && !running && Math.abs(a.currentTime-read())>.005) a.currentTime=read();}}/>}
-    <button disabled={!available} aria-label="Mute audio" aria-pressed={muted}
-      onClick={()=>setMuted(!muted)}>{available ? muted ? 'Unmute' : 'Mute' : 'Audio unavailable'}</button>
+    <button disabled={!available} title={muted?'Unmute':'Mute'} aria-label="Mute audio" aria-pressed={muted}
+      onClick={()=>setMuted(!muted)}>{available ? <FilmIcon name={muted?'mute':'audio'}/> : 'Audio unavailable'}</button>
     <input className="mix-volume" type="range" aria-label="Audio volume" disabled={!available}
       min={0} max={1} step=".05" value={volume} onChange={event=>setVolume(event.currentTarget.valueAsNumber)}/>
   </>;

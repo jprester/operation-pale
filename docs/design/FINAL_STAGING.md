@@ -1,5 +1,7 @@
 # Final Staging — The Machinery of Conquest
 
+This document records the v3.1 edit. For v3.2, add 22 seconds to its staging and notification timecodes. Final Staging now begins at 03:34, and the Notification at 05:17. See the [opening recording sheet](OPENING_HOOK.md).
+
 ## Cut and chronology
 
 The introduction lasts **05:09**. Select **Final Staging** at 03:12. Its fourteen pre-contact shots last 103 seconds. The fifteenth shot opens the existing Notification at 04:55. A terrestrial reconstruction gives way to the receiver at 04:59, and the Company speaks at 05:01. The existing post-contact demonstration record remains in the archive.

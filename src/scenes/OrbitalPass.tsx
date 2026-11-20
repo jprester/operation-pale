@@ -51,43 +51,43 @@ function OrbitalField({time,reveal}:{time:number;reveal:number}) {
     }
     return new BufferGeometry().setAttribute('position',new Float32BufferAttribute(vertices,3)).setAttribute('color',new Float32BufferAttribute(colors,3));
   },[]);
-  return <group position={earth} rotation-y={.18+(time-192)*.002}><points geometry={geometry}>
+  return <group position={earth} rotation-y={.18+(time-214)*.002}><points geometry={geometry}>
     <pointsMaterial vertexColors size={2.35} sizeAttenuation={false} transparent opacity={reveal*.90} depthWrite={false}/>
   </points><lineSegments geometry={symbols}><lineBasicMaterial vertexColors transparent opacity={reveal} depthWrite={false}/></lineSegments></group>;
 }
 
 function Shot({time}:{time:number}){
   const {camera,size,invalidate}=useThree();
-  const warden=time>=220 && time<224,lantern=time>=224 && time<227,wide=time>=287;
-  const move=glide(time,200,212),pull=wide?1:glide(time,211,219);
+  const warden=time>=242 && time<246,lantern=time>=246 && time<249,wide=time>=309;
+  const move=glide(time,222,234),pull=wide?1:glide(time,233,241);
   const satellite=warden||lantern;
   // Local frame follows the freight. An editorial scale change then resolves
   // that freight into a single highlighted mark in the Earth-centred register.
   useLayoutEffect(()=>{
     const lens=camera as OrthographicCamera;
-    const establish=glide(time,192,198);
+    const establish=glide(time,214,220);
     const closeWidth=200*Math.pow(42/200,establish);
     const width=satellite?(warden?68:62):closeWidth*Math.pow(3380/closeWidth,pull);
     const aim=(width-closeWidth)/(3380-closeWidth);
     const target=satellite?new Vector3():earth.clone().multiplyScalar(aim);
-    const bearing=satellite?.62-(time%4)*.06:1.18-1.10*pull-.30*move;
+    const bearing=satellite?.62-((time-22)%4)*.06:1.18-1.10*pull-.30*move;
     lens.position.copy(target).add(new Vector3(bearing,.55-.48*pull,1).normalize().multiplyScalar(4400));
-    lens.lookAt(target);lens.zoom=Math.min(size.width/width,size.height/(width*.61));
+    lens.lookAt(target);lens.zoom=Math.min(size.width/width,size.height/(width*(satellite ? .61 : .61+.085*pull)));
     lens.updateProjectionMatrix();invalidate();
   },[time,move,pull,satellite,warden,camera,size,invalidate]);
-  const orbitVisible=wide||time>=203;
+  const orbitVisible=wide||time>=225;
   return <>
     <hemisphereLight args={['#f7efdc','#8194a2',.95]}/><directionalLight position={[-6,9,6]} intensity={3}/>
     <directionalLight position={[5,2,-7]} color="#a0c4ed" intensity={1.3}/>
-    {orbitVisible && <group position={satellite?(lantern?[0,-114,-45]:[4,-52,-70]):[0,earth.y-600*(1-glide(time,203,209)),earth.z]} scale={satellite?(lantern?112:38):globeRadius}>
-      <Planet seconds={22+(time-192)*.14}/>
+    {orbitVisible && <group position={satellite?(lantern?[0,-114,-45]:[4,-52,-70]):[0,earth.y-600*(1-glide(time,225,231)),earth.z]} scale={satellite?(lantern?112:38):globeRadius}>
+      <Planet seconds={22+(time-214)*.14}/>
     </group>}
     {!satellite && <>
-      {time<211 && <group position={[-191-move*510,-35-move*62,-move*155]}><Model name="gamma"/></group>}
+      {time<233 && <group position={[-191-move*510,-35-move*62,-move*155]}><Model name="gamma"/></group>}
       {!wide && <group>
         <Model name="quiver"/>
-        <mesh position={[1,3.25+8*(1-glide(time,193,198)),0]}><boxGeometry args={[8,.5,4.4]}/><meshStandardMaterial color="#c2ab81" metalness={.4} roughness={.7}/></mesh>
-        <group rotation-y={Math.PI} position={[27-13.1*glide(time,197,202)+19*glide(time,210,215),0,0]}><Model name="tug"/></group>
+        <mesh position={[1,3.25+8*(1-glide(time,215,220)),0]}><boxGeometry args={[8,.5,4.4]}/><meshStandardMaterial color="#c2ab81" metalness={.4} roughness={.7}/></mesh>
+        <group rotation-y={Math.PI} position={[27-13.1*glide(time,219,224)+19*glide(time,232,237),0,0]}><Model name="tug"/></group>
       </group>}
       {orbitVisible && <OrbitalField time={time} reveal={pull}/>}
       {pull>.1 && <mesh scale={2+pull*12}><ringGeometry args={[1,1.15,32]}/><meshBasicMaterial color="#ffc889"/></mesh>}

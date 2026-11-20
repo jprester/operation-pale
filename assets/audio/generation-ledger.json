@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "unit": "credits",
+  "entries": [],
+  "entryFields": [
+    "requestId",
+    "approvedAt",
+    "generatedAt",
+    "speakerOrLayer",
+    "tool",
+    "model",
+    "voiceId",
+    "settings",
+    "exactPrompt",
+    "charactersOrDuration",
+    "outputs",
+    "estimatedCredits",
+    "reportedCredits",
+    "flowId",
+    "nodeId",
+    "generationId",
+    "status",
+    "originalPath",
+    "sha256",
+    "outputPath",
+    "license",
+    "editorialApproval"
+  ]
+}

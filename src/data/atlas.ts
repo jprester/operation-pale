@@ -1,6 +1,7 @@
 import type { MapScale } from './road';
 
 export type Point = [number, number];
+export const caravanArrival: Point = [429,61];
 export const sun: Point = [260,148];
 export const earth: Point = [222,145];
 export const orbitPoint = ([x,y]: Point,r: number,a: number): Point => [x+r*Math.cos(a),y+.52*r*Math.sin(a)];

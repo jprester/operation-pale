@@ -1,0 +1,23 @@
+.hook-layer{position:absolute;inset:0}
+.opening-hook .orbits{display:none}
+.human-plate{position:absolute;left:4.5%;top:16%;width:48%;height:58%;margin:0;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px}
+.human-plate>div{min-height:0}.human-plate img{height:100%;width:100%;object-fit:contain;object-position:left center}
+.human-plate figcaption,.galactic small,.hook-credit{font:10px/1.5 ui-monospace,monospace;color:#d5cbb9;letter-spacing:.06em}
+.human-plate figcaption span{color:#aaa99b;margin-left:10px}.hook-credit{position:absolute;bottom:2%;right:2%;font-size:9px;pointer-events:auto}
+.galactic{background:#060809}.galactic img{position:absolute;inset:4% 8%;width:84%;height:90%;object-fit:contain;filter:saturate(.70)}
+.galactic small{position:absolute;right:3%;bottom:3%;text-align:right}
+.galaxy-sign{position:absolute;top:42%;left:22%;width:6%;color:#c3b493;border-bottom:1px solid #9c9279}
+.survey-register{position:absolute;top:35%;left:53%;width:40%;padding:2% 0;border-block:1px solid #a899775e;color:#dfd2b9}
+.record-seals{display:flex;gap:8%;align-items:center;margin-bottom:5%}.record-seals span{width:17%;max-width:64px;opacity:.26}.record-seals span[data-active=true]{opacity:1}
+.survey-register small{display:block;text-transform:uppercase;font:clamp(8px,.9cqw,12px) ui-monospace,monospace;letter-spacing:.12em;color:#b1ada0}
+.survey-register strong{display:block;margin-top:8px;font:normal clamp(19px,3cqw,45px)/1.15 Georgia,serif}
+.reveal-atlas .atlas-field{overflow:hidden}.reveal-hull{transform-origin:50% 47%}
+@media(max-width:700px) and (orientation:portrait){
+ .human-plate{top:22%;left:3%;height:50%;width:50%}.human-plate figcaption{font-size:9px}.human-plate figcaption span{display:block;margin:0}
+ .survey-register{left:54%;width:42%}.galaxy-sign{left:10%}.galactic small{font-size:9px}
+}
+.reveal-atlas .atlas-field text,.reveal-atlas .atlas-key{opacity:var(--atlas-label-opacity,1)}
+.galactic img{mix-blend-mode:screen}
+.human-plate.plate-launch img{object-position:center}
+.reveal-atlas .atlas-field svg text{transform-box:fill-box;transform-origin:center;transform:scale(var(--atlas-type-scale,1))}
+.reveal-atlas .atlas-field path,.reveal-atlas .atlas-field ellipse{vector-effect:non-scaling-stroke}

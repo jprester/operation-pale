@@ -19,7 +19,7 @@ export function CaravanShot({ seconds }: { seconds: number }) {
     lens.far = 1600;
     lens.lookAt(close ? 18 - 55 * ease : -15 + 22 * ease, 0, 0);
     lens.rotateZ(-.14);
-    lens.zoom = Math.min(size.width / (close ? 372 + 25 * ease : 670 - 85 * ease), size.height / (close ? 220 : 310));
+    lens.zoom = Math.min(size.width / (close ? 410 + 30 * ease : 670 - 70 * ease), size.height / (close ? 220 : 310));
     lens.updateProjectionMatrix();
     invalidate();
   }, [camera, size, seconds, invalidate]);

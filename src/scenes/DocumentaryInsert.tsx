@@ -1,8 +1,9 @@
 import {useState, type ReactNode} from 'react';
+import {SilentInsert} from '../player/SilentInsert';
 import manifest from '../../public/art/documentary/manifest.json';
 
 export const documentaryPhotos=manifest;
-type Photo=typeof manifest[number];
+type Photo=typeof manifest[number] & {video?:string};
 const base='/art/documentary/';
 const clamp=(x:number)=>Math.max(0,Math.min(1,x));
 
@@ -16,7 +17,7 @@ function Exposure({photo,time,reduced}:{photo:Photo;time:number;reduced:boolean}
     <strong>{photo.caption}</strong><p>{photo.description}</p><small>{failed || photo.status==='missing' ? 'Photograph unavailable' : 'Loading photograph'}</small></div>;
   if(failed || photo.status==='missing')return slate;
   return <>{!loaded && slate}<img src={base+photo.filename} srcSet={base+photo.smallFilename+' 640w, '+base+photo.filename+' 1440w'}
-    sizes={photo.composition==='full'?'100vw':'(max-width:760px) 96vw, 54vw'}
+    sizes="100vw"
     onLoad={()=>setLoaded(true)} onError={()=>setFailed(true)} alt={photo.description} style={{transform:`scale(${zoom}) translateX(${drift}%)`}}/></>;
 }
 
@@ -26,7 +27,7 @@ export function DocumentaryInsert({photo,time,reduced,comparison,externalFade=fa
   return <figure className={'doc-photo doc-'+photo.composition}>
     <div className="doc-emulsion">
       {previous && incoming<1 && <div className="doc-exposure" aria-hidden="true"><Exposure key={previous.id} photo={previous} time={previous.end} reduced={reduced}/></div>}
-      <div className="doc-exposure" style={{opacity:incoming}}><Exposure key={photo.id} photo={photo} time={time} reduced={reduced}/></div>
+      <div className="doc-exposure" style={{opacity:incoming}}>{photo.video ? <SilentInsert key={photo.id} src={photo.video} seconds={time-photo.start} reduced={reduced}><Exposure key={photo.id} photo={photo} time={time} reduced={reduced}/></SilentInsert> : <Exposure key={photo.id} photo={photo} time={time} reduced={reduced}/>}</div>
       {photo.atmosphere && <div className="doc-vignette" style={{transform:reduced?undefined:`scale(1.07) translateX(${(clamp((time-photo.start)/(photo.end-photo.start))-.5)*3}%)`}}/>}
     </div>
     {photo.composition==='split' && <div className="doc-comparison">{comparison}</div>}

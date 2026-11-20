@@ -1,46 +1,11 @@
-import { Bounds, OrbitControls, useBounds, useGLTF } from '@react-three/drei';
-import { Canvas, useThree } from '@react-three/fiber';
-import { useCallback, useEffect, useState } from 'react';
-import { Box3, Group, PMREMGenerator, Vector3 } from 'three';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { Bounds, OrbitControls, useGLTF } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { useEffect, useState } from 'react';
+import { Vector3 } from 'three';
+import {Subject,Lights,type Reading,type Lighting} from '../models/InspectionSubject';
 import { introAssets } from '../data/assets';
-import { GlbModel, type ModelState } from '../models/GlbModel';
 import { ProceduralCaravan } from '../models/ProceduralCaravan';
 import './inspector.css';
-
-type Reading = { state: ModelState; box: Box3; message?: string };
-type Lighting = 'Studio' | 'Raking sunlight';
-
-function Lights({ preset }: { preset: Lighting }) {
-  const { scene, gl, invalidate } = useThree();
-  useEffect(() => {
-    const room = new RoomEnvironment();
-    const generator = new PMREMGenerator(gl);
-    const reflection = generator.fromScene(room);
-    room.dispose();
-    generator.dispose();
-    scene.environment = reflection.texture;
-    invalidate();
-    return () => { scene.environment = null; reflection.dispose(); };
-  }, [gl, scene, invalidate]);
-  const studio = preset === 'Studio';
-  return <>
-    <hemisphereLight intensity={studio ? .9 : .12} color="#fffaf2" groundColor="#494849"/>
-    <directionalLight intensity={studio ? 2 : 4} position={studio ? [4,7,5] : [-7,2,-3]}
-      color={studio ? '#ffffff' : '#ffe3bb'}/>
-  </>;
-}
-
-function Subject({ src, inspect }: { src: string | null; inspect: (reading: Reading) => void }) {
-  const bounds = useBounds();
-  const report = useCallback((state: ModelState, root: Group, message?: string) => {
-    root.updateWorldMatrix(true, true);
-    const box = new Box3().setFromObject(root, true);
-    if (!box.isEmpty()) bounds.refresh(box).clip().fit();
-    inspect({ state, box, message });
-  }, [bounds, inspect]);
-  return <GlbModel src={src} fallback={<ProceduralCaravan/>} onState={report}/>;
-}
 
 export default function ModelInspector() {
   const [file, setFile] = useState<{ name: string; url: string } | null>(null);
@@ -90,7 +55,7 @@ export default function ModelInspector() {
         <Lights preset={lighting}/>
         <OrbitControls makeDefault enableDamping={false}/>
         <Bounds fit clip observe margin={1.5} maxDuration={0}>
-          <Subject src={src} inspect={inspect}/>
+          <Subject fallback={<ProceduralCaravan/>} src={src} inspect={inspect}/>
         </Bounds>
         {grid && <gridHelper position={[center.x, floor-.003, center.z]} args={[step*80,80,'#827860','#4b514c']}/>}
         <mesh position={[center.x + size.x/2 + .75, floor+.5, center.z]}>

@@ -1,4 +1,5 @@
 import dialogue from './audio/dialogue.json';
+import subtitles from './audio/subtitles.json';
 import recordedEnds from './audio/ends.json';
 
 export const publicNotice: string[] = [
@@ -9,25 +10,26 @@ export const publicNotice: string[] = [
 ];
 
 type Speaker = 'Narrator' | 'Company transmission';
-type Cue = { start: number; end: number; transcript: string; speaker: Speaker };
+type Cue = { subtitles: { at:number; text:string }[]; start: number; end: number; transcript: string; speaker: Speaker };
 type Beat = { start: number; duration: number; label: string; title: string; narration: Cue[] };
 export const cover = {
-  title: 'The acquisition of Earth.',
+  title: 'The Road to Earth',
   caption: 'A company enters the Solar System with a six-year charter and a finite manifest. It needs the planet working when the charter ends.',
 };
 // Recording cues use absolute reel time. Rendering consumes scene-local time.
 const scenes = [
-  { start: 0, duration: 32, label: 'Discovery', title: 'The road to Earth.' },
-  { start: 32, duration: 36, label: 'Expedition', title: 'One crossing.' },
-  { start: 68, duration: 36, label: 'Resources', title: 'Working the asteroids.' },
-  { start: 104, duration: 51, label: 'Industrial build-up', title: 'An industry takes shape.' },
-  { start: 155, duration: 37, label: 'Infrastructure', title: 'Built in Earth orbit.' },
-  { start: 192, duration: 103, label: 'Final Staging', title: 'The machinery of conquest.' },
-  { start: 295, duration: 14, label: 'Notification', title: 'The first words.' },
+  { start: 0, duration: 65, label: 'Earth & the Hegemony', title: 'The road to Earth.' },
+  { start: 65, duration: 25, label: 'Expedition', title: 'The expedition.' },
+  { start: 90, duration: 36, label: 'Resources', title: 'Working the asteroids.' },
+  { start: 126, duration: 51, label: 'Industrial build-up', title: 'An industry takes shape.' },
+  { start: 177, duration: 37, label: 'Infrastructure', title: 'Built in Earth orbit.' },
+  { start: 214, duration: 103, label: 'Final Staging', title: 'The machinery of conquest.' },
+  { start: 317, duration: 14, label: 'Notification', title: 'The first words.' },
 ];
 export const beats: Beat[] = scenes.map((scene,index) => ({
   ...scene,
   narration: dialogue.flatMap((cue,i): Cue[] => cue.sequence === index+1 ? [{
+    subtitles: subtitles[i],
     start: cue.start - scene.start,
     end: recordedEnds[i] - scene.start,
     speaker: cue.speaker === 'Company transmission' ? 'Company transmission' : 'Narrator',

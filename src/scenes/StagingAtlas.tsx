@@ -6,14 +6,14 @@ export function StagingOverlay({kind,time}:{kind:StagingKind;time:number}) {
   const relay=['relay','countdown','tableau'].includes(kind);
   const [ex,ey]=earth;
   return <g>
-    {time>=199 && <g stroke="#ddcba2" fill="none">
+    {time>=221 && <g stroke="#ddcba2" fill="none">
       <ellipse cx={ex} cy={ey} rx="95" ry="49.4" strokeDasharray="3 6" opacity=".55"/>
       {Array.from({length:1+Math.floor(progress*3)},(_,i)=>{
         const [x,y]=orbitPoint(earth,95,i*1.9+.42);
         return <rect key={i} x={x-3} y={y-3} width="6" height="6"/>;
       })}
     </g>}
-    {kind!=='relay' && time>=201 && <g fill="#94c7d5">
+    {kind!=='relay' && time>=223 && <g fill="#94c7d5">
       {[0,1].map(lane=><g key={lane} transform={'rotate('+(lane?22:-18)+' '+ex+' '+ey+')'}>
         <ellipse cx={ex} cy={ey} rx={49+lane*15} ry={(49+lane*15)*.52} fill="none" stroke="#94c7d5" opacity=".4"/>
         {Array.from({length:2+Math.floor(progress*8)},(_,i)=>{
