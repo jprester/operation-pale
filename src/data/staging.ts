@@ -1,8 +1,8 @@
 export const stagingShots = [
-  {at:192, name:'Final staging', kind:'handover'},
-  {at:198, name:'Earth orbital register', kind:'architecture'},
-  {at:206, name:'From workshop to orbit', kind:'freight'},
-  {at:213, name:'Transfer berth', kind:'dock'},
+  {at:192, name:'Gamma finishing bay', kind:'handover'},
+  {at:198, name:'Tug handoff', kind:'architecture'},
+  {at:206, name:'The transport passage', kind:'freight'},
+  {at:213, name:'Earth orbital register', kind:'dock'},
   {at:220, name:'Two relay domains', kind:'relay'},
   {at:227, name:'Asteroidal feedstock', kind:'rock'},
   {at:234, name:'Foundry Gamma · Final assembly', kind:'assembly'},

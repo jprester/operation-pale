@@ -10,11 +10,11 @@ This cut expands the former Deadline passage. Its observatory testimony, account
 
 | Cut | Image | Screen treatment |
 | --- | --- | --- |
-| 03:12.00 | Final staging | Gamma dissolves into Earth–Moon geography. |
-| 03:18.00 | Earth orbital register | A freight network gains distinct orbital marks. |
-| 03:26.00 | From workshop to orbit | A custody register progresses across five entries. |
-| 03:33.00 | Transfer berth | A tug meets a sealed Quiver at a handling cradle and withdraws with the consignment. |
-| 03:40.00 | Two relay domains | Orbital command and a magnified atmospheric relay inset. |
+| 03:12.00 | Gamma finishing bay | Push through the open end of the approved assembly jig as the tracked Quiver receives its last exterior cover. |
+| 03:18.00 | Tug handoff | Stay with the same marked shell as the transport takes it out of the bay. |
+| 03:26.00 | The transport passage | The works fall away and the Earth limb enters beneath the consignment. |
+| 03:33.00 | Earth orbital register | Pull back to the textured globe. An amber circle keeps the original consignment identifiable as staged units resolve around it. |
+| 03:40.00 | Two relay domains | Cut to the Warden’s communications reflector in orbit, then to a solar-wing Lantern above the stratosphere. |
 | 03:47.00 | Asteroidal feedstock | A photographic reconstruction shows anchored resource works. |
 | 03:54.00 | Foundry Gamma · Final assembly | Approved Gamma GLB with animated lattice assembly. |
 | 04:01.00 | Observatory · Comparison field | Two observers compare exposures of the same field. |
@@ -23,7 +23,7 @@ This cut expands the former Deadline passage. Its observatory testimony, account
 | 04:24.00 | Ninety days in review | Four date cards compress the last ninety days into a retrospective. |
 | 04:33.00 | Demonstration reserved | One schematic dispenser is circled. An unlocated site marker reserves the future demonstration. |
 | 04:40.00 | Demonstration record | A planned-event record ends at independent confirmation. |
-| 04:47.00 | The completed apparatus | Return to a single overview of the industrial, orbital and atmospheric systems. |
+| 04:47.00 | The completed apparatus | Return to the Earth-wide view with orbital command, freight, staged units and atmospheric relay marks. |
 | 04:55.00 | The Notification | Hard cut to the human perspective, then the existing public warning. |
 
 ## Recording sheet
@@ -88,3 +88,12 @@ The dock shot shows a sealed exterior and freight handoff. The demonstration rem
 TypeScript and the production build passed. Desktop Chromium checks entered all fifteen cuts at their boundaries and captured a representative frame from each. The four countdown samples displayed 12, 14, 16 and 18 illustrative dispenser marks. Seeking back to the second sample restored 14. The freight close-up submitted 3,840 triangles in six draws, and the Gamma shot submitted 23,732 in fourteen. Blocking the Quiver GLB left the tug and cradle in place with a proxy in five draws. Reduced-motion mobile emulation displayed the rendered exterior still. Atlas, ground survey, register and contact frames fitted the 375-pixel viewport.
 
 With browser autoplay restrictions enabled, a user click started one synchronized master. Checks passed for forward and backward seeks, pause/resume, restart, mute, volume, subtitle gaps, end-of-film pause and captions with the audio file blocked. In software-rendered Chromium the maximum settled difference between audio time and the displayed scrubber was 119 ms; an initial cold 3D seek reached 577 ms before settling. Physical-device frame rates and Safari audio remain unmeasured. Vite retains its existing large-chunk advisory for the lazy-loaded 3D renderer.
+
+## Traveling from Gamma to Earth
+
+The continuous camera pass and the later Earth tableau sample the master clock. The local bay uses the shipped metre-scale GLBs. Travel, altitude differences, symbol sizes and the 768 marks in the wide shot are illustrative. The points share one draw; a second batched layer distinguishes orbital command, logistics and atmospheric sensing. The Earth surface, cloud deck and city lights use the Discovery globe and its credited textures. Seven clean WebP frames preserve the editorial progression for reduced motion or unavailable WebGL or GLBs.
+
+- Warden v001. Proposed exterior, 2,304 triangles, 154,724 bytes. Rebuild individually with the staging generator and `-- --asset warden`.
+- Lantern v001. Proposed exterior, 1,676 triangles, 110,000 bytes. Rebuild individually with the staging generator and `-- --asset lantern`.
+
+The Earth-wide shot at 03:39 submitted 11 draw calls in desktop software-rendered Chromium, including the globe and foreground freight. This is a rendering measurement; the number of marks is an editorial choice.

@@ -62,7 +62,7 @@ const atmosphereFragment = earthLighting + `
   }
 `;
 
-function Planet({ seconds }: { seconds: number }) {
+export function Planet({ seconds }: { seconds: number }) {
   const [surface, coverage, lights] = useLoader(TextureLoader, [
     introAssets.earthSurface.src, introAssets.earthClouds.src, introAssets.earthLights.src,
   ]);

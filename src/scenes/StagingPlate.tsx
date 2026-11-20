@@ -4,14 +4,19 @@ import {SceneBoundary} from './SceneBoundary';
 import {SolarAtlas} from './SolarAtlas';
 import {DocumentaryInsert,documentaryPhotos} from './DocumentaryInsert';
 
-const Bay=lazy(()=>import('./TransferBay'));
-function Transfer({local,moving}:{local:number;moving:boolean}) {
+const Pass=lazy(()=>import('./OrbitalPass'));
+function Journey({time,moving}:{time:number;moving:boolean}) {
   const [lost,setLost]=useState(false);
-  const poster=<img className="carrier-poster" alt="Quiver exterior in thermal cladding" src="/models/staging/quiver-v001.webp"/>;
-  return <div className="carrier-frame">{poster}
-    {moving && !lost && <div className="bay-live"><SceneBoundary onLost={()=>setLost(true)}>
-      <Suspense fallback={poster}><Bay t={Math.min(1,local/7)} onLost={()=>setLost(true)}/></Suspense>
-    </SceneBoundary></div>}
+  const [ready,setReady]=useState(false);
+  const phase=time<198?'gamma':time<206?'handoff':time<212?'transit':time<218?'pullback':time<220 || time>=287?'network':time<224?'warden':'lantern';
+  const label={gamma:'Foundry Gamma / finishing bay',handoff:'Cislunar space / tug handoff',transit:'In transit / Earth approach',pullback:'Earth orbit / tracked consignment',network:'Earth orbit / staged units',warden:'Warden / orbital command',lantern:'Lantern / stratospheric relay'}[phase];
+  return <div className="journey">
+    <img className="journey-still" alt={label} src={'/art/staging/'+phase+'.webp'}/>
+    {moving && !lost && <div className="journey-live" style={{opacity:ready?1:0}}><SceneBoundary onLost={()=>setLost(true)}><Suspense fallback={null}>
+      <Pass time={time} onReady={setReady} onLost={()=>setLost(true)}/>
+    </Suspense></SceneBoundary></div>}
+    <div className="journey-label"><small>{phase==='gamma'||phase==='handoff'?'Industrial network':'Deployed architecture'}</small><strong>{label}</strong></div>
+    {(phase==='network'||phase==='pullback') && <div className="journey-key">◯ Tracked Quiver　◇ Warden　+ Tug　· Staged units<br/>Atmospheric relays in green · Distances compressed</div>}
   </div>;
 }
 function Register({freight,local,reduced}:{freight:boolean;local:number;reduced:boolean}) {
@@ -43,13 +48,10 @@ export function StagingPlate({time,reduced,visible,assembly}:{time:number;reduce
   return <div className="plate staging-plate" data-staging={kind}>
     <div className="shot-window" aria-label={shot.name}>
       {source ? <DocumentaryInsert photo={{...source,start:shot.at,end:shot.at+9,composition:'inset'}} time={time} reduced={reduced}/> :
-      kind==='dock' ? <Transfer local={local} moving={!reduced && visible}/> :
+      (time<227 || kind==='tableau') ? <Journey time={time} moving={!reduced && visible}/> :
       kind==='ground' ? <GroundSurvey local={local} reduced={reduced}/> :
       kind==='record' || kind==='freight' ? <Register freight={kind==='freight'} local={local} reduced={reduced}/> :
-      kind==='handover' ? <>
-        {local>=1.8 && <SolarAtlas initial="local" time={time} moving={!reduced && visible} staging={kind}/>}
-        {local<3 && <div className="stage-handover" style={{opacity:reduced?Number(local<1.8):Math.min(1,(3-local)/1.2)}}>{assembly(local)}</div>}
-      </> : kind==='assembly' ? assembly(local) :
+      kind==='assembly' ? assembly(local) :
       <SolarAtlas key={kind} initial="local" time={time} moving={!reduced && visible} staging={kind}/>}
     </div>
     {!source && <span className="plate-caption">STAGING {number} / {shot.name.toUpperCase()}<br/><small>Illustrative reconstruction</small></span>}
