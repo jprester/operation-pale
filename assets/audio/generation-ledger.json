@@ -1,7 +1,32 @@
 {
   "version": 1,
   "unit": "credits",
-  "entries": [],
+  "entries": [
+    {
+      "requestId": "resources-01-flash-audition-001",
+      "approvedAt": "2026-11-20T18:47:59.154244+00:00",
+      "generatedAt": "2026-11-20T18:48:42.292686+00:00",
+      "speakerOrLayer": "Narrator",
+      "tool": "creative_generate_speech",
+      "model": "eleven_flash_v2_5",
+      "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
+      "settings": "connector defaults",
+      "exactPrompt": "The expedition divided its work. One branch gathered raw material from asteroids. Another set up workshops between Earth and the Moon.",
+      "charactersOrDuration": 134,
+      "outputs": 1,
+      "estimatedCredits": 134,
+      "reportedCredits": 134,
+      "flowId": "GOjma54mv0UQ1xUGcGkK",
+      "nodeId": "suOMJMvvsAA22IoW75Kw",
+      "generationId": "PpayENU8Z065xdtROD6v",
+      "status": "completed",
+      "originalPath": "assets/audio/voices/narrator/resources-01-flash-audition.mp3",
+      "sha256": "3f5196ecaa221014ac149b11707656594b01335fbc858eca198e5a0d27f3729e",
+      "outputPath": null,
+      "license": null,
+      "editorialApproval": "retired by editor; local audition removed"
+    }
+  ],
   "entryFields": [
     "requestId",
     "approvedAt",
