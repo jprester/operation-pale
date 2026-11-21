@@ -8,7 +8,7 @@ Watch opens on the existing Earth plate. The title and visitor-started play butt
 
 Explore pauses the same transport. Its atlas and equipment viewer can be browsed independently of the film position. The full timecoded transcript and existing chapter records live here. An explicit transcript jump returns to Watch at the selected line. Returning normally holds the position until the viewer presses Play.
 
-One persistent player owns the clock, audio element, transport and fullscreen surface. Only the active picture mounts. Wide screens use a height-limited widescreen frame; portrait uses a taller frame with a dedicated caption shelf. Controls remain visible for pause, keyboard navigation and touch interaction. Future silent video inserts belong to the shot layer and sample the same clock with a still underneath.
+One persistent player owns the clock, audio mixer, transport and fullscreen surface. Only the active picture mounts. Wide screens use a height-limited widescreen frame; portrait uses a taller frame with a dedicated caption shelf. Controls remain visible for pause, keyboard navigation and touch interaction. Future silent video inserts belong to the shot layer and sample the same clock with a still underneath.
 
 ## Implemented controls and framing
 
@@ -20,7 +20,7 @@ Explore uses the atlas at the paused historical time. Equipment records pair app
 
 ## Subtitle and media delivery
 
-Each entry of src/data/audio/subtitles.json corresponds to one recording cue in dialogue.json. Its phrase starts are absolute film seconds. The measured recording end in ends.json clears the final phrase, including in silence after a backward seek. The words are taken directly from the transcript. Internal cuts are editorial estimates placed near low-energy points in the master. When replacing the mix with another recording, check the internal boundaries against the new delivery as well as updating the cue ends. The audio element and clock remain mounted across both modes.
+Each entry of src/data/audio/subtitles.json corresponds to one recording cue in dialogue.json. Its phrase starts are absolute film seconds. The measured recording end in ends.json clears the final phrase, including in silence after a backward seek. The words are taken directly from the transcript. Internal cuts are editorial estimates placed near low-energy points in the master. When replacing the mix with another recording, check the internal boundaries against the new delivery as well as updating the cue ends. The mixer and clock remain mounted across both modes.
 
 A documentary manifest entry can optionally specify a video URL alongside its existing still filenames. Supply an MP4 or WebM with frequent keyframes. SilentInsert samples the shot-local clock, coalesces outstanding decoder seeks and never calls play. The media stays muted. The existing still supplies the initial frame, failure state and reduced-motion composition. No video clips ship in this cut.
 

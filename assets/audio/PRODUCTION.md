@@ -29,9 +29,7 @@ Original planning estimate before importing the complete take.
 
 The estimate assumes one take for each cue at the published Multilingual v2 base rate and a standard-rate voice. Count spaces and punctuation. Joined cues add a separator. Reuse accepted lines and deduct their characters from the outstanding budget. If the proposed pilot replaces its two cue takes, the joined prompt adds one character. A discarded pilot costs its own quoted price against the revision reserve. The reserve authorizes zero expenditure. Confirm the voice-specific estimate and remaining shared balance before spending. [ElevenLabs pricing](https://elevenlabs.io/pricing)
 
-**Proposed narrator pilot.** Resources, 01:31.000–01:51.863, two adjacent cues. The current delivery totals 15.985 seconds of speech across that 20.863-second picture window. One output, 245 characters, 245 credits in the estimate-only quote for Adam (6FiCmD8eY5VyjOdG5Zjk), Multilingual v2 and connector voice defaults. Generation requires explicit approval.
-
-> The expedition divided its work. One branch gathered raw material from asteroids. Another set up workshops between Earth and the Moon. A small reserve stayed out in the main belt. If the workshops were lost, part of the expedition would survive.
+The earlier two-cue Resources quote covered a superseded script. The current Resources edit and Foundry Alpha introduction use the local Daniel voice.
 
 **Company audition.** Use the existing line “This transmission is of nonhuman origin.” Present one separately quoted take after a Company voice has been identified. Listen for controlled pace, clear consonants and a natural voice distinguishable from the narrator. Retain the approved voice ID for future episodes.
 
@@ -42,14 +40,16 @@ The estimate assumes one take for each cue at the published Multilingual v2 base
 3. Add the approved request to the ledger before execution. Make one generation call. Save its generation and flow IDs immediately. If delivery or download fails, recover the same result or export from the saved flow. For an ambiguous submission, reconcile history before any new request.
 4. Preserve the untouched download with its original extension. Record its SHA-256 and actual reported charge. Make a separate working WAV. Measure duration, identify the pause between cues and place each clause at its intended picture beat. Adjust subtitle phrase starts and measured ends against that recording. Let the editor hear it in the film before authorizing further takes.
 5. Mix offline in three logical buses. Replace the corresponding local voice lines in the narration stem. Rebuild effects from the existing seeded recipes. Combine those stems with the approved music edit and render the single 331-second local master. Mixing a replacement on top of the current master would double the draft voice. Retain the working draft master until the replacement passes review.
-6. The local production manifest records source, scene, start/end, source in-point, gain, fades, approval, provenance and version for each imported clip. Preserve the master clock and persistent, gesture-started HTML audio element. Music and effects receive their automation in the offline mix. Seek, pause, restart, fullscreen, user volume and mute continue to operate on one local file.
+6. The local production manifest records source, scene, start/end, source in-point, gain, fades, approval, provenance and version for each imported clip. The playback clock drives three local tracks from film zero. Music and effects receive their fades and dialogue ducking in the offline mix. The stereo master provides a fallback if a track fails to load.
 
 ## Music and effects edit
 
 | Film region | Treatment |
 | --- | --- |
-| Full film, 00:00–05:31 | Approach Vector fades out from 00:27.5 to 00:29.5. It returns with the Solar System atlas at 01:04, reaching its mix level at 01:06. Adjacent copies of the 30-second recording overlap by two seconds with equal-power crossfades. The score ducks under both speakers and fades out over the last three seconds. |
-| Hegemony reveal, 00:29.5–00:53.18 | The supplied ambient effect takes over from the score with the dissolve, just before the Hegemony narration. |
+| Full film, 00:00–05:31 | Approach Vector fades out from 00:27.5 to 00:29.5. It returns with the Solar System atlas at 01:06.5, reaching its mix level at 01:08.5. Adjacent copies of the 30-second recording overlap by two seconds with equal-power crossfades. The score ducks under both speakers and fades out over the last three seconds. |
+| Hegemony reveal, 00:29.5–00:53.18 | The supplied ambient effect takes over from the score with the dissolve, just before the Hegemony narration. A second pass starts at 00:51.7 and fades into the returning music through 01:09. |
+
+The supplied doom bass enters at 01:32.22. The edit skips the first 1.4 seconds of the source to place its attack just after the final “Earth.”
 
 ## Validation of the current master
 
@@ -59,6 +59,15 @@ The [cue manifest](manifest.json) is the production worksheet and [generation le
 
 ## Supplied recording edit
 
-The editor supplied the final opening script and its 80.927-second Adam recording. The complete take plays at recorded speed from 00:01.750 to 01:29.697. The renderer inserts silence at the source positions in the manifest. The narrator leaves three seconds before introducing the Hegemony. Caption entrances follow the performance. The next narrator cue uses Daniel at 01:31. No speech generation was required.
+The editor supplied the final opening script and its 80.927-second Adam recording. The complete take plays at recorded speed from 00:01.750 to 01:32.197. The renderer inserts silence at the source positions in the manifest. The narrator leaves three seconds before introducing the Hegemony. Caption entrances follow the performance. The next narrator cue uses Daniel at 01:37.5. No speech generation was required.
 
 The score enters over 0.7 seconds at −11 dB. The Hegemony effect enters at −12 dB, fading in over two seconds and out over three. The manifest records source hashes, placements and fades for the offline mix. The supplied effect has no accompanying license record.
+
+The supplied cinematic atmosphere drone enters at the Resources marker (01:36.5) and fades out by the Infrastructure marker (02:57). Its 30-second recording repeats with two-second equal-power crossfades, at −21 dB before narration ducking. The narrator fader is set to 0.8 (−1.94 dB) after the ducking signal is split off. The Company transmission uses unity gain.
+
+
+## Adjust the mix
+
+In Watch, open **Audio settings** beside the master volume. Dialogue (including the Company transmission), Music, and Ambience & effects each have a fader. At 100% each plays at its authored level. Changes apply during playback and are saved in this browser. Reset mix restores all three faders.
+
+To change the authored balance for everyone, edit `currentMaster.narratorGainLinear` or an asset’s `placement.gainDb` in [manifest.json](manifest.json). The former affects only documentary narration. More negative dB values lower individual music and effect cues. The procedural room and machinery levels are defined in [master.py](master.py). From the repository root, run `python3 assets/audio/master.py` on macOS with FFmpeg and the installed Daniel and Samantha voices, then `npm run build`. The renderer exports dialogue.mp3, music.mp3, effects.mp3 and the stereo fallback into src/media/audio.

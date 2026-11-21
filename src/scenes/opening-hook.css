@@ -21,3 +21,9 @@
 .human-plate.plate-launch img{object-position:center}
 .reveal-atlas .atlas-field svg text{transform-box:fill-box;transform-origin:center;transform:scale(var(--atlas-type-scale,1))}
 .reveal-atlas .atlas-field path,.reveal-atlas .atlas-field ellipse{vector-effect:non-scaling-stroke}
+/* Survey reconstruction. A cool field spans both the optics and the surrounding sky. */
+.survey-spectrum{pointer-events:none;background:linear-gradient(112deg,rgba(22,95,90,.29),rgba(20,56,71,.16) 61%,rgba(13,72,71,.28));box-shadow:inset 0 0 8cqw #031b244d}
+.surveyed .planet-frame{filter:saturate(.5) hue-rotate(-14deg)}
+.survey-optics{position:absolute;left:33.7%;top:47%;width:min(59cqh,65cqw);aspect-ratio:1;transform:translate(-50%,-50%);color:#a2e0d1;opacity:.73;pointer-events:none}
+.survey-optics svg{display:block;width:100%;height:100%;stroke-width:1}
+.survey-overlay .record-seals{color:#a2e0d1}

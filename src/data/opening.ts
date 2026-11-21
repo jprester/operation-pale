@@ -18,9 +18,9 @@ export const cover = {
 };
 // Recording cues use absolute reel time. Rendering consumes scene-local time.
 const scenes = [
-  { start: 0, duration: 65, label: 'Earth & the Hegemony', title: 'The road to Earth.' },
-  { start: 65, duration: 25, label: 'Expedition', title: 'The expedition.' },
-  { start: 90, duration: 36, label: 'Resources', title: 'Working the asteroids.' },
+  { start: 0, duration: 67.5, label: 'Earth & the Hegemony', title: 'The road to Earth.' },
+  { start: 67.5, duration: 29, label: 'Expedition', title: 'The expedition.' },
+  { start: 96.5, duration: 29.5, label: 'Resources', title: 'Working the asteroids.' },
   { start: 126, duration: 51, label: 'Industrial build-up', title: 'An industry takes shape.' },
   { start: 177, duration: 37, label: 'Infrastructure', title: 'Built in Earth orbit.' },
   { start: 214, duration: 103, label: 'Final Staging', title: 'The machinery of conquest.' },

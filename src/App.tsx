@@ -3,7 +3,7 @@ import {beats,frameAt,introDuration,cover} from './data/opening';
 import {chronology} from './data/road';
 import {OpeningPlate} from './scenes/OpeningPlate';
 import {usePlaybackClock} from './player/usePlaybackClock';
-import {AudioMix,startAudio} from './player/AudioMix';
+import {AudioMix,type AudioTransport} from './player/AudioMix';
 import {useFilmFullscreen,usePlayerChrome} from './player/FilmTools';
 import {Explore,type Section} from './player/Explore';
 import {FilmIcon} from './player/FilmIcon';
@@ -27,7 +27,7 @@ function App() {
   const [captions,setCaptions]=useState(true);
   const player=useRef<HTMLDivElement>(null);
   const frame=useRef<HTMLDivElement>(null);
-  const media=useRef<HTMLAudioElement>(null);
+  const media=useRef<AudioTransport>(null);
   const watch=mode==='watch';
   const playback=usePlaybackClock(introDuration,watch && visible && tabVisible);
   const {elapsed,started,playing,toggle,setPlaying,seek,setScrubbing}=playback;
@@ -51,11 +51,11 @@ function App() {
   }, [setPlaying, setScrubbing, watch]);
 
   function togglePlayback() {
-    if (!playing) startAudio(media.current, elapsed >= introDuration ? 0 : playback.read());
+    if (!playing) media.current?.start(elapsed >= introDuration ? 0 : playback.read());
     toggle();
   }
   function restartPlayback() {
-    startAudio(media.current, 0);
+    media.current?.start(0);
     playback.restart();
   }
 
@@ -97,7 +97,7 @@ function App() {
           onChange={e=>seek(e.currentTarget.valueAsNumber)} onKeyDown={e=>{
             if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();seek(Math.round(elapsed)+(e.key==='ArrowRight'?1:-1));}
           }}/>
-        <AudioMix media={media} elapsed={elapsed} running={playback.running} read={playback.read}/>
+        <AudioMix ref={media} elapsed={elapsed} running={playback.running} read={playback.read}/>
         <button className="cc" aria-label="Captions" title="Captions" aria-pressed={captions} onClick={()=>setCaptions(!captions)}>CC</button>
         {screen.fullscreen && <><select className="fullscreen-scenes" value={index} aria-label="Film sequence" onChange={e=>seek(beats[Number(e.target.value)].start)}>
           {beats.map((b,i)=><option key={b.start} value={i}>{b.label}</option>)}</select>

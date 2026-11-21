@@ -8,6 +8,7 @@ import { SolarAtlas } from './SolarAtlas';
 import { SceneBoundary } from './SceneBoundary';
 import { DocumentaryInsert, documentaryPhotos } from './DocumentaryInsert';
 import {SpaceView} from './SpaceView';
+import {DispatchAtlas} from './DispatchAtlas';
 import {OpeningHook} from './OpeningHook';
 const FoundryCanvas = lazy(() => import('./FoundryCanvas'));
 const clamp = (n: number) => Math.max(0, Math.min(1, n));
@@ -70,16 +71,13 @@ function Survey({ seconds, reduced }: { seconds: number; reduced: boolean }) {
 
 const worksite = documentaryPhotos.find(photo=>photo.id==='asteroid-extraction')!;
 
-// Keep the same map underneath both dissolves. The middle of the shot needs no WebGL.
-function ResourcePass({time,reduced,visible,name}:{time:number;reduced:boolean;visible:boolean;name:string}) {
+// Keep the local map under the dissolve into the source of the feedstock.
+function ResourcePass({time,reduced,name}:{time:number;reduced:boolean;name:string}) {
   const inside = time >= worksite.start && time < worksite.end;
-  const ramp = clamp(Math.min(time-worksite.start,worksite.end-time)/1.25);
+  const ramp = clamp((time-worksite.start)/1.25);
   const blend = reduced ? Number(inside) : ramp*ramp*(3-2*ramp);
   return <div className="plate resource-pass">
-    {blend < 1 && <div className="resource-map">
-      <SolarAtlas initial="solar" time={time} moving={!reduced && visible}/>
-      <span className="plate-caption">FIG. 03 &nbsp; / &nbsp; {time < worksite.start+1.25 ? 'RESOURCE BRANCH' : 'BELT RESERVE'}<br/><small>Illustrative geography</small></span>
-    </div>}
+    {blend < 1 && <div className="resource-map"><DispatchAtlas time={time} reduced={reduced}/></div>}
     {(inside || (time>=worksite.start-1 && time<worksite.start)) &&
       <div className="resource-exposure" aria-hidden={blend===0} aria-label={name} style={{opacity:blend}}>
         <DocumentaryInsert photo={worksite} time={time} reduced={reduced} externalFade/>
@@ -100,10 +98,10 @@ export function OpeningPlate({ index, seconds, started, reduced, visible }: {
   if (shot.view==='staging' || shot.view==='notice' && local<4) {
     return <StagingPlate time={time} reduced={reduced} visible={visible} assembly={t=><FoundrySequence index={2} seconds={t} reduced={reduced} visible={visible}/>}/>;
   }
-  if (index===2 && (shot.view==='map' || shot.view==='extraction')) {
-    return <ResourcePass time={time} reduced={reduced} visible={visible} name={shot.name}/>;
+  if (index===2) {
+    return <ResourcePass time={time} reduced={reduced} name={shot.name}/>;
   }
-  return <div className={photo?.composition==='full' ? "plate photo-full-plate" : "plate"}>
+  return <div className={branch>=0 ? "plate foundry-environment" : photo?.composition==='full' ? "plate photo-full-plate" : "plate"}>
     <div className="shot-window" aria-label={shot.name} style={{opacity: !started || reduced || photo ? 1 : .68+.32*clamp(local/.5)}}>
       {shot.view==='earth' && <SpaceView key="earth" carrier={false} seconds={local*25/32} render3D={render3D}/>}
       {shot.view==='carrier' && <SpaceView key="carrier" carrier seconds={local} render3D={render3D}/>}

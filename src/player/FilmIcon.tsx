@@ -6,6 +6,7 @@ const paths={
   mute:'M3 9h4l5-4v14l-5-4H3z M16 9l6 6m0-6-6 6',
   film:'M3 5h18v14H3z M7 5v14m10-14v14M3 9h4m10 0h4M3 15h4m10 0h4',
   atlas:'M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z M9 3v15m6-12v15',
+  settings:'M3 6h7m5 0h6M3 12h12m4 0h2M3 18h2m5 0h11M10 3v6m5 0v6M7 15v6',
   index:'M4 6h2m3 0h11M4 12h2m3 0h11M4 18h2m3 0h11'
 };
 export function FilmIcon({name}:{name:keyof typeof paths}) {

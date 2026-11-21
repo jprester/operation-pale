@@ -19,7 +19,7 @@ export function SolarAtlas({initial,time,moving,staging,focus=0,focusSite=carava
   const solar=scale==='solar';
   const center=solar?sun:earth;
   const links=solar?[['Asteroid works','Earth']]:freightLinks;
-  const t=moving?Math.min(1,Math.max(0,time-65)/10):1;
+  const t=moving?Math.min(1,Math.max(0,time-67.5)/10):1;
   const caravan:Point=[494-65*t,30+31*t];
   const zoom = 1 + 3.5*focus;
   const w=520/zoom, h=280/zoom;

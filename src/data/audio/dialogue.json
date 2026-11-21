@@ -45,7 +45,7 @@
       "developed powerful technologies,",
       "and begun exploring the space beyond their atmosphere."
     ],
-    "visual": "Vehicle Assembly Building, Apollo 11 and ISS"
+    "visual": "Europoort, Apollo 11 and ISS"
   },
   {
     "sequence": 1,
@@ -134,7 +134,7 @@
   },
   {
     "sequence": 2,
-    "start": 65.53,
+    "start": 68.03,
     "speaker": "Narrator",
     "id": "hook-10",
     "transcript": "The Company was given six years to bring Earth under Hegemony control and integrate its economy into the wider interstellar system.",
@@ -147,7 +147,7 @@
   },
   {
     "sequence": 2,
-    "start": 73.45,
+    "start": 75.95,
     "speaker": "Narrator",
     "id": "hook-11",
     "transcript": "An expedition was assembled around a single interstellar carrier, Caravan,",
@@ -159,7 +159,7 @@
   },
   {
     "sequence": 2,
-    "start": 78.05,
+    "start": 80.55,
     "speaker": "Narrator",
     "id": "hook-12",
     "transcript": "carrying advanced machinery, industrial equipment, and the essential components of a future invasion force.",
@@ -171,7 +171,7 @@
   },
   {
     "sequence": 2,
-    "start": 84.76,
+    "start": 87.26,
     "speaker": "Narrator",
     "id": "hook-13",
     "transcript": "Its destination was the Solar System.",
@@ -182,7 +182,7 @@
   },
   {
     "sequence": 2,
-    "start": 87.81,
+    "start": 90.31,
     "speaker": "Narrator",
     "id": "hook-14",
     "transcript": "Its objective was Earth.",
@@ -193,27 +193,27 @@
   },
   {
     "sequence": 3,
-    "start": 91,
+    "start": 97.5,
     "speaker": "Narrator",
-    "transcript": "The expedition divided its work. One branch gathered raw material from asteroids. Another set up workshops between Earth and the Moon."
+    "transcript": "Caravan sent mining equipment to the asteroid belt. A small reserve followed, in case the main workshops were lost."
   },
   {
     "sequence": 3,
-    "start": 105,
+    "start": 106.5,
     "speaker": "Narrator",
-    "transcript": "A small reserve stayed out in the main belt. If the workshops were lost, part of the expedition would survive."
+    "transcript": "The workshop packages headed inward. They arrived between Earth and the Moon, in a region called cislunar space."
   },
   {
     "sequence": 3,
-    "start": 114,
+    "start": 115.5,
     "speaker": "Narrator",
-    "transcript": "The distances made propellant as important as metal. Foundry Alpha processed volatile material into water and fuel for the journeys between sites."
+    "transcript": "From here, the workshops could supply equipment in Earth orbit. Shipments of asteroid rock and ice provided the raw materials."
   },
   {
     "sequence": 4,
     "start": 127,
     "speaker": "Narrator",
-    "transcript": "Over the following months, the workshops grew. No one station had to do everything, as long as cargo could move between them."
+    "transcript": "The packages grew into a network of foundries. Foundry Alpha took ice from asteroids and turned it into water and propellant."
   },
   {
     "sequence": 4,

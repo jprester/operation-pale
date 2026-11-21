@@ -11,7 +11,7 @@ DATA = ROOT / 'src/data/audio'
 RATE = 24000
 LENGTH = 331
 VOICES = {'Narrator': ('Daniel', 151), 'Company transmission': ('Samantha', 143)}
-BOUNDARIES = [65, 90, 126, 177, 214, 317, 331]
+BOUNDARIES = [67.5, 96.5, 126, 177, 214, 317, 331]
 
 
 def ff(*args):
@@ -97,8 +97,12 @@ def render(tmp):
     effects = ''.join(f'[{i}:a]' for i in range(1, first_bed))
     bed_inputs = []
     beds = []
-    for index, asset in enumerate([manifest['music'], manifest['hegemonyFx']]):
-        placement = asset['placement']
+    ambient = manifest['hegemonyFx']
+    placements = [(manifest['music'], manifest['music']['placement']),
+                  (ambient, ambient['placement']), (ambient, ambient['repeatPlacement']),
+                  (manifest['caravanBass'], manifest['caravanBass']['placement']),
+                  (manifest['resourcesDrone'], manifest['resourcesDrone']['placement'])]
+    for index, (asset, placement) in enumerate(placements):
         length = placement['endSeconds'] - placement['startSeconds']
         bed_inputs.extend(['-i', ROOT/asset['path']])
         source = f'[{first_bed+index}:a]'
@@ -106,12 +110,12 @@ def render(tmp):
         if overlap:
             source_length = asset['durationSeconds']
             copies = 1 + math.ceil((length - source_length) / (source_length - overlap))
-            labels = ''.join(f'[copy{i}]' for i in range(copies))
+            labels = ''.join(f'[copy{index}_{i}]' for i in range(copies))
             beds.append(f'{source}asplit={copies}{labels};')
-            source = '[copy0]'
+            source = f'[copy{index}_0]'
             for i in range(1, copies):
-                beds.append(f'{source}[copy{i}]acrossfade=d={overlap}:c1=qsin:c2=qsin[loop{i}];')
-                source = f'[loop{i}]'
+                beds.append(f'{source}[copy{index}_{i}]acrossfade=d={overlap}:c1=qsin:c2=qsin[loop{index}_{i}];')
+                source = f'[loop{index}_{i}]'
         envelope = ''
         if 'break' in placement:
             gap = placement['break']
@@ -124,17 +128,41 @@ def render(tmp):
             f'afade=t=out:st={length-placement["fadeOutSeconds"]}:d={placement["fadeOutSeconds"]},'
             f'adelay={round(placement["startSeconds"]*1000)}:all=1[bed{index}];'
         )
+    # Apply the narrator fader after the split so it doesn't change bed ducking.
+    company_start = next(c['start'] for c in cues if c['speaker'] == 'Company transmission')
+    narrator_gain = manifest['currentMaster']['narratorGainLinear']
+    fader = f"volume={narrator_gain}:enable='lt(t,{company_start})'"
+    duck = 'sidechaincompress=threshold=0.045:ratio=3:attack=18:release=350'
     graph = (
-        '[0:a]asplit[voice][key];'
+        '[0:a]asplit=3[dialogue][musicKey][fxKey];'
+        f'[dialogue]{fader},pan=stereo|c0=c0|c1=c0[dialogueOut];'
         + ''.join(beds)
-        + '[bed0][bed1]amix=inputs=2:duration=longest:normalize=0[beds];'
-        '[beds][key]sidechaincompress=threshold=0.045:ratio=3:attack=18:release=350[score];'
-        f'[voice]{effects}amix=inputs={first_bed}:duration=first:normalize=0,'
-        'pan=stereo|c0=c0|c1=c0[centre];'
-        '[centre][score]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.93:level=0:latency=1'
+        + f'[bed0][musicKey]{duck}[musicOut];'
+        + ''.join(f'[bed{i}]' for i in range(1,len(placements)))
+        + f'amix=inputs={len(placements)-1}:duration=longest:normalize=0[fx];'
+        f'[fx][fxKey]{duck}[duckedFx];'
+        f'{effects}amix=inputs={len(events)}:duration=longest:normalize=0,'
+        'pan=stereo|c0=c0|c1=c0[room];'
+        '[room][duckedFx]amix=inputs=2:duration=longest:normalize=0[effectsOut]'
     )
-    ff('-i',tmp/'dialogue.wav',*layers,*bed_inputs,'-filter_complex',graph,
-       '-ar',48000,'-ac',2,'-c:a','libmp3lame','-b:a','160k',tmp/'master.mp3')
+    # Every stem starts at film zero and includes its authored fades and ducking.
+    stems = ['dialogue', 'music', 'effects']
+    outputs = []
+    for name in stems:
+        graph += f';[{name}Out]apad=whole_dur={LENGTH}[{name}Padded]'
+        outputs.extend(['-map', f'[{name}Padded]', '-t', LENGTH, '-ar', 48000,
+                        '-ac', 2, '-c:a', 'pcm_f32le', tmp/f'{name}-stem.wav'])
+    ff('-i',tmp/'dialogue.wav',*layers,*bed_inputs,'-filter_complex',graph,*outputs)
+    stem_inputs = []
+    for name in stems:
+        wav = tmp/f'{name}-stem.wav'
+        stem_inputs.extend(['-i', wav])
+        ff('-i', wav, '-c:a','libmp3lame','-q:a',4, tmp/f'{name}.mp3')
+    ff(*stem_inputs,'-filter_complex',
+       'amix=inputs=3:normalize=0,alimiter=limit=0.93:level=0:latency=1',
+       '-c:a','libmp3lame','-b:a','160k',tmp/'master.mp3')
+    for name in stems:
+        (output.parent/f'{name}.mp3').write_bytes((tmp/f'{name}.mp3').read_bytes())
     output.write_bytes((tmp/'master.mp3').read_bytes())
     (DATA/'ends.json').write_text(json.dumps(ends,indent=2)+'\n')
 
