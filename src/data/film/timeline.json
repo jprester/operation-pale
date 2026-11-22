@@ -1,0 +1,912 @@
+{
+  "edition": "Introduction v3.2",
+  "duration": 331,
+  "sequences": [
+    {
+      "id": "discovery",
+      "label": "Earth & the Hegemony",
+      "cutTitle": "The road to Earth.",
+      "start": 0,
+      "duration": 67.5,
+      "indexed": true
+    },
+    {
+      "id": "expedition",
+      "label": "Expedition",
+      "cutTitle": "The expedition.",
+      "start": 67.5,
+      "duration": 29,
+      "indexed": true
+    },
+    {
+      "id": "resources",
+      "label": "Resources",
+      "cutTitle": "Working the asteroids.",
+      "start": 96.5,
+      "duration": 29.5,
+      "indexed": true
+    },
+    {
+      "id": "industry",
+      "label": "Industrial build-up",
+      "cutTitle": "An industry takes shape.",
+      "start": 126.0,
+      "duration": 51,
+      "indexed": true
+    },
+    {
+      "id": "infrastructure",
+      "label": "Infrastructure",
+      "cutTitle": "Built in Earth orbit.",
+      "start": 177.0,
+      "duration": 37,
+      "indexed": true
+    },
+    {
+      "id": "staging",
+      "label": "Final Staging",
+      "cutTitle": "The machinery of conquest.",
+      "start": 214.0,
+      "duration": 103,
+      "indexed": true
+    },
+    {
+      "id": "notification",
+      "label": "Notification",
+      "cutTitle": "The first words.",
+      "start": 317.0,
+      "duration": 14,
+      "indexed": true
+    }
+  ],
+  "cues": [
+    {
+      "id": "hook-01",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 1.75,
+      "end": 2.33,
+      "transcript": "Earth.",
+      "phrases": [
+        {
+          "at": 1.75,
+          "text": "Earth."
+        }
+      ],
+      "visual": "Earth in daylight"
+    },
+    {
+      "id": "hook-02",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 3.18,
+      "end": 7.27,
+      "transcript": "For hundreds of thousands of years, it has been home to the human species.",
+      "phrases": [
+        {
+          "at": 3.18,
+          "text": "For hundreds of thousands of years,"
+        },
+        {
+          "at": 5.25,
+          "text": "it has been home to the human species."
+        }
+      ],
+      "visual": "Earth in daylight"
+    },
+    {
+      "id": "hook-03",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 8.24,
+      "end": 12.24,
+      "transcript": "By the twenty-first century, humanity had transformed much of its planet.",
+      "phrases": [
+        {
+          "at": 8.24,
+          "text": "By the twenty-first century,"
+        },
+        {
+          "at": 9.45,
+          "text": "humanity had transformed much of its planet."
+        }
+      ],
+      "visual": "Tokyo Bay at night"
+    },
+    {
+      "id": "hook-04",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 12.62,
+      "end": 19.99,
+      "transcript": "Its civilizations had built vast cities, developed powerful technologies, and begun exploring the space beyond their atmosphere.",
+      "phrases": [
+        {
+          "at": 12.62,
+          "text": "Its civilizations had built vast cities,"
+        },
+        {
+          "at": 15.18,
+          "text": "developed powerful technologies,"
+        },
+        {
+          "at": 16.9,
+          "text": "and begun exploring the space beyond their atmosphere."
+        }
+      ],
+      "visual": "Europoort, Apollo 11 and ISS"
+    },
+    {
+      "id": "hook-05",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 20.96,
+      "end": 25.34,
+      "transcript": "Humanity had long wondered whether other civilizations existed among the stars.",
+      "phrases": [
+        {
+          "at": 20.96,
+          "text": "Humanity had long wondered"
+        },
+        {
+          "at": 22.02,
+          "text": "whether other civilizations existed among the stars."
+        }
+      ],
+      "visual": "Last photograph dissolves"
+    },
+    {
+      "id": "hook-06",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 25.77,
+      "end": 29.41,
+      "transcript": "Few imagined that one had already taken an interest in Earth.",
+      "phrases": [
+        {
+          "at": 25.77,
+          "text": "Few imagined that one had already taken an interest in Earth."
+        }
+      ],
+      "visual": "Earth withdraws into darkness"
+    },
+    {
+      "id": "hook-07",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 32.41,
+      "end": 40.7,
+      "transcript": "Far beyond the Solar System lay the Hegemony, an immense interstellar civilization whose influence extended across numerous star systems.",
+      "phrases": [
+        {
+          "at": 32.41,
+          "text": "Far beyond the Solar System lay the Hegemony,"
+        },
+        {
+          "at": 35.24,
+          "text": "an immense interstellar civilization"
+        },
+        {
+          "at": 37.49,
+          "text": "whose influence extended across numerous star systems."
+        }
+      ],
+      "visual": "Milky Way overview"
+    },
+    {
+      "id": "hook-motives",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 41.6,
+      "end": 49.37,
+      "transcript": "Its expansion was driven by political ambition, economic interests, and the continuous demand for new resources and productive territories.",
+      "phrases": [
+        {
+          "at": 41.6,
+          "text": "Its expansion was driven by political ambition,"
+        },
+        {
+          "at": 44.23,
+          "text": "economic interests, and the continuous demand"
+        },
+        {
+          "at": 46.76,
+          "text": "for new resources and productive territories."
+        }
+      ],
+      "visual": "Milky Way overview"
+    },
+    {
+      "id": "hook-interest",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 50.3,
+      "end": 52.22,
+      "transcript": "Earth had attracted its attention.",
+      "phrases": [
+        {
+          "at": 50.3,
+          "text": "Earth had attracted its attention."
+        }
+      ],
+      "visual": "Milky Way overview"
+    },
+    {
+      "id": "hook-08",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 53.26,
+      "end": 59.12,
+      "transcript": "Earth had already been surveyed, and the Hegemony had determined that the planet was a suitable target for expansion.",
+      "phrases": [
+        {
+          "at": 53.26,
+          "text": "Earth had already been surveyed,"
+        },
+        {
+          "at": 55.02,
+          "text": "and the Hegemony had determined that the planet"
+        },
+        {
+          "at": 57.56,
+          "text": "was a suitable target for expansion."
+        }
+      ],
+      "visual": "Survey register and Earth entry"
+    },
+    {
+      "id": "hook-09",
+      "sequence": "discovery",
+      "speaker": "Narrator",
+      "start": 60.07,
+      "end": 64.56,
+      "transcript": "Its authorities approved the acquisition and issued a charter to the Sol Development Company.",
+      "phrases": [
+        {
+          "at": 60.07,
+          "text": "Its authorities approved the acquisition"
+        },
+        {
+          "at": 62.06,
+          "text": "and issued a charter to the Sol Development Company."
+        }
+      ],
+      "visual": "Translated charter annotation"
+    },
+    {
+      "id": "hook-10",
+      "sequence": "expedition",
+      "speaker": "Narrator",
+      "start": 68.03,
+      "end": 75.04,
+      "transcript": "The Company was given six years to bring Earth under Hegemony control and integrate its economy into the wider interstellar system.",
+      "phrases": [
+        {
+          "at": 68.03,
+          "text": "The Company was given six years"
+        },
+        {
+          "at": 69.6,
+          "text": "to bring Earth under Hegemony control"
+        },
+        {
+          "at": 71.67,
+          "text": "and integrate its economy into the wider interstellar system."
+        }
+      ],
+      "visual": "Outer Solar System atlas"
+    },
+    {
+      "id": "hook-11",
+      "sequence": "expedition",
+      "speaker": "Narrator",
+      "start": 75.95,
+      "end": 80.55,
+      "transcript": "An expedition was assembled around a single interstellar carrier, Caravan,",
+      "phrases": [
+        {
+          "at": 75.95,
+          "text": "An expedition was assembled around"
+        },
+        {
+          "at": 77.7,
+          "text": "a single interstellar carrier, Caravan,"
+        }
+      ],
+      "visual": "Atlas mark resolves into the carrier"
+    },
+    {
+      "id": "hook-12",
+      "sequence": "expedition",
+      "speaker": "Narrator",
+      "start": 80.55,
+      "end": 86.33,
+      "transcript": "carrying advanced machinery, industrial equipment, and the essential components of a future invasion force.",
+      "phrases": [
+        {
+          "at": 80.55,
+          "text": "carrying advanced machinery, industrial equipment,"
+        },
+        {
+          "at": 83.25,
+          "text": "and the essential components of a future invasion force."
+        }
+      ],
+      "visual": "Caravan cargo spine"
+    },
+    {
+      "id": "hook-13",
+      "sequence": "expedition",
+      "speaker": "Narrator",
+      "start": 87.26,
+      "end": 89.4,
+      "transcript": "Its destination was the Solar System.",
+      "phrases": [
+        {
+          "at": 87.26,
+          "text": "Its destination was the Solar System."
+        }
+      ],
+      "visual": "Close broadside"
+    },
+    {
+      "id": "hook-14",
+      "sequence": "expedition",
+      "speaker": "Narrator",
+      "start": 90.31,
+      "end": 92.197,
+      "transcript": "Its objective was Earth.",
+      "phrases": [
+        {
+          "at": 90.31,
+          "text": "Its objective was Earth."
+        }
+      ],
+      "visual": "Hold on Caravan before resource branch"
+    },
+    {
+      "id": "resources-01",
+      "sequence": "resources",
+      "speaker": "Narrator",
+      "start": 97.5,
+      "end": 105.725,
+      "transcript": "Caravan sent mining equipment to the asteroid belt. A small reserve followed, in case the main workshops were lost.",
+      "phrases": [
+        {
+          "at": 97.5,
+          "text": "Caravan sent mining equipment to the asteroid belt."
+        },
+        {
+          "at": 101.237,
+          "text": "A small reserve followed,"
+        },
+        {
+          "at": 103.1,
+          "text": "in case the main workshops were lost."
+        }
+      ]
+    },
+    {
+      "id": "resources-02",
+      "sequence": "resources",
+      "speaker": "Narrator",
+      "start": 106.5,
+      "end": 114.125,
+      "transcript": "The workshop packages headed inward. They arrived between Earth and the Moon, in a region called cislunar space.",
+      "phrases": [
+        {
+          "at": 106.5,
+          "text": "The workshop packages headed inward."
+        },
+        {
+          "at": 109.1,
+          "text": "They arrived between Earth and the Moon,"
+        },
+        {
+          "at": 111.45,
+          "text": "in a region called cislunar space."
+        }
+      ]
+    },
+    {
+      "id": "resources-03",
+      "sequence": "resources",
+      "speaker": "Narrator",
+      "start": 115.5,
+      "end": 122.275,
+      "transcript": "The workshops received shipments of rock from the belt. Some pieces held ice. Others held metal.",
+      "phrases": [
+        {
+          "at": 115.785,
+          "text": "The workshops received shipments of rock from the belt."
+        },
+        {
+          "at": 118.963,
+          "text": "Some pieces held ice."
+        },
+        {
+          "at": 120.657,
+          "text": "Others held metal."
+        }
+      ]
+    },
+    {
+      "id": "industrial-build-up-01",
+      "sequence": "industry",
+      "speaker": "Narrator",
+      "start": 126.3,
+      "end": 134.75,
+      "transcript": "At Foundry Alpha, ice became water. Some of that water was turned into propellant for the ships carrying the next loads.",
+      "phrases": [
+        {
+          "at": 126.575,
+          "text": "At Foundry Alpha, ice became water."
+        },
+        {
+          "at": 129.687,
+          "text": "Some of that water was turned into propellant"
+        },
+        {
+          "at": 132.247,
+          "text": "for the ships carrying the next loads."
+        }
+      ]
+    },
+    {
+      "id": "industrial-build-up-02",
+      "sequence": "industry",
+      "speaker": "Narrator",
+      "start": 138,
+      "end": 146.2,
+      "transcript": "Foundry Beta refined metal from the rock and shaped it into beams. Tugs carried the pieces to the assembly yard.",
+      "phrases": [
+        {
+          "at": 138.3,
+          "text": "Foundry Beta refined metal from the rock"
+        },
+        {
+          "at": 141.105,
+          "text": "and shaped it into beams."
+        },
+        {
+          "at": 143.107,
+          "text": "Tugs carried the pieces to the assembly yard."
+        }
+      ]
+    },
+    {
+      "id": "industrial-build-up-03",
+      "sequence": "industry",
+      "speaker": "Narrator",
+      "start": 149.3,
+      "end": 157.725,
+      "transcript": "Foundry Gamma joined the beams into frames. Those frames held precision instruments that Caravan had brought from home.",
+      "phrases": [
+        {
+          "at": 149.6,
+          "text": "Foundry Gamma joined the beams into frames."
+        },
+        {
+          "at": 152.83,
+          "text": "Those frames held precision instruments"
+        },
+        {
+          "at": 155.388,
+          "text": "that Caravan had brought from home."
+        }
+      ]
+    },
+    {
+      "id": "industrial-build-up-04",
+      "sequence": "industry",
+      "speaker": "Narrator",
+      "start": 162,
+      "end": 168.075,
+      "transcript": "Depots held cargo until the next transfer. The workshops could keep different schedules.",
+      "phrases": [
+        {
+          "at": 162.285,
+          "text": "Depots held cargo until the next transfer."
+        },
+        {
+          "at": 165.38,
+          "text": "The workshops could keep different schedules."
+        }
+      ]
+    },
+    {
+      "id": "industrial-build-up-05",
+      "sequence": "industry",
+      "speaker": "Narrator",
+      "start": 170,
+      "end": 176.1,
+      "transcript": "A fourth branch was called Foundry Delta. Its precise role remains uncertain.",
+      "phrases": [
+        {
+          "at": 170.265,
+          "text": "A fourth branch was called Foundry Delta."
+        },
+        {
+          "at": 173.03,
+          "text": "Its precise role remains uncertain."
+        }
+      ]
+    },
+    {
+      "id": "infrastructure-01",
+      "sequence": "infrastructure",
+      "speaker": "Narrator",
+      "start": 178,
+      "end": 188.15,
+      "transcript": "By now the Company could supply equipment in Earth orbit. From below, an object arriving there gave little indication of the industry behind it.",
+      "phrases": [
+        {
+          "at": 178,
+          "text": "By now the Company could supply equipment in Earth orbit."
+        },
+        {
+          "at": 181.963,
+          "text": "From below, an object arriving there"
+        },
+        {
+          "at": 184.625,
+          "text": "gave little indication of the industry behind it."
+        }
+      ]
+    },
+    {
+      "id": "infrastructure-02",
+      "sequence": "infrastructure",
+      "speaker": "Narrator",
+      "start": 191,
+      "end": 199.675,
+      "transcript": "Some of these objects entered human tracking records. A track could establish where something had been, and where to look for it again.",
+      "phrases": [
+        {
+          "at": 191,
+          "text": "Some of these objects entered human tracking records."
+        },
+        {
+          "at": 194.688,
+          "text": "A track could establish where something had been,"
+        },
+        {
+          "at": 197.625,
+          "text": "and where to look for it again."
+        }
+      ]
+    },
+    {
+      "id": "infrastructure-03",
+      "sequence": "infrastructure",
+      "speaker": "Narrator",
+      "start": 204,
+      "end": 209.025,
+      "transcript": "What it carried, who had built it, and why it was there were harder questions.",
+      "phrases": [
+        {
+          "at": 204,
+          "text": "What it carried, who had built it,"
+        },
+        {
+          "at": 206.2,
+          "text": "and why it was there were harder questions."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-01",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 214,
+      "end": 219.825,
+      "transcript": "With ninety days left before contact, the workshops began handing over finished equipment.",
+      "phrases": [
+        {
+          "at": 214,
+          "text": "With ninety days left before contact,"
+        },
+        {
+          "at": 216.6,
+          "text": "the workshops began handing over finished equipment."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-02",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 220,
+      "end": 226.4,
+      "transcript": "Near Earth, cargo from the Moon’s neighbourhood began to appear in separate groups in orbit.",
+      "phrases": [
+        {
+          "at": 220,
+          "text": "Near Earth, cargo from the Moon’s neighbourhood"
+        },
+        {
+          "at": 223.0,
+          "text": "began to appear in separate groups in orbit."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-03",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 228,
+      "end": 234.8,
+      "transcript": "Among it were Quivers: disposable dispensers carrying the glide munitions of the opening Wave.",
+      "phrases": [
+        {
+          "at": 228,
+          "text": "Among it were Quivers: disposable dispensers"
+        },
+        {
+          "at": 231.35,
+          "text": "carrying the glide munitions of the opening Wave."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-04",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 235,
+      "end": 241.8,
+      "transcript": "A tug could spend weeks moving freight. There was time because the public deadline was still ahead.",
+      "phrases": [
+        {
+          "at": 235,
+          "text": "A tug could spend weeks moving freight."
+        },
+        {
+          "at": 237.925,
+          "text": "There was time because the public deadline was still ahead."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-05",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 242,
+      "end": 248.775,
+      "transcript": "Wardens coordinated traffic in orbit. Far below them, Lanterns sensed and relayed from the stratosphere.",
+      "phrases": [
+        {
+          "at": 242,
+          "text": "Wardens coordinated traffic in orbit."
+        },
+        {
+          "at": 244.662,
+          "text": "Far below them, Lanterns sensed and relayed"
+        },
+        {
+          "at": 247.375,
+          "text": "from the stratosphere."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-06",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 249,
+      "end": 255.675,
+      "transcript": "Asteroids supplied metal. Compact fusion systems and high-grade seekers came from home.",
+      "phrases": [
+        {
+          "at": 249,
+          "text": "Asteroids supplied metal."
+        },
+        {
+          "at": 251.2,
+          "text": "Compact fusion systems and high-grade seekers"
+        },
+        {
+          "at": 254.162,
+          "text": "came from home."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-07",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 256,
+      "end": 262.425,
+      "transcript": "At Gamma, another assembly took shape around precision components drawn from a finite stock.",
+      "phrases": [
+        {
+          "at": 256,
+          "text": "At Gamma, another assembly took shape"
+        },
+        {
+          "at": 258.45,
+          "text": "around precision components drawn from a finite stock."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-08",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 263,
+      "end": 271.8,
+      "transcript": "At an observatory, two exposures might show a point of light changing position. The measurement could be sound while its meaning remained unclear.",
+      "phrases": [
+        {
+          "at": 263,
+          "text": "At an observatory, two exposures might show"
+        },
+        {
+          "at": 265.65,
+          "text": "a point of light changing position."
+        },
+        {
+          "at": 267.875,
+          "text": "The measurement could be sound"
+        },
+        {
+          "at": 269.337,
+          "text": "while its meaning remained unclear."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-09",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 272,
+      "end": 279.725,
+      "transcript": "The scattered observations never became a warning governments could act on. The people comparing them had only pieces of the picture.",
+      "phrases": [
+        {
+          "at": 272,
+          "text": "The scattered observations never became a warning"
+        },
+        {
+          "at": 274.7,
+          "text": "governments could act on."
+        },
+        {
+          "at": 276.325,
+          "text": "The people comparing them had only pieces of the picture."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-10",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 280,
+      "end": 286.875,
+      "transcript": "Domesday sensors covered selected ground corridors. Much of the terrain remained unseen.",
+      "phrases": [
+        {
+          "at": 280,
+          "text": "Domesday sensors covered selected ground corridors."
+        },
+        {
+          "at": 284.062,
+          "text": "Much of the terrain remained unseen."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-11",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 287,
+      "end": 293.375,
+      "transcript": "In the final weeks, the workshops kept working as more of their output took its place above Earth.",
+      "phrases": [
+        {
+          "at": 287,
+          "text": "In the final weeks, the workshops kept working"
+        },
+        {
+          "at": 290.012,
+          "text": "as more of their output took its place above Earth."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-12",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 295,
+      "end": 301.625,
+      "transcript": "One dispenser had already been set aside for a demonstration. Its public announcement would come later.",
+      "phrases": [
+        {
+          "at": 295,
+          "text": "One dispenser had already been set aside for a demonstration."
+        },
+        {
+          "at": 298.875,
+          "text": "Its public announcement would come later."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-13",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 302,
+      "end": 308.025,
+      "transcript": "An inert Scythe would give observers a prediction to check. The event was still ahead.",
+      "phrases": [
+        {
+          "at": 302,
+          "text": "An inert Scythe would give observers a prediction to check."
+        },
+        {
+          "at": 305.775,
+          "text": "The event was still ahead."
+        }
+      ]
+    },
+    {
+      "id": "final-staging-14",
+      "sequence": "staging",
+      "speaker": "Narrator",
+      "start": 309,
+      "end": 316.35,
+      "transcript": "Nineteen months had passed since the Caravan arrived. On Earth, the first public word was still to come.",
+      "phrases": [
+        {
+          "at": 309,
+          "text": "Nineteen months had passed since the Caravan arrived."
+        },
+        {
+          "at": 312.725,
+          "text": "On Earth, the first public word was still to come."
+        }
+      ]
+    },
+    {
+      "id": "notification-01",
+      "sequence": "notification",
+      "speaker": "Narrator",
+      "start": 317,
+      "end": 320.2,
+      "transcript": "The Company opened a public channel.",
+      "phrases": [
+        {
+          "at": 317,
+          "text": "The Company opened a public channel."
+        }
+      ]
+    },
+    {
+      "id": "notification-02",
+      "sequence": "notification",
+      "speaker": "Company transmission",
+      "start": 323,
+      "end": 326.325,
+      "transcript": "This transmission is of nonhuman origin.",
+      "phrases": [
+        {
+          "at": 323,
+          "text": "This transmission is of nonhuman origin."
+        }
+      ]
+    },
+    {
+      "id": "notification-03",
+      "sequence": "notification",
+      "speaker": "Company transmission",
+      "start": 327,
+      "end": 330.575,
+      "transcript": "Leave military equipment and military structures.",
+      "phrases": [
+        {
+          "at": 327,
+          "text": "Leave military equipment and military structures."
+        }
+      ]
+    }
+  ]
+}

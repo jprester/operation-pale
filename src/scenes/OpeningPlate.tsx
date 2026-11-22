@@ -1,6 +1,7 @@
 import { lazy, Suspense, useState } from 'react';
 import { foundryBranches, posterUrl } from '../data/foundries';
-import { beats } from '../data/opening';
+import type { pictureAt } from '../data/film/edl';
+import type { beats } from '../data/opening';
 
 import { shotAt } from '../data/road';
 import { StagingPlate } from './StagingPlate';
@@ -34,8 +35,10 @@ function FoundrySequence({ index, seconds, reduced, visible }: { index: number; 
   </div>;
 }
 
-function Broadcast({ seconds, reduced }: { seconds: number; reduced: boolean }) {
-  const phrases = beats[6].narration.filter(cue => cue.speaker === 'Company transmission');
+type Scene = (typeof beats)[number];
+
+function Broadcast({ scene, seconds, reduced }: { scene: Scene; seconds: number; reduced: boolean }) {
+  const phrases = scene.narration.filter(cue => cue.speaker === 'Company transmission');
   const page = phrases.filter(cue => seconds >= cue.start).length - 1;
   if (page < 0) return <RecordPlate eyebrow="PUBLIC CHANNEL" title="Incoming notice" detail="T+0:00 · Public emergency broadcast"/>;
   const words = phrases[page].transcript.split(' ');
@@ -88,20 +91,19 @@ function ResourcePass({time,reduced}:{time:number;reduced:boolean}) {
   </div>;
 }
 
-export function OpeningPlate({ index, seconds, started, reduced, visible }: {
-  index: number; seconds: number; started: boolean; reduced: boolean; visible: boolean;
+export function OpeningPlate({ plate, time, scene, seconds, started, reduced, visible }: {
+  plate: ReturnType<typeof pictureAt>['cut']['plate']; time: number; scene: Scene; seconds: number; started: boolean; reduced: boolean; visible: boolean;
 }) {
-  const time = beats[index].start + seconds;
   const shot = shotAt(time);
   const local = time - shot.at;
   const branch = foundryBranches.findIndex(b=>b.key===shot.view);
   const render3D = started && !reduced && visible;
   const photo = shot.view==='photo' ? documentaryPhotos.find(item=>time>=item.start && time<item.end) : undefined;
-  if (started && index<2) return <OpeningHook time={time} reduced={reduced} live={render3D}/>;
+  if (started && plate === 'hook') return <OpeningHook time={time} reduced={reduced} live={render3D}/>;
   if (shot.view==='staging' || shot.view==='notice' && local<4) {
     return <StagingPlate time={time} reduced={reduced} visible={visible} assembly={t=><FoundrySequence index={2} seconds={t} reduced={reduced} visible={visible}/>}/>;
   }
-  if (index===2) {
+  if (plate === 'resources') {
     return <ResourcePass time={time} reduced={reduced}/>;
   }
   return <div className={branch>=0 ? "plate foundry-environment" : photo?.composition==='full' ? "plate photo-full-plate" : "plate"}>
@@ -111,9 +113,9 @@ export function OpeningPlate({ index, seconds, started, reduced, visible }: {
       {branch>=0 && <FoundrySequence index={branch} seconds={local} reduced={reduced} visible={visible}/>}
       {shot.view==='map' && <SolarAtlas key={shot.at} initial={shot.scale!} time={time} moving={render3D}/>}
       {photo && <DocumentaryInsert photo={photo} time={time} reduced={reduced} comparison={<Survey seconds={local*2} reduced={reduced}/>}/>}
-      {shot.view==='notice' && <Broadcast seconds={seconds} reduced={reduced}/>}
+      {shot.view==='notice' && <Broadcast scene={scene} seconds={seconds} reduced={reduced}/>}
     </div>
-    {!photo && <span className="plate-caption">FIG. 0{index+1} &nbsp; / &nbsp; {shot.name.toUpperCase()}<br/><small>Artistic reconstruction</small>
+    {!photo && <span className="plate-caption">FIG. 0{scene.figure} &nbsp; / &nbsp; {shot.name.toUpperCase()}<br/><small>Artistic reconstruction</small>
       {shot.view==='earth' && <a className="earth-credit" href="/art/earth-credits.txt" target="_blank" rel="noreferrer">Earth imagery · Solar System Scope · CC BY 4.0</a>}</span>}
   </div>;
 }

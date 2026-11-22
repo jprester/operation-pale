@@ -1,6 +1,4 @@
-import dialogue from './audio/dialogue.json';
-import subtitles from './audio/subtitles.json';
-import recordedEnds from './audio/ends.json';
+import timeline from './film/timeline.json';
 
 // Canonical text: Canon Handoff v2.4 §6 (docs/canon/CURRENT_CANON.md §5).
 export const publicNotice: string[] = [
@@ -15,33 +13,25 @@ export const publicNotice: string[] = [
 
 type Speaker = 'Narrator' | 'Company transmission';
 type Cue = { subtitles: { at:number; text:string }[]; start: number; end: number; transcript: string; speaker: Speaker };
-type Beat = { start: number; duration: number; label: string; title: string; narration: Cue[] };
 export const cover = {
   title: 'The Road to Earth',
   caption: 'A company enters the Solar System with a six-year charter and a finite manifest. It needs the planet working when the charter ends.',
 };
-// Recording cues use absolute reel time. Rendering consumes scene-local time.
-const scenes = [
-  { start: 0, duration: 67.5, label: 'Earth & the Hegemony', title: 'The road to Earth.' },
-  { start: 67.5, duration: 29, label: 'Expedition', title: 'The expedition.' },
-  { start: 96.5, duration: 29.5, label: 'Resources', title: 'Working the asteroids.' },
-  { start: 126, duration: 51, label: 'Industrial build-up', title: 'An industry takes shape.' },
-  { start: 177, duration: 37, label: 'Infrastructure', title: 'Built in Earth orbit.' },
-  { start: 214, duration: 103, label: 'Final Staging', title: 'The machinery of conquest.' },
-  { start: 317, duration: 14, label: 'Notification', title: 'The first words.' },
-];
-export const beats: Beat[] = scenes.map((scene,index) => ({
+// Captions retain absolute film times; the player exposes scene-local cue bounds.
+export const beats = timeline.sequences.map((scene, index) => ({
   ...scene,
-  narration: dialogue.flatMap((cue,i): Cue[] => cue.sequence === index+1 ? [{
-    subtitles: subtitles[i],
+  title: scene.cutTitle,
+  figure: index + 1,
+  narration: timeline.cues.filter(cue => cue.sequence === scene.id).map((cue): Cue => ({
+    subtitles: cue.phrases,
     start: cue.start - scene.start,
-    end: recordedEnds[i] - scene.start,
+    end: cue.end - scene.start,
     speaker: cue.speaker === 'Company transmission' ? 'Company transmission' : 'Narrator',
     transcript: cue.transcript,
-  }] : []),
+  })),
 }));
-
-export const introDuration = beats[beats.length - 1].start + beats[beats.length - 1].duration;
+export const indexedBeats = beats.filter(scene => scene.indexed !== false);
+export const introDuration = timeline.duration;
 
 export function frameAt(elapsed: number) {
   const next = beats.findIndex(scene => scene.start > elapsed);

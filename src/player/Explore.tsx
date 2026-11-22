@@ -1,5 +1,6 @@
 import {lazy,Suspense,useCallback,useState} from 'react';
 import {beats,frameAt} from '../data/opening';
+import {pictureAt} from '../data/film/edl';
 import {introAssets} from '../data/assets';
 import {foundryBranches,modelUrl,posterUrl} from '../data/foundries';
 import {SolarAtlas} from '../scenes/SolarAtlas';
@@ -33,10 +34,11 @@ export const sections=['Atlas','Equipment','Transcript','Chapter index'] as cons
 export type Section=typeof sections[number];
 export function Explore({section,select,elapsed,reduced,jump}:{section:Section;select:(s:Section)=>void;elapsed:number;reduced:boolean;jump:(t:number)=>void}) {
   const current=frameAt(elapsed);
+  const {cut,sourceTime}=pictureAt(elapsed);
   return <section className="explorer" aria-label="Explore the archive">
     <div className="explore-heading"><h1>Explore the archive</h1><span>Film paused at {clock(elapsed)}</span></div>
     <nav className="explore-tools" aria-label="Archive collections">{sections.map(s=><button key={s} aria-pressed={section===s} onClick={()=>select(s)}>{s}</button>)}</nav>
-    {section==='Atlas' && <div className="atlas-study"><SolarAtlas initial={elapsed<126?'solar':'local'} time={elapsed} moving={false}/></div>}
+    {section==='Atlas' && <div className="atlas-study"><SolarAtlas initial={cut.plate==='road'?'local':'solar'} time={sourceTime} moving={false}/></div>}
     {section==='Equipment' && <Equipment/>}
     {section==='Transcript' && <div className="film-transcript">{beats.map((beat,i)=><details key={beat.label} open={i===current.index || undefined}>
       <summary>{pad(i+1)}　{beat.label}</summary><h2>{beat.title}</h2>

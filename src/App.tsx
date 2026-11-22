@@ -1,5 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
-import {beats,frameAt,introDuration,cover} from './data/opening';
+import {indexedBeats,frameAt,introDuration,cover} from './data/opening';
+import {pictureAt} from './data/film/edl';
 import {chronology} from './data/road';
 import {OpeningPlate} from './scenes/OpeningPlate';
 import {usePlaybackClock} from './player/usePlaybackClock';
@@ -31,7 +32,9 @@ function App() {
   const watch=mode==='watch';
   const playback=usePlaybackClock(introDuration,watch && visible && tabVisible);
   const {elapsed,started,playing,toggle,setPlaying,seek,setScrubbing}=playback;
-  const {index,scene,seconds,cue}=frameAt(elapsed);
+  const {scene,seconds,cue}=frameAt(elapsed);
+  const index=indexedBeats.indexOf(scene);
+  const {sourceTime,cut}=pictureAt(elapsed);
   const subtitle=cue?.subtitles.filter(s=>s.at<=elapsed).at(-1);
   const chrome=usePlayerChrome(playing);
   const screen=useFilmFullscreen(player);
@@ -79,11 +82,11 @@ function App() {
     <div className="theater" hidden={!watch} id="opening" onPointerMove={chrome.wake} onPointerDown={chrome.wake} onKeyDown={chrome.wake} onFocus={chrome.wake}>
       <div ref={frame} className={'film-frame'+(!started?' cover-frame':'')} aria-label="Documentary picture">
         <div className="stars"/>
-        {watch && <OpeningPlate index={index} seconds={seconds} started={started} reduced={reduced} visible={visible}/>}
+        {watch && <OpeningPlate plate={cut.plate} time={sourceTime} scene={scene} seconds={seconds} started={started} reduced={reduced} visible={visible}/>}
         {!started ? <div className="film-cover"><p className="kicker"><i/> Speculative documentary</p><h1>Operation<span>:</span> Pale</h1>
           <p className="cover-line">{cover.title}</p><button className="cover-play" onClick={togglePlayback}><FilmIcon name="play"/>Play introduction</button></div> :
-        <><div className="film-clock"><span>{pad(index+1)} / {pad(beats.length)}</span>{chronology(elapsed)}</div>
-        {seconds<4 && <h2 className="cut-title" style={{opacity:titleOpacity}}>{scene.title}</h2>}
+        <><div className="film-clock"><span>{index<0 ? scene.label : pad(index+1) + ' / ' + pad(indexedBeats.length)}</span>{chronology(sourceTime)}</div>
+        {scene.title && seconds<4 && <h2 className="cut-title" style={{opacity:titleOpacity}}>{scene.title}</h2>}
         {captions && subtitle && <div className="subtitles"><span>{cue?.speaker==='Company transmission' && <b>Company　</b>}{subtitle.text}</span></div>}</>}
       </div>
       <section className={'film-transport'+(chrome.hidden?' idle':'')} aria-label="Introduction playback">
@@ -99,14 +102,14 @@ function App() {
           }}/>
         <AudioMix ref={media} elapsed={elapsed} running={playback.running} read={playback.read}/>
         <button className="cc" aria-label="Captions" title="Captions" aria-pressed={captions} onClick={()=>setCaptions(!captions)}>CC</button>
-        {screen.fullscreen && <><select className="fullscreen-scenes" value={index} aria-label="Film sequence" onChange={e=>seek(beats[Number(e.target.value)].start)}>
-          {beats.map((b,i)=><option key={b.start} value={i}>{b.label}</option>)}</select>
+        {screen.fullscreen && <><select className="fullscreen-scenes" value={index} aria-label="Film sequence" onChange={e=>seek(indexedBeats[Number(e.target.value)].start)}>
+          {index<0 && <option value={-1} hidden>{scene.label}</option>}{indexedBeats.map((b,i)=><option key={b.start} value={i}>{b.label}</option>)}</select>
           <button aria-label="Explore archive" onClick={()=>explore()}><FilmIcon name="atlas"/></button></>}
         <button aria-label={screen.fullscreen?'Exit fullscreen':'Fullscreen'} title="Fullscreen" onClick={screen.toggleFullscreen}><FilmIcon name={screen.fullscreen?'exit':'fullscreen'}/></button>
       </section>
-      <nav className="sequence-nav" aria-label="Film sequences"><h2>Sequence index</h2><div>{beats.map((b,i)=>
-        <button key={b.start} className={i<index?'complete':''} aria-current={i===index?'step':undefined} onClick={()=>seek(b.start)}>
-          <small>{i<index?'✓':pad(i+1)} <span>{clock(b.start)}</span></small>{b.label}</button>)}</div></nav>
+      <nav className="sequence-nav" aria-label="Film sequences"><h2>Sequence index</h2><div>{indexedBeats.map((b,i)=>
+        <button key={b.start} className={b.start<scene.start?'complete':''} aria-current={i===index?'step':undefined} onClick={()=>seek(b.start)}>
+          <small>{b.start<scene.start?'✓':pad(i+1)} <span>{clock(b.start)}</span></small>{b.label}</button>)}</div></nav>
     </div>
     {!watch && <Explore section={section} select={setSection} elapsed={elapsed} reduced={reduced} jump={jump}/>}
     {!watch && screen.fullscreen && <button className="leave-screen" onClick={screen.toggleFullscreen}>Exit fullscreen</button>}

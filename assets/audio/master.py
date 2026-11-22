@@ -6,11 +6,9 @@ import tempfile
 import wave
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / 'src/data/audio'
+from film_timeline import ROOT, load, recording_windows, resolve, save
+
 RATE = 24000
-LENGTH = 331
-BOUNDARIES = [67.5, 96.5, 126, 177, 214, 317, 331]
 
 
 def ff(*args):
@@ -18,9 +16,11 @@ def ff(*args):
 
 
 def render(tmp):
-    cues = json.loads((DATA / 'dialogue.json').read_text())
+    timeline = load()
+    cues = timeline['cues']
+    duration_seconds = timeline['duration']
     manifest = json.loads((ROOT/'assets/audio/manifest.json').read_text())
-    speech = bytearray(RATE * LENGTH * 2)
+    speech = bytearray(round(RATE * duration_seconds) * 2)
     # Insert room between paragraphs at quiet points in the decoded performance.
     take = manifest['voices']['narrator']
     ff('-i', ROOT/take['originalPath'], '-af', 'volume=3dB,alimiter=limit=0.92:level=0:latency=1',
@@ -31,14 +31,10 @@ def render(tmp):
         cut = round(edit['sourceSeconds'] * RATE) * 2
         silence = bytes(round(edit['insertSeconds'] * RATE) * 2)
         opening = opening[:cut] + silence + opening[cut:]
-    take_offset = round(take['startSeconds'] * RATE) * 2
+    take_offset = round(resolve(timeline, take['from']) * RATE) * 2
     speech[take_offset:take_offset+len(opening)] = opening
-    ends = []
-    for index, (cue, clip) in enumerate(zip(cues, manifest['segments'], strict=True)):
-        if clip['text'] != cue['transcript'] or clip['startSeconds'] != cue['start']:
-            raise ValueError(f"Recording does not match cue {clip['id']}")
+    for cue, clip, boundary in recording_windows(timeline, manifest['segments']):
         if clip.get('originalPath') == take['originalPath']:
-            ends.append(clip['endSeconds'])
             continue
         local = clip['localTake']
         voice = local['voice']
@@ -48,15 +44,12 @@ def render(tmp):
         start = cue['start']
         duration = len(samples)/(2*RATE)
         end = round(start + duration, 3)
-        boundary = BOUNDARIES[cue['sequence']-1]
-        if index+1 < len(cues):
-            boundary = min(boundary, cues[index+1]['start'])
         print(f'{start:6.1f} {end:7.3f}  {voice:9s}  available pause {boundary-end:.2f}s', flush=True)
         if duration < .25 or end > boundary:
             raise ValueError(f'Revise line at {start}s to fit the shot')
         offset = round(start*RATE)*2
         speech[offset:offset+len(samples)] = samples
-        ends.append(end)
+        cue['end'] = end
     with wave.open(str(tmp/'dialogue.wav'), 'wb') as out:
         out.setparams((1, 2, RATE, 0, 'NONE', ''))
         out.writeframes(speech)
@@ -64,17 +57,21 @@ def render(tmp):
     # Original non-diegetic contact vibration, ventilation and receiver noise.
     # Each event has a discrete envelope. The isolated Earth uses the existing contact bed quietly. Leave silence
     # across the handover from the last narrator line to the public channel.
+    starts = {seq['id']: seq['start'] for seq in timeline['sequences']}
+    # Keep the original event order: its index selects the noise seed.
     events = [
-        (45,20,52,1.6,.018), (75,9,78,.8,.027), (92,10,61,1,.019),
-        (116,10,82,1,.022), (128,10,48,1,.020), (148,6,63,.5,.018),
-        (174,10,325,1.5,.013), (241,9,270,1,.012), (250,8,430,1.6,.014),
-        (124,.36,111,.015,.060), (132,.48,96,.02,.054), (137,.42,104,.02,.052),
-        (300.55,.28,1650,.03,.022)]
-    # The revised opening moves the seven-sequence industrial edit forward 22 s.
-    events = [(start + 22, *params) for start, *params in events]
-    events.append((26, 18, 52, 4, .012))
+        ('expedition', -.5, 20, 52, 1.6, .018),
+        ('resources', .5, 9, 78, .8, .027), ('resources', 17.5, 10, 61, 1, .019),
+        ('industry', 12, 10, 82, 1, .022), ('industry', 24, 10, 48, 1, .020),
+        ('industry', 44, 6, 63, .5, .018), ('infrastructure', 19, 10, 325, 1.5, .013),
+        ('staging', 49, 9, 270, 1, .012), ('staging', 58, 8, 430, 1.6, .014),
+        ('industry', 20, .36, 111, .015, .060), ('industry', 28, .48, 96, .02, .054),
+        ('industry', 33, .42, 104, .02, .052), ('notification', 5.55, .28, 1650, .03, .022),
+        ('discovery', 26, 18, 52, 4, .012),
+    ]
     layers = []
-    for i,(start,duration,hz,attack,level) in enumerate(events):
+    for i,(sequence,offset,duration,hz,attack,level) in enumerate(events):
+        start = starts[sequence] + offset
         # Pink noise shaped into room air or contact rumble, with a faint motor harmonic.
         noise = f'anoisesrc=r={RATE}:c=pink:a=1:d={duration}:seed={80+i},bandpass=f={hz}:width_type=o:w=1.25'
         if hz < 150:
@@ -97,7 +94,8 @@ def render(tmp):
                   (manifest['caravanBass'], manifest['caravanBass']['placement']),
                   (manifest['resourcesDrone'], manifest['resourcesDrone']['placement'])]
     for index, (asset, placement) in enumerate(placements):
-        length = placement['endSeconds'] - placement['startSeconds']
+        start = resolve(timeline, placement['from'])
+        length = resolve(timeline, placement['to']) - start
         bed_inputs.extend(['-i', ROOT/asset['path']])
         source = f'[{first_bed+index}:a]'
         overlap = placement.get('loopCrossfadeSeconds')
@@ -113,14 +111,14 @@ def render(tmp):
         envelope = ''
         if 'break' in placement:
             gap = placement['break']
-            a, b = gap['fadeOutStart'], gap['silentFrom']
-            c, d = gap['returnStart'], gap['fadeInEnd']
+            a, b, c, d = (resolve(timeline, gap[key]) - start for key in
+                          ('fadeOutStart', 'silentFrom', 'returnStart', 'fadeInEnd'))
             envelope = f"volume='clip(({b}-t)/({b}-{a}),0,1)+clip((t-{c})/({d}-{c}),0,1)':eval=frame,"
         beds.append(
             f'{source}atrim=start={placement["sourceInSeconds"]}:duration={length},asetpts=PTS-STARTPTS,{envelope}'
             f'volume={placement["gainDb"]}dB,afade=t=in:d={placement["fadeInSeconds"]},'
             f'afade=t=out:st={length-placement["fadeOutSeconds"]}:d={placement["fadeOutSeconds"]},'
-            f'adelay={round(placement["startSeconds"]*1000)}:all=1[bed{index}];'
+            f'adelay={round(start*1000)}:all=1[bed{index}];'
         )
     # Apply the narrator fader after the split so it doesn't change bed ducking.
     company_start = next(c['start'] for c in cues if c['speaker'] == 'Company transmission')
@@ -143,8 +141,8 @@ def render(tmp):
     stems = ['dialogue', 'music', 'effects']
     outputs = []
     for name in stems:
-        graph += f';[{name}Out]apad=whole_dur={LENGTH}[{name}Padded]'
-        outputs.extend(['-map', f'[{name}Padded]', '-t', LENGTH, '-ar', 48000,
+        graph += f';[{name}Out]apad=whole_dur={duration_seconds}[{name}Padded]'
+        outputs.extend(['-map', f'[{name}Padded]', '-t', duration_seconds, '-ar', 48000,
                         '-ac', 2, '-c:a', 'pcm_f32le', tmp/f'{name}-stem.wav'])
     ff('-i',tmp/'dialogue.wav',*layers,*bed_inputs,'-filter_complex',graph,*outputs)
     stem_inputs = []
@@ -160,7 +158,7 @@ def render(tmp):
     for name in stems:
         (output.parent/f'{name}.mp3').write_bytes((tmp/f'{name}.mp3').read_bytes())
     output.write_bytes((tmp/'master.mp3').read_bytes())
-    (DATA/'ends.json').write_text(json.dumps(ends,indent=2)+'\n')
+    save(timeline)
 
 
 if __name__ == '__main__':

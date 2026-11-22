@@ -13,7 +13,8 @@ import torch
 from kokoro import KPipeline
 from phonemizer.backend.espeak.wrapper import EspeakWrapper
 
-from master import BOUNDARIES, DATA, RATE, ROOT, ff
+from film_timeline import ROOT, load, recording_windows, save
+from master import RATE, ff
 
 MANIFEST = ROOT / 'assets/audio/manifest.json'
 CAST = {'Narrator': 'bm_george', 'Company transmission': 'bf_emma'}
@@ -26,16 +27,13 @@ def generate(ids=()):
     torch.manual_seed(42)
     torch.set_num_threads(4)
     pipe = KPipeline(lang_code='b', repo_id='hexgrad/Kokoro-82M', device='cpu')
-    cues = json.loads((DATA / 'dialogue.json').read_text())
-    subtitles = json.loads((DATA / 'subtitles.json').read_text())
+    timeline = load()
     manifest = json.loads(MANIFEST.read_text())
-    for i, (cue, seg, phrases) in enumerate(zip(cues, manifest['segments'], subtitles, strict=True)):
+    for cue, seg, boundary in recording_windows(timeline, manifest['segments']):
         if seg.get('originalPath') or (ids and seg['id'] not in ids):
             continue
-        assert cue['transcript'] == seg['text'] == ' '.join(p['text'] for p in phrases)
-        boundary = BOUNDARIES[cue['sequence'] - 1]
-        if i + 1 < len(cues):
-            boundary = min(boundary, cues[i+1]['start'])
+        phrases = cue['phrases']
+        assert cue['transcript'] == ' '.join(p['text'] for p in phrases)
         window = boundary - cue['start'] - .12
         voice = CAST[cue['speaker']]
         speed = 1.0
@@ -79,11 +77,12 @@ def generate(ids=()):
             raw = Path(temp) / 'raw.wav'
             sf.write(raw, audio, RATE, subtype='PCM_24')
             ff('-i',raw,'-af','loudnorm=I=-18:TP=-2:LRA=8','-ar',RATE,'-sample_fmt','s16',target)
+        cue['end'] = round(cue['start'] + duration, 3)
         seg.update(localTake=dict(path=str(target.relative_to(ROOT)), voice=voice, speed=speed),
-                   endSeconds=round(cue['start']+duration,3), targetDurationSeconds=round(duration,3))
+                   targetDurationSeconds=round(duration,3))
         print(seg['id'], voice, speed, round(duration,3), flush=True)
     MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-    (DATA/'subtitles.json').write_text(json.dumps(subtitles,ensure_ascii=False,indent=2)+'\n')
+    save(timeline)
 
 
 if __name__ == '__main__':

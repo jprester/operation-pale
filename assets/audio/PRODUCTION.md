@@ -1,5 +1,13 @@
 # Pale Archive audio production
 
+## Checkpoint A · playing the v3 edit
+
+The player and both offline audio tools share [timeline.json](../../src/data/film/timeline.json). It replaces `dialogue.json`, `subtitles.json` and `ends.json`. Cue and phrase times are absolute seconds from film zero, with exclusive cue ends. The timeline retains the v3 words, caption breaks and measured onsets. The recording manifest holds take metadata keyed by cue ID. The locked v4 recording sheet enters the pipeline in Phase 2.
+
+The mixer resolves a cue ID plus an optional offset, or a sequence ID plus a local time or `end`, against that timeline. Source trim points and pause edits remain relative to the original recording. The [picture edit list](../../src/data/film/edl.ts) uses the same anchor conventions. Each film span runs up to the next anchor and samples an independent interval of the v3 source reel. Watch and Explore use the same mapping.
+
+For Checkpoint A, the only audio command was `python3 -B assets/audio/master.py` from the repository root. This mixes the existing files with FFmpeg. The outputs in `src/media/audio/` are stereo 48 kHz MP3s. Dialogue is 96 kb/s, music and effects are 128 kb/s each, and the combined audition master is 160 kb/s. Reset the three player faders to 100% for the authored balance. Existing voice settings and seeded effect recipes remain in the v3 manifest and mixer.
+
 ## Workspace inspection · 20 November 2026
 
 The connected ElevenLabs Creative tools returned 25 voice entries, five workspace audio assets and zero brand kits. The voice list provides names, IDs, descriptions, labels and previews. It exposes neither a Pale approval flag nor the historical synthesis settings of a take.
@@ -15,7 +23,7 @@ The connected ElevenLabs Creative tools returned 25 voice entries, five workspac
 
 ## Casting and budget
 
-The machine-readable manifest contains every finalized line, cue start, measured draft duration, speaker, stable ID, working WAV destination and approval state. Unknown voice, model, license and settings fields are intentionally null. The complete opening take is in the offline master. The manifest tracks remaining draft lines. Record generation-time plan, permitted uses and any voice-library conditions with the original export before publishing.
+The film timeline holds the cue sheet. The recording manifest joins to it by stable cue ID and records working destinations and approval states. Unknown voice, model, license and settings fields are intentionally null. The complete opening take is in the offline master. The manifest tracks remaining draft lines. Record generation-time plan, permitted uses and any voice-library conditions with the original export before publishing.
 
 Original planning estimate before importing the complete take.
 
@@ -76,4 +84,4 @@ To change the authored balance for everyone, edit `currentMaster.narratorGainLin
 
 The generative stage uses the same Kokoro-82M model and British English pipeline as Podcast Studio. All cues after the imported opening have individual lossless takes in `assets/audio/voices/kokoro/`. The manifest's `localTake` field identifies the recording, voice preset and synthesis speed used in the mix. The imported ElevenLabs opening keeps its edit and caption timings.
 
-For a script change, update the matching transcript in dialogue.json and the manifest, and its phrase text in subtitles.json. Run `assets/audio/kokoro_takes.py` with Podcast Studio's virtual-environment Python (Kokoro 0.9.4, cached model and voices, English G2P and soundfile), then run `python3 assets/audio/master.py` and `npm run build`. The generator uses offline model loading, measures each cue against its shot, and derives caption entrances from Kokoro's token timings. For mix-only edits, run the mixer directly. Both the mixer and browser use rendered audio files.
+To regenerate an existing v3 take, run `assets/audio/kokoro_takes.py <cue-id>` with Podcast Studio's virtual-environment Python (Kokoro 0.9.4, cached model and voices, English G2P and soundfile), then run `python3 assets/audio/master.py` and `npm run build`. The generator uses offline model loading, measures each cue against its shot, and derives caption entrances from Kokoro's token timings. For mix-only edits, run the mixer directly. Both the mixer and browser use rendered audio files.
