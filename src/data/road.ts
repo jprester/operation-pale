@@ -34,7 +34,7 @@ const shots: Shot[] = [
   {at:80.5,view:'carrier',name:'Caravan · industrial carrier'},
   {at:96.5,view:'map',scale:'solar',name:'Caravan cargo dispatch'},
   {at:111,view:'map',scale:'local',name:'Earth–Moon workshops'},
-  {at:118.5,view:'extraction',name:'Asteroidal feedstock'},
+  {at:118.75,view:'extraction',name:'Asteroid cargo · Material survey'},
   {at:126,view:'alpha',name:'Volatiles to propellant'},
   {at:138,view:'beta',name:'Feedstock to structure'},
   {at:149,view:'gamma',name:'Structure to assembly'},

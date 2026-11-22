@@ -29,7 +29,7 @@ Original planning estimate before importing the complete take.
 
 The estimate assumes one take for each cue at the published Multilingual v2 base rate and a standard-rate voice. Count spaces and punctuation. Joined cues add a separator. Reuse accepted lines and deduct their characters from the outstanding budget. If the proposed pilot replaces its two cue takes, the joined prompt adds one character. A discarded pilot costs its own quoted price against the revision reserve. The reserve authorizes zero expenditure. Confirm the voice-specific estimate and remaining shared balance before spending. [ElevenLabs pricing](https://elevenlabs.io/pricing)
 
-The earlier two-cue Resources quote covered a superseded script. The current Resources edit and Foundry Alpha introduction use the local Daniel voice.
+The earlier two-cue Resources quote covered a superseded script. The current Resources edit and Foundry Alpha introduction use the local Kokoro George voice.
 
 **Company audition.** Use the existing line “This transmission is of nonhuman origin.” Present one separately quoted take after a Company voice has been identified. Listen for controlled pace, clear consonants and a natural voice distinguishable from the narrator. Retain the approved voice ID for future episodes.
 
@@ -59,7 +59,7 @@ The [cue manifest](manifest.json) is the production worksheet and [generation le
 
 ## Supplied recording edit
 
-The editor supplied the final opening script and its 80.927-second Adam recording. The complete take plays at recorded speed from 00:01.750 to 01:32.197. The renderer inserts silence at the source positions in the manifest. The narrator leaves three seconds before introducing the Hegemony. Caption entrances follow the performance. The next narrator cue uses Daniel at 01:37.5. No speech generation was required.
+The editor supplied the final opening script and its 80.927-second Adam recording. The complete take plays at recorded speed from 00:01.750 to 01:32.197. The renderer inserts silence at the source positions in the manifest. The narrator leaves three seconds before introducing the Hegemony. Caption entrances follow the performance. George takes over at 01:37.5. Emma reads the Company notice.
 
 The score enters over 0.7 seconds at −11 dB. The Hegemony effect enters at −12 dB, fading in over two seconds and out over three. The manifest records source hashes, placements and fades for the offline mix. The supplied effect has no accompanying license record.
 
@@ -70,4 +70,10 @@ The supplied cinematic atmosphere drone enters at the Resources marker (01:36.5)
 
 In Watch, open **Audio settings** beside the master volume. Dialogue (including the Company transmission), Music, and Ambience & effects each have a fader. At 100% each plays at its authored level. Changes apply during playback and are saved in this browser. Reset mix restores all three faders.
 
-To change the authored balance for everyone, edit `currentMaster.narratorGainLinear` or an asset’s `placement.gainDb` in [manifest.json](manifest.json). The former affects only documentary narration. More negative dB values lower individual music and effect cues. The procedural room and machinery levels are defined in [master.py](master.py). From the repository root, run `python3 assets/audio/master.py` on macOS with FFmpeg and the installed Daniel and Samantha voices, then `npm run build`. The renderer exports dialogue.mp3, music.mp3, effects.mp3 and the stereo fallback into src/media/audio.
+To change the authored balance for everyone, edit `currentMaster.narratorGainLinear` or an asset’s `placement.gainDb` in [manifest.json](manifest.json). The former affects only documentary narration. More negative dB values lower individual music and effect cues. The procedural room and machinery levels are defined in [master.py](master.py). From the repository root, run `python3 assets/audio/master.py` with FFmpeg and the saved voice takes, then `npm run build`. The renderer exports dialogue.mp3, music.mp3, effects.mp3 and the stereo fallback into src/media/audio.
+
+## Regenerate local speech
+
+The generative stage uses the same Kokoro-82M model and British English pipeline as Podcast Studio. All cues after the imported opening have individual lossless takes in `assets/audio/voices/kokoro/`. The manifest's `localTake` field identifies the recording, voice preset and synthesis speed used in the mix. The imported ElevenLabs opening keeps its edit and caption timings.
+
+For a script change, update the matching transcript in dialogue.json and the manifest, and its phrase text in subtitles.json. Run `assets/audio/kokoro_takes.py` with Podcast Studio's virtual-environment Python (Kokoro 0.9.4, cached model and voices, English G2P and soundfile), then run `python3 assets/audio/master.py` and `npm run build`. The generator uses offline model loading, measures each cue against its shot, and derives caption entrances from Kokoro's token timings. For mix-only edits, run the mixer directly. Both the mixer and browser use rendered audio files.

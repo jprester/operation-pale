@@ -165,11 +165,11 @@
       "text": "Caravan sent mining equipment to the asteroid belt."
     },
     {
-      "at": 101.2,
+      "at": 101.237,
       "text": "A small reserve followed,"
     },
     {
-      "at": 103.2,
+      "at": 103.1,
       "text": "in case the main workshops were lost."
     }
   ],
@@ -183,79 +183,83 @@
       "text": "They arrived between Earth and the Moon,"
     },
     {
-      "at": 111.9,
+      "at": 111.45,
       "text": "in a region called cislunar space."
     }
   ],
   [
     {
-      "at": 115.5,
-      "text": "From here, the workshops could supply equipment in Earth orbit."
+      "at": 115.785,
+      "text": "The workshops received shipments of rock from the belt."
     },
     {
-      "at": 119.6,
-      "text": "Shipments of asteroid rock and ice provided the raw materials."
+      "at": 118.963,
+      "text": "Some pieces held ice."
+    },
+    {
+      "at": 120.657,
+      "text": "Others held metal."
     }
   ],
   [
     {
-      "at": 127,
-      "text": "The packages grew into a network of foundries."
+      "at": 126.575,
+      "text": "At Foundry Alpha, ice became water."
     },
     {
-      "at": 130.5,
-      "text": "Foundry Alpha took ice from asteroids"
+      "at": 129.687,
+      "text": "Some of that water was turned into propellant"
     },
     {
-      "at": 133.1,
-      "text": "and turned it into water and propellant."
+      "at": 132.247,
+      "text": "for the ships carrying the next loads."
     }
   ],
   [
     {
-      "at": 138,
-      "text": "Foundry Beta refined metal and made beams."
+      "at": 138.3,
+      "text": "Foundry Beta refined metal from the rock"
     },
     {
-      "at": 140.99,
-      "text": "Even the largest frame could cross the distance"
+      "at": 141.105,
+      "text": "and shaped it into beams."
     },
     {
-      "at": 143.77,
-      "text": "to the next workshop in pieces."
+      "at": 143.107,
+      "text": "Tugs carried the pieces to the assembly yard."
     }
   ],
   [
     {
-      "at": 150,
-      "text": "At Foundry Gamma, those pieces came together."
+      "at": 149.6,
+      "text": "Foundry Gamma joined the beams into frames."
     },
     {
-      "at": 153.13,
-      "text": "A frame made here could carry a precision instrument"
+      "at": 152.83,
+      "text": "Those frames held precision instruments"
     },
     {
-      "at": 155.81,
-      "text": "brought from another star."
+      "at": 155.388,
+      "text": "that Caravan had brought from home."
     }
   ],
   [
     {
-      "at": 162,
+      "at": 162.285,
       "text": "Depots held cargo until the next transfer."
     },
     {
-      "at": 165.07,
+      "at": 165.38,
       "text": "The workshops could keep different schedules."
     }
   ],
   [
     {
-      "at": 170,
+      "at": 170.265,
       "text": "A fourth branch was called Foundry Delta."
     },
     {
-      "at": 172.98,
+      "at": 173.03,
       "text": "Its precise role remains uncertain."
     }
   ],
@@ -265,11 +269,11 @@
       "text": "By now the Company could supply equipment in Earth orbit."
     },
     {
-      "at": 181.43,
+      "at": 181.963,
       "text": "From below, an object arriving there"
     },
     {
-      "at": 184.25,
+      "at": 184.625,
       "text": "gave little indication of the industry behind it."
     }
   ],
@@ -279,11 +283,11 @@
       "text": "Some of these objects entered human tracking records."
     },
     {
-      "at": 194.39,
+      "at": 194.688,
       "text": "A track could establish where something had been,"
     },
     {
-      "at": 197.39,
+      "at": 197.625,
       "text": "and where to look for it again."
     }
   ],
@@ -293,7 +297,7 @@
       "text": "What it carried, who had built it,"
     },
     {
-      "at": 206.38,
+      "at": 206.2,
       "text": "and why it was there were harder questions."
     }
   ],
@@ -303,7 +307,7 @@
       "text": "With ninety days left before contact,"
     },
     {
-      "at": 216.54,
+      "at": 216.6,
       "text": "the workshops began handing over finished equipment."
     }
   ],
@@ -313,7 +317,7 @@
       "text": "Near Earth, cargo from the Moon’s neighbourhood"
     },
     {
-      "at": 223.15,
+      "at": 223.0,
       "text": "began to appear in separate groups in orbit."
     }
   ],
@@ -323,7 +327,7 @@
       "text": "Among it were Quivers: disposable dispensers"
     },
     {
-      "at": 230.93,
+      "at": 231.35,
       "text": "carrying the glide munitions of the opening Wave."
     }
   ],
@@ -333,7 +337,7 @@
       "text": "A tug could spend weeks moving freight."
     },
     {
-      "at": 237.54,
+      "at": 237.925,
       "text": "There was time because the public deadline was still ahead."
     }
   ],
@@ -343,11 +347,11 @@
       "text": "Wardens coordinated traffic in orbit."
     },
     {
-      "at": 244.46,
+      "at": 244.662,
       "text": "Far below them, Lanterns sensed and relayed"
     },
     {
-      "at": 247.74,
+      "at": 247.375,
       "text": "from the stratosphere."
     }
   ],
@@ -357,11 +361,11 @@
       "text": "Asteroids supplied metal."
     },
     {
-      "at": 250.89,
+      "at": 251.2,
       "text": "Compact fusion systems and high-grade seekers"
     },
     {
-      "at": 253.98,
+      "at": 254.162,
       "text": "came from home."
     }
   ],
@@ -371,7 +375,7 @@
       "text": "At Gamma, another assembly took shape"
     },
     {
-      "at": 258.44,
+      "at": 258.45,
       "text": "around precision components drawn from a finite stock."
     }
   ],
@@ -381,15 +385,15 @@
       "text": "At an observatory, two exposures might show"
     },
     {
-      "at": 265.92,
+      "at": 265.65,
       "text": "a point of light changing position."
     },
     {
-      "at": 267.95,
+      "at": 267.875,
       "text": "The measurement could be sound"
     },
     {
-      "at": 269.26,
+      "at": 269.337,
       "text": "while its meaning remained unclear."
     }
   ],
@@ -399,11 +403,11 @@
       "text": "The scattered observations never became a warning"
     },
     {
-      "at": 275.3,
+      "at": 274.7,
       "text": "governments could act on."
     },
     {
-      "at": 276.28,
+      "at": 276.325,
       "text": "The people comparing them had only pieces of the picture."
     }
   ],
@@ -413,7 +417,7 @@
       "text": "Domesday sensors covered selected ground corridors."
     },
     {
-      "at": 283.62,
+      "at": 284.062,
       "text": "Much of the terrain remained unseen."
     }
   ],
@@ -423,7 +427,7 @@
       "text": "In the final weeks, the workshops kept working"
     },
     {
-      "at": 289.58,
+      "at": 290.012,
       "text": "as more of their output took its place above Earth."
     }
   ],
@@ -433,7 +437,7 @@
       "text": "One dispenser had already been set aside for a demonstration."
     },
     {
-      "at": 299.13,
+      "at": 298.875,
       "text": "Its public announcement would come later."
     }
   ],
@@ -443,7 +447,7 @@
       "text": "An inert Scythe would give observers a prediction to check."
     },
     {
-      "at": 305.39,
+      "at": 305.775,
       "text": "The event was still ahead."
     }
   ],
@@ -453,7 +457,7 @@
       "text": "Nineteen months had passed since the Caravan arrived."
     },
     {
-      "at": 312.44,
+      "at": 312.725,
       "text": "On Earth, the first public word was still to come."
     }
   ],

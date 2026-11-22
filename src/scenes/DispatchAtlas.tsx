@@ -53,6 +53,15 @@ export function DispatchAtlas({time,reduced}:{time:number; reduced:boolean}) {
         <circle cx={moon[0]} cy={moon[1]} r="5" fill="#d3c8b6"/><text x={moon[0]+11} y={moon[1]+4}>Moon</text>
         <text className="atlas-region" x="238" y="94">CISLUNAR SPACE</text>
         <Transfer from={[510,55]} bend={[397,49]} to={workshops} fraction={stage(110,113.5)} label="Workshop packages" color="#9acdc6" offset={[7,16]}/>
+        {time>=115.5 && <g aria-label="Asteroid material delivered from the belt">
+          <path d="M486 213 Q371 241 308 137" fill="none" stroke="#b29470" strokeDasharray="2 4"/>
+          <text x="392" y="238" textAnchor="middle">From the belt</text>
+          {[0,.65,1.25].map((delay,i)=>{
+            const f=stage(115.5+delay,119.2+delay), u=1-f;
+            const x=u*u*486+2*u*f*371+f*f*308, y=u*u*213+2*u*f*241+f*f*137;
+            return <path key={i} d="m-4 -2 3-2 4 1 1 3-3 3-4-1z" transform={`translate(${x} ${y+i*4})`} fill="#d2b58e" stroke="#51483a"/>;
+          })}
+        </g>}
       </g>}
     </svg></div>
     <div className="atlas-key"><span>{local>.5?'Earth–Moon space':'Solar System'}</span><span>Illustrative routes · distances compressed</span></div>

@@ -12,7 +12,7 @@ At 00:29.5 the isolated globe dissolves into a face-on scientific illustration o
 
 The expedition atlas enters at 01:06.5. Between 01:14.5 and 01:21.5 the view box closes on the fixed Caravan mark. The camera recentres the mark while the symbols fade and the approved v002 model appears at the corresponding screen position. The model then fills the industrial broadside shot. AtlasReveal takes its timing and subject as inputs. All interpolation samples film seconds. Reduced motion switches between static compositions and the existing approved model still.
 
-The final “Earth” gives way to the supplied bass hit and a hold on the hull. Resources begins at 01:36.5, Industrial build-up at 02:06, Infrastructure at 02:57, Final Staging at 03:34 and Notification at 05:17. The film ends at 05:31. At 01:37.5 Caravan dispatches mining equipment and a separate reserve. The next shipment travels inward. The map follows it into the Earth–Moon region and shows the workshop packages arriving. An asteroid surface insert identifies the source of the bulk material before the cut to Foundry Alpha at 02:06. The routes and compressed travel times are illustrative.
+The final “Earth” gives way to the supplied bass hit and a hold on the hull. Resources begins at 01:36.5, Industrial build-up at 02:06, Infrastructure at 02:57, Final Staging at 03:34 and Notification at 05:17. The film ends at 05:31. At 01:37.5 Caravan dispatches mining equipment and a separate reserve. The next shipment travels inward. The map follows it into the Earth–Moon region and shows the workshop packages arriving. A delivery trace on the Earth–Moon map shows rock arriving from the belt. A comparative specimen plate identifies ice-bearing and metal-bearing material before the cut to Foundry Alpha at 02:06. The routes and compressed travel times are illustrative.
 
 ## Image provenance
 
@@ -41,3 +41,11 @@ The four industrial close-ups share a 36 KB [WebP backdrop](../../public/art/doc
 Built-in ImageGen prompt:
 
 > Wide 16:9 photographic reconstruction for a restrained space documentary. Cislunar space at a remote industrial worksite. Small recognizable half-lit Earth in the upper left third, soft muted ocean blue, pale cloud swirls, delicate limb. Along the extreme lower right and far left edges a handful of widely separated rough carbonaceous asteroid fragments delivered as raw feedstock, textured by low raking sunlight. Keep the broad center almost empty and dark for compositing a separately rendered workshop. Black sky, sparse faint stars, no haze, text, station, ships, lens flare or dense asteroid belt.
+
+### Asteroid specimens
+
+[Asteroid samples](../../public/art/documentary/asteroid-samples.webp) is an illustrative reconstruction generated with built-in ImageGen. The interface identifies materials and uses qualitatively. The extraction machinery photograph is reserved for Final Staging.
+
+Generation prompt:
+
+> Wide 16:9 museum scientific specimen plate, photographic reconstruction for a restrained astronomical documentary. Exactly two separate, clearly legible irregular asteroid fragments floating on an almost black charcoal background, both fully visible with ample margin and negative space between them. Left specimen centered at x=27%, y=45%: a jagged asymmetrical carbon-dark porous rock split open exposing a seam of dusty, pale blue-white granular water ice. Right specimen centered at x=73%, y=45%: dense weathered charcoal rock with a freshly broken facet exposing modest silver-grey iron-rich metallic grains and muted rusty ochre inclusions. Both objects roughly 28% of frame width, visibly distinct silhouettes and realistic non-glittery geology. Side-light from upper left, fine surface detail, no ground, no shadows beneath, no text, interface, labels, charts, other rocks, equipment, planets or stars. Broad dark clear margins below for separately typeset captions. High detail, understated archival color grade.

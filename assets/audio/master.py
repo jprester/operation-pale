@@ -1,4 +1,4 @@
-"""Render the local draft with macOS say and FFmpeg, using film time in seconds."""
+"""Mix the approved opening and local Kokoro takes with FFmpeg at film time."""
 import json
 import math
 import subprocess
@@ -10,7 +10,6 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / 'src/data/audio'
 RATE = 24000
 LENGTH = 331
-VOICES = {'Narrator': ('Daniel', 151), 'Company transmission': ('Samantha', 143)}
 BOUNDARIES = [67.5, 96.5, 126, 177, 214, 317, 331]
 
 
@@ -21,7 +20,6 @@ def ff(*args):
 def render(tmp):
     cues = json.loads((DATA / 'dialogue.json').read_text())
     manifest = json.loads((ROOT/'assets/audio/manifest.json').read_text())
-    imports = {s['id']: s for s in manifest['segments'] if s.get('originalPath')}
     speech = bytearray(RATE * LENGTH * 2)
     # Insert room between paragraphs at quiet points in the decoded performance.
     take = manifest['voices']['narrator']
@@ -36,19 +34,15 @@ def render(tmp):
     take_offset = round(take['startSeconds'] * RATE) * 2
     speech[take_offset:take_offset+len(opening)] = opening
     ends = []
-    for index, cue in enumerate(cues):
-        voice, rate = VOICES[cue['speaker']]
-        clip = imports.get(cue.get('id'))
-        if clip:
-            if clip['text'] != cue['transcript']:
-                raise ValueError(f"Recording text differs for {cue['id']}")
+    for index, (cue, clip) in enumerate(zip(cues, manifest['segments'], strict=True)):
+        if clip['text'] != cue['transcript'] or clip['startSeconds'] != cue['start']:
+            raise ValueError(f"Recording does not match cue {clip['id']}")
+        if clip.get('originalPath') == take['originalPath']:
             ends.append(clip['endSeconds'])
             continue
-        subprocess.run(['say', '-v', voice, '-r', str(rate), '-o', str(tmp/'line.aiff'), cue['transcript']], check=True)
-        # Trim the synthesizer's file padding, retain pauses inside the sentence.
-        trim = 'silenceremove=start_periods=1:start_threshold=-58dB:start_silence=0.025'
-        ff('-i', tmp/'line.aiff', '-af', f'{trim},areverse,{trim},areverse,loudnorm=I=-18:TP=-2:LRA=8',
-           '-ar', RATE, '-ac', 1, tmp/'line.wav')
+        local = clip['localTake']
+        voice = local['voice']
+        ff('-i', ROOT/local['path'], '-ar', RATE, '-ac', 1, tmp/'line.wav')
         with wave.open(str(tmp/'line.wav'), 'rb') as wav:
             samples = wav.readframes(wav.getnframes())
         start = cue['start']
@@ -157,7 +151,9 @@ def render(tmp):
     for name in stems:
         wav = tmp/f'{name}-stem.wav'
         stem_inputs.extend(['-i', wav])
-        ff('-i', wav, '-c:a','libmp3lame','-q:a',4, tmp/f'{name}.mp3')
+        # Constant frame sizes allow accurate time-to-byte seeking in HTML audio.
+        bitrate = '96k' if name == 'dialogue' else '128k'
+        ff('-i', wav, '-c:a','libmp3lame','-b:a',bitrate, tmp/f'{name}.mp3')
     ff(*stem_inputs,'-filter_complex',
        'amix=inputs=3:normalize=0,alimiter=limit=0.93:level=0:latency=1',
        '-c:a','libmp3lame','-b:a','160k',tmp/'master.mp3')

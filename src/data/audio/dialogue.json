@@ -207,25 +207,25 @@
     "sequence": 3,
     "start": 115.5,
     "speaker": "Narrator",
-    "transcript": "From here, the workshops could supply equipment in Earth orbit. Shipments of asteroid rock and ice provided the raw materials."
+    "transcript": "The workshops received shipments of rock from the belt. Some pieces held ice. Others held metal."
   },
   {
     "sequence": 4,
-    "start": 127,
+    "start": 126.3,
     "speaker": "Narrator",
-    "transcript": "The packages grew into a network of foundries. Foundry Alpha took ice from asteroids and turned it into water and propellant."
+    "transcript": "At Foundry Alpha, ice became water. Some of that water was turned into propellant for the ships carrying the next loads."
   },
   {
     "sequence": 4,
     "start": 138,
     "speaker": "Narrator",
-    "transcript": "Foundry Beta refined metal and made beams. Even the largest frame could cross the distance to the next workshop in pieces."
+    "transcript": "Foundry Beta refined metal from the rock and shaped it into beams. Tugs carried the pieces to the assembly yard."
   },
   {
     "sequence": 4,
-    "start": 150,
+    "start": 149.3,
     "speaker": "Narrator",
-    "transcript": "At Foundry Gamma, those pieces came together. A frame made here could carry a precision instrument brought from another star."
+    "transcript": "Foundry Gamma joined the beams into frames. Those frames held precision instruments that Caravan had brought from home."
   },
   {
     "sequence": 4,

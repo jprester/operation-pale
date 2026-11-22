@@ -69,19 +69,22 @@ function Survey({ seconds, reduced }: { seconds: number; reduced: boolean }) {
 }
 
 
-const worksite = documentaryPhotos.find(photo=>photo.id==='asteroid-extraction')!;
-
-// Keep the local map under the dissolve into the source of the feedstock.
-function ResourcePass({time,reduced,name}:{time:number;reduced:boolean;name:string}) {
-  const inside = time >= worksite.start && time < worksite.end;
-  const ramp = clamp((time-worksite.start)/1.25);
-  const blend = reduced ? Number(inside) : ramp*ramp*(3-2*ramp);
+// The diagram establishes where the cargo goes before the sample comparison.
+function ResourcePass({time,reduced}:{time:number;reduced:boolean}) {
+  const ramp = clamp((time-118.75)/1.1);
+  const blend = reduced ? Number(time>=119.3) : ramp*ramp*(3-2*ramp);
   return <div className="plate resource-pass">
-    {blend < 1 && <div className="resource-map"><DispatchAtlas time={time} reduced={reduced}/></div>}
-    {(inside || (time>=worksite.start-1 && time<worksite.start)) &&
-      <div className="resource-exposure" aria-hidden={blend===0} aria-label={name} style={{opacity:blend}}>
-        <DocumentaryInsert photo={worksite} time={time} reduced={reduced} externalFade/>
-      </div>}
+    {blend<1 && <div className="resource-map"><DispatchAtlas time={time} reduced={reduced}/></div>}
+    {time>=118.5 && <div className="resource-exposure material-assay" style={{opacity:blend}} aria-hidden={blend===0}>
+      <figure>
+        <img src="/art/documentary/asteroid-samples.webp" alt="Two broken asteroid fragments expose icy inclusions and metallic grains."/>
+        <figcaption>
+          <div><small>Ice-bearing rock</small><strong>Water &amp; propellant</strong></div>
+          <div><small>Metal-bearing rock</small><strong>Structural metal</strong></div>
+        </figcaption>
+      </figure>
+      <span className="plate-caption">Asteroid cargo · Illustrative samples</span>
+    </div>}
   </div>;
 }
 
@@ -99,7 +102,7 @@ export function OpeningPlate({ index, seconds, started, reduced, visible }: {
     return <StagingPlate time={time} reduced={reduced} visible={visible} assembly={t=><FoundrySequence index={2} seconds={t} reduced={reduced} visible={visible}/>}/>;
   }
   if (index===2) {
-    return <ResourcePass time={time} reduced={reduced} name={shot.name}/>;
+    return <ResourcePass time={time} reduced={reduced}/>;
   }
   return <div className={branch>=0 ? "plate foundry-environment" : photo?.composition==='full' ? "plate photo-full-plate" : "plate"}>
     <div className="shot-window" aria-label={shot.name} style={{opacity: !started || reduced || photo ? 1 : .68+.32*clamp(local/.5)}}>

@@ -7,15 +7,15 @@
   "budget": {
     "currency": "credits",
     "assumption": "Multilingual v2 at 1 credit per submitted character, standard voice; actual workspace quote required.",
-    "characters": 4102,
-    "narrator": 4013,
+    "characters": 4051,
+    "narrator": 3962,
     "company": 89,
-    "revisionReserveCredits": 821,
-    "basePlusReserve": 4923,
+    "revisionReserveCredits": 811,
+    "basePlusReserve": 4862,
     "authorizedSpend": 0,
     "reusedCharacters": 1314,
-    "remainingCharacters": 2788,
-    "remainingBasePlusReserve": 3346
+    "remainingCharacters": 2737,
+    "remainingBasePlusReserve": 3285
   },
   "voices": {
     "narrator": {
@@ -148,7 +148,7 @@
   },
   "currentMaster": {
     "path": "src/media/audio/road-to-earth.mp3",
-    "sha256": "0a4d4022ed537b46a1253c29f0967262a3bf40e716fa99e56adfa8cff95b7c5f",
+    "sha256": "8cda449355b175d7fd44bcbabc7f76c1d8f2f077ec6238c8bbe4a2820374fe8b",
     "startSeconds": 0,
     "endSeconds": 331,
     "gainDb": 0,
@@ -156,14 +156,14 @@
     "fadeOutSeconds": 0,
     "layer": "mix",
     "scene": "all",
-    "version": "v3.2-import-10-mixer",
+    "version": "v3.2-import-12-materials",
     "source": "assets/audio/master.py",
     "voices": [
       "ElevenLabs Adam - Deep English Story Voice",
-      "macOS Daniel",
-      "macOS Samantha"
+      "Kokoro bm_george",
+      "Kokoro bf_emma"
     ],
-    "provenance": "User-supplied ElevenLabs narration and music exports, editor-supplied Hegemony effect, local draft voices and original synthesized effects. Historical generation settings and distribution entitlements are unverified.",
+    "provenance": "User-supplied ElevenLabs narration and music exports, editor-supplied Hegemony effect, locally synthesized Kokoro-82M voices and original synthesized effects. Historical generation settings and distribution entitlements are unverified.",
     "narratorGainLinear": 0.8
   },
   "proposedSample": {
@@ -595,8 +595,8 @@
       "speaker": "narrator",
       "text": "Caravan sent mining equipment to the asteroid belt. A small reserve followed, in case the main workshops were lost.",
       "startSeconds": 97.5,
-      "endSeconds": 104.97,
-      "targetDurationSeconds": 7.47,
+      "endSeconds": 105.725,
+      "targetDurationSeconds": 8.225,
       "characters": 115,
       "estimatedBaseCredits": 115,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -610,7 +610,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/resources-01.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "resources-02",
@@ -618,8 +623,8 @@
       "speaker": "narrator",
       "text": "The workshop packages headed inward. They arrived between Earth and the Moon, in a region called cislunar space.",
       "startSeconds": 106.5,
-      "endSeconds": 113.624,
-      "targetDurationSeconds": 7.124,
+      "endSeconds": 114.125,
+      "targetDurationSeconds": 7.625,
       "characters": 112,
       "estimatedBaseCredits": 112,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -633,18 +638,23 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/resources-02.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "resources-03",
       "scene": "resources",
       "speaker": "narrator",
-      "text": "From here, the workshops could supply equipment in Earth orbit. Shipments of asteroid rock and ice provided the raw materials.",
+      "text": "The workshops received shipments of rock from the belt. Some pieces held ice. Others held metal.",
       "startSeconds": 115.5,
-      "endSeconds": 123.464,
-      "targetDurationSeconds": 7.964,
-      "characters": 126,
-      "estimatedBaseCredits": 126,
+      "endSeconds": 122.275,
+      "targetDurationSeconds": 6.775,
+      "characters": 96,
+      "estimatedBaseCredits": 96,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
       "model": null,
       "settings": null,
@@ -656,18 +666,23 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/resources-03.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "industrial-build-up-01",
       "scene": "industrial-build-up",
       "speaker": "narrator",
-      "text": "The packages grew into a network of foundries. Foundry Alpha took ice from asteroids and turned it into water and propellant.",
-      "startSeconds": 127,
-      "endSeconds": 134.858,
-      "targetDurationSeconds": 7.858,
-      "characters": 125,
-      "estimatedBaseCredits": 125,
+      "text": "At Foundry Alpha, ice became water. Some of that water was turned into propellant for the ships carrying the next loads.",
+      "startSeconds": 126.3,
+      "endSeconds": 134.75,
+      "targetDurationSeconds": 8.45,
+      "characters": 120,
+      "estimatedBaseCredits": 120,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
       "model": null,
       "settings": null,
@@ -679,18 +694,23 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/industrial-build-up-01.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "industrial-build-up-02",
       "scene": "industrial-build-up",
       "speaker": "narrator",
-      "text": "Foundry Beta refined metal and made beams. Even the largest frame could cross the distance to the next workshop in pieces.",
+      "text": "Foundry Beta refined metal from the rock and shaped it into beams. Tugs carried the pieces to the assembly yard.",
       "startSeconds": 138,
-      "endSeconds": 145.917,
-      "targetDurationSeconds": 7.917,
-      "characters": 122,
-      "estimatedBaseCredits": 122,
+      "endSeconds": 146.2,
+      "targetDurationSeconds": 8.2,
+      "characters": 112,
+      "estimatedBaseCredits": 112,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
       "model": null,
       "settings": null,
@@ -702,18 +722,23 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/industrial-build-up-02.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "industrial-build-up-03",
       "scene": "industrial-build-up",
       "speaker": "narrator",
-      "text": "At Foundry Gamma, those pieces came together. A frame made here could carry a precision instrument brought from another star.",
-      "startSeconds": 150,
-      "endSeconds": 157.746,
-      "targetDurationSeconds": 7.746,
-      "characters": 125,
-      "estimatedBaseCredits": 125,
+      "text": "Foundry Gamma joined the beams into frames. Those frames held precision instruments that Caravan had brought from home.",
+      "startSeconds": 149.3,
+      "endSeconds": 157.725,
+      "targetDurationSeconds": 8.425,
+      "characters": 119,
+      "estimatedBaseCredits": 119,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
       "model": null,
       "settings": null,
@@ -725,7 +750,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/industrial-build-up-03.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "industrial-build-up-04",
@@ -733,8 +763,8 @@
       "speaker": "narrator",
       "text": "Depots held cargo until the next transfer. The workshops could keep different schedules.",
       "startSeconds": 162,
-      "endSeconds": 167.957,
-      "targetDurationSeconds": 5.957,
+      "endSeconds": 168.075,
+      "targetDurationSeconds": 6.075,
       "characters": 88,
       "estimatedBaseCredits": 88,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -748,7 +778,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/industrial-build-up-04.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "industrial-build-up-05",
@@ -756,8 +791,8 @@
       "speaker": "narrator",
       "text": "A fourth branch was called Foundry Delta. Its precise role remains uncertain.",
       "startSeconds": 170,
-      "endSeconds": 175.476,
-      "targetDurationSeconds": 5.476,
+      "endSeconds": 176.1,
+      "targetDurationSeconds": 6.1,
       "characters": 77,
       "estimatedBaseCredits": 77,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -771,7 +806,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/industrial-build-up-05.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "infrastructure-01",
@@ -779,8 +819,8 @@
       "speaker": "narrator",
       "text": "By now the Company could supply equipment in Earth orbit. From below, an object arriving there gave little indication of the industry behind it.",
       "startSeconds": 178,
-      "endSeconds": 186.836,
-      "targetDurationSeconds": 8.836,
+      "endSeconds": 188.15,
+      "targetDurationSeconds": 10.15,
       "characters": 144,
       "estimatedBaseCredits": 144,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -794,7 +834,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/infrastructure-01.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "infrastructure-02",
@@ -802,8 +847,8 @@
       "speaker": "narrator",
       "text": "Some of these objects entered human tracking records. A track could establish where something had been, and where to look for it again.",
       "startSeconds": 191,
-      "endSeconds": 199.324,
-      "targetDurationSeconds": 8.324,
+      "endSeconds": 199.675,
+      "targetDurationSeconds": 8.675,
       "characters": 135,
       "estimatedBaseCredits": 135,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -817,7 +862,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/infrastructure-02.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "infrastructure-03",
@@ -825,8 +875,8 @@
       "speaker": "narrator",
       "text": "What it carried, who had built it, and why it was there were harder questions.",
       "startSeconds": 204,
-      "endSeconds": 208.884,
-      "targetDurationSeconds": 4.884,
+      "endSeconds": 209.025,
+      "targetDurationSeconds": 5.025,
       "characters": 78,
       "estimatedBaseCredits": 78,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -840,7 +890,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/infrastructure-03.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-01",
@@ -848,8 +903,8 @@
       "speaker": "narrator",
       "text": "With ninety days left before contact, the workshops began handing over finished equipment.",
       "startSeconds": 214,
-      "endSeconds": 219.806,
-      "targetDurationSeconds": 5.806,
+      "endSeconds": 219.825,
+      "targetDurationSeconds": 5.825,
       "characters": 90,
       "estimatedBaseCredits": 90,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -863,7 +918,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-01.flac",
+        "voice": "bm_george",
+        "speed": 1.18
+      }
     },
     {
       "id": "final-staging-02",
@@ -871,8 +931,8 @@
       "speaker": "narrator",
       "text": "Near Earth, cargo from the Moon’s neighbourhood began to appear in separate groups in orbit.",
       "startSeconds": 220,
-      "endSeconds": 225.459,
-      "targetDurationSeconds": 5.459,
+      "endSeconds": 226.4,
+      "targetDurationSeconds": 6.4,
       "characters": 92,
       "estimatedBaseCredits": 92,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -886,7 +946,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-02.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-03",
@@ -894,8 +959,8 @@
       "speaker": "narrator",
       "text": "Among it were Quivers: disposable dispensers carrying the glide munitions of the opening Wave.",
       "startSeconds": 228,
-      "endSeconds": 233.9,
-      "targetDurationSeconds": 5.9,
+      "endSeconds": 234.8,
+      "targetDurationSeconds": 6.8,
       "characters": 94,
       "estimatedBaseCredits": 94,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -909,7 +974,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-03.flac",
+        "voice": "bm_george",
+        "speed": 1.03
+      }
     },
     {
       "id": "final-staging-04",
@@ -917,8 +987,8 @@
       "speaker": "narrator",
       "text": "A tug could spend weeks moving freight. There was time because the public deadline was still ahead.",
       "startSeconds": 235,
-      "endSeconds": 240.864,
-      "targetDurationSeconds": 5.864,
+      "endSeconds": 241.8,
+      "targetDurationSeconds": 6.8,
       "characters": 99,
       "estimatedBaseCredits": 99,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -932,7 +1002,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-04.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-05",
@@ -940,8 +1015,8 @@
       "speaker": "narrator",
       "text": "Wardens coordinated traffic in orbit. Far below them, Lanterns sensed and relayed from the stratosphere.",
       "startSeconds": 242,
-      "endSeconds": 248.72,
-      "targetDurationSeconds": 6.72,
+      "endSeconds": 248.775,
+      "targetDurationSeconds": 6.775,
       "characters": 104,
       "estimatedBaseCredits": 104,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -955,7 +1030,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-05.flac",
+        "voice": "bm_george",
+        "speed": 1.19
+      }
     },
     {
       "id": "final-staging-06",
@@ -963,8 +1043,8 @@
       "speaker": "narrator",
       "text": "Asteroids supplied metal. Compact fusion systems and high-grade seekers came from home.",
       "startSeconds": 249,
-      "endSeconds": 255.072,
-      "targetDurationSeconds": 6.072,
+      "endSeconds": 255.675,
+      "targetDurationSeconds": 6.675,
       "characters": 87,
       "estimatedBaseCredits": 87,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -978,7 +1058,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-06.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-07",
@@ -986,8 +1071,8 @@
       "speaker": "narrator",
       "text": "At Gamma, another assembly took shape around precision components drawn from a finite stock.",
       "startSeconds": 256,
-      "endSeconds": 261.957,
-      "targetDurationSeconds": 5.957,
+      "endSeconds": 262.425,
+      "targetDurationSeconds": 6.425,
       "characters": 92,
       "estimatedBaseCredits": 92,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1001,7 +1086,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-07.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-08",
@@ -1009,8 +1099,8 @@
       "speaker": "narrator",
       "text": "At an observatory, two exposures might show a point of light changing position. The measurement could be sound while its meaning remained unclear.",
       "startSeconds": 263,
-      "endSeconds": 271.431,
-      "targetDurationSeconds": 8.431,
+      "endSeconds": 271.8,
+      "targetDurationSeconds": 8.8,
       "characters": 146,
       "estimatedBaseCredits": 146,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1024,7 +1114,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-08.flac",
+        "voice": "bm_george",
+        "speed": 1.16
+      }
     },
     {
       "id": "final-staging-09",
@@ -1032,8 +1127,8 @@
       "speaker": "narrator",
       "text": "The scattered observations never became a warning governments could act on. The people comparing them had only pieces of the picture.",
       "startSeconds": 272,
-      "endSeconds": 279.638,
-      "targetDurationSeconds": 7.638,
+      "endSeconds": 279.725,
+      "targetDurationSeconds": 7.725,
       "characters": 133,
       "estimatedBaseCredits": 133,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1047,7 +1142,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-09.flac",
+        "voice": "bm_george",
+        "speed": 1.24
+      }
     },
     {
       "id": "final-staging-10",
@@ -1055,8 +1155,8 @@
       "speaker": "narrator",
       "text": "Domesday sensors covered selected ground corridors. Much of the terrain remained unseen.",
       "startSeconds": 280,
-      "endSeconds": 285.853,
-      "targetDurationSeconds": 5.853,
+      "endSeconds": 286.875,
+      "targetDurationSeconds": 6.875,
       "characters": 88,
       "estimatedBaseCredits": 88,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1070,7 +1170,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-10.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-11",
@@ -1078,8 +1183,8 @@
       "speaker": "narrator",
       "text": "In the final weeks, the workshops kept working as more of their output took its place above Earth.",
       "startSeconds": 287,
-      "endSeconds": 292.924,
-      "targetDurationSeconds": 5.924,
+      "endSeconds": 293.375,
+      "targetDurationSeconds": 6.375,
       "characters": 98,
       "estimatedBaseCredits": 98,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1093,7 +1198,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-11.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-12",
@@ -1101,8 +1211,8 @@
       "speaker": "narrator",
       "text": "One dispenser had already been set aside for a demonstration. Its public announcement would come later.",
       "startSeconds": 295,
-      "endSeconds": 301.77,
-      "targetDurationSeconds": 6.77,
+      "endSeconds": 301.625,
+      "targetDurationSeconds": 6.625,
       "characters": 103,
       "estimatedBaseCredits": 103,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1116,7 +1226,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-12.flac",
+        "voice": "bm_george",
+        "speed": 1.19
+      }
     },
     {
       "id": "final-staging-13",
@@ -1124,8 +1239,8 @@
       "speaker": "narrator",
       "text": "An inert Scythe would give observers a prediction to check. The event was still ahead.",
       "startSeconds": 302,
-      "endSeconds": 306.96,
-      "targetDurationSeconds": 4.96,
+      "endSeconds": 308.025,
+      "targetDurationSeconds": 6.025,
       "characters": 86,
       "estimatedBaseCredits": 86,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1139,7 +1254,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-13.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "final-staging-14",
@@ -1147,8 +1267,8 @@
       "speaker": "narrator",
       "text": "Nineteen months had passed since the Caravan arrived. On Earth, the first public word was still to come.",
       "startSeconds": 309,
-      "endSeconds": 315.782,
-      "targetDurationSeconds": 6.782,
+      "endSeconds": 316.35,
+      "targetDurationSeconds": 7.35,
       "characters": 104,
       "estimatedBaseCredits": 104,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1162,7 +1282,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/final-staging-14.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "notification-01",
@@ -1170,8 +1295,8 @@
       "speaker": "narrator",
       "text": "The Company opened a public channel.",
       "startSeconds": 317,
-      "endSeconds": 319.123,
-      "targetDurationSeconds": 2.123,
+      "endSeconds": 320.2,
+      "targetDurationSeconds": 3.2,
       "characters": 36,
       "estimatedBaseCredits": 36,
       "voiceId": "6FiCmD8eY5VyjOdG5Zjk",
@@ -1185,7 +1310,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/notification-01.flac",
+        "voice": "bm_george",
+        "speed": 1.0
+      }
     },
     {
       "id": "notification-02",
@@ -1193,8 +1323,8 @@
       "speaker": "company",
       "text": "This transmission is of nonhuman origin.",
       "startSeconds": 323,
-      "endSeconds": 325.515,
-      "targetDurationSeconds": 2.515,
+      "endSeconds": 326.325,
+      "targetDurationSeconds": 3.325,
       "characters": 40,
       "estimatedBaseCredits": 40,
       "voiceId": null,
@@ -1208,7 +1338,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/notification-02.flac",
+        "voice": "bf_emma",
+        "speed": 1.0
+      }
     },
     {
       "id": "notification-03",
@@ -1216,8 +1351,8 @@
       "speaker": "company",
       "text": "Leave military equipment and military structures.",
       "startSeconds": 327,
-      "endSeconds": 330.227,
-      "targetDurationSeconds": 3.227,
+      "endSeconds": 330.575,
+      "targetDurationSeconds": 3.575,
       "characters": 49,
       "estimatedBaseCredits": 49,
       "voiceId": null,
@@ -1231,7 +1366,12 @@
       "gainDb": 0,
       "fadeInSeconds": 0,
       "fadeOutSeconds": 0,
-      "license": null
+      "license": null,
+      "localTake": {
+        "path": "assets/audio/voices/kokoro/notification-03.flac",
+        "voice": "bf_emma",
+        "speed": 1.0
+      }
     }
   ],
   "hegemonyFx": {
@@ -1295,5 +1435,12 @@
       "loopCrossfadeSeconds": 2,
       "ducking": "sidechain from narration"
     }
+  },
+  "localSynthesis": {
+    "model": "hexgrad/Kokoro-82M",
+    "engineVersion": "0.9.4",
+    "language": "British English",
+    "sampleRate": 24000,
+    "generator": "assets/audio/kokoro_takes.py"
   }
 }
