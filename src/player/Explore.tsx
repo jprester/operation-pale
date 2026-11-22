@@ -38,7 +38,7 @@ export function Explore({section,select,elapsed,reduced,jump}:{section:Section;s
   return <section className="explorer" aria-label="Explore the archive">
     <div className="explore-heading"><h1>Explore the archive</h1><span>Film paused at {clock(elapsed)}</span></div>
     <nav className="explore-tools" aria-label="Archive collections">{sections.map(s=><button key={s} aria-pressed={section===s} onClick={()=>select(s)}>{s}</button>)}</nav>
-    {section==='Atlas' && <div className="atlas-study"><SolarAtlas initial={cut.plate==='road'?'local':'solar'} time={sourceTime} moving={false}/></div>}
+    {section==='Atlas' && <div className="atlas-study"><SolarAtlas initial={cut.plate==='hook' || cut.plate==='resources'?'solar':'local'} time={sourceTime} moving={false}/></div>}
     {section==='Equipment' && <Equipment/>}
     {section==='Transcript' && <div className="film-transcript">{beats.map((beat,i)=><details key={beat.label} open={i===current.index || undefined}>
       <summary>{pad(i+1)}　{beat.label}</summary><h2>{beat.title}</h2>

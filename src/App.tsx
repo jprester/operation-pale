@@ -1,7 +1,6 @@
 import {useEffect,useRef,useState} from 'react';
 import {indexedBeats,frameAt,introDuration,cover} from './data/opening';
 import {pictureAt} from './data/film/edl';
-import {chronology} from './data/road';
 import {OpeningPlate} from './scenes/OpeningPlate';
 import {usePlaybackClock} from './player/usePlaybackClock';
 import {AudioMix,type AudioTransport} from './player/AudioMix';
@@ -85,9 +84,9 @@ function App() {
         {watch && <OpeningPlate plate={cut.plate} time={sourceTime} scene={scene} seconds={seconds} started={started} reduced={reduced} visible={visible}/>}
         {!started ? <div className="film-cover"><p className="kicker"><i/> Speculative documentary</p><h1>Operation<span>:</span> Pale</h1>
           <p className="cover-line">{cover.title}</p><button className="cover-play" onClick={togglePlayback}><FilmIcon name="play"/>Play introduction</button></div> :
-        <><div className="film-clock"><span>{index<0 ? scene.label : pad(index+1) + ' / ' + pad(indexedBeats.length)}</span>{chronology(sourceTime)}</div>
+        <><div className="film-clock"><span>{index<0 ? '·' : pad(index+1) + ' / ' + pad(indexedBeats.length)}</span>{scene.label}</div>
         {scene.title && seconds<4 && <h2 className="cut-title" style={{opacity:titleOpacity}}>{scene.title}</h2>}
-        {captions && subtitle && <div className="subtitles"><span>{cue?.speaker==='Company transmission' && <b>Company　</b>}{subtitle.text}</span></div>}</>}
+        {captions && subtitle && <div className="subtitles"><span>{cue?.speaker==='Company transmission' && <b>Company transmission · reconstructed　</b>}{subtitle.text}</span></div>}</>}
       </div>
       <section className={'film-transport'+(chrome.hidden?' idle':'')} aria-label="Introduction playback">
         <button className="transport-play" aria-label={playing?'Pause':'Play'} onClick={togglePlayback}><FilmIcon name={playing?'pause':'play'}/></button>

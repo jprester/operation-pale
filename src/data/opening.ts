@@ -1,4 +1,4 @@
-import timeline from './film/timeline-v3.json';
+import timeline from './film/timeline.json';
 
 // Canonical text: Canon Handoff v2.4 §6 (docs/canon/CURRENT_CANON.md §5).
 export const publicNotice: string[] = [

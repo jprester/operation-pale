@@ -1,5 +1,11 @@
 # Pale Archive audio production
 
+## Introduction v4 · B3 rough mix
+
+From the repository root, `python3 -B assets/audio/master.py` rebuilds the running film’s three stems and stereo fallback in `src/media/audio/`. Use `--dialogue-review` for the separate B2 voice-only audition. The film now plays the measured v4 timeline and cue-anchored picture edit.
+
+The editor chose cold open A3, title impact A1, flashback A2, survey bed A1, staging A1 and ending A1. The [manifest](manifest.json) stores the decisions and sequence/cue-relative placements under `mix`. Bed loudness targets, source trim, fades and narrator gain (0.8) are editable there. The mixer ducks the music and ambience against dialogue; the player retains independent stem faders. Existing Approach Vector, Hegemony ambience and the resources drone provide the additional layers specified by the brief.
+
 ## Introduction v4 · B2 dialogue and score review
 
 The editor selected Fable + Onyx (2:1, speed 0.96) and Alice (speed 1.00). The [v4 timeline](../../src/data/film/timeline.json) gives the measured film positions. [Recording and score provenance](manifest.json) lists each file, voice or model, seed and settings. The running player uses the archived v3 timeline and stems through this audition checkpoint.
@@ -9,7 +15,7 @@ Run from the repository root:
 ```sh
 HF_HUB_OFFLINE=1 ~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python -B assets/audio/kokoro_takes.py
 ~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python -B assets/audio/check_recordings.py
-python3 -B assets/audio/master.py
+python3 -B assets/audio/master.py --dialogue-review
 python3 -B assets/audio/score_candidates.py
 ```
 

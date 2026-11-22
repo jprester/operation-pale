@@ -1,6 +1,6 @@
-import timeline from './timeline-v3.json';
+import timeline from './timeline.json';
 
-type Anchor = { at: string; offset?: number } | { sequence: string; at: number | 'end' };
+type Anchor = { at: string; offset?: number; edge?: 'end' } | { sequence: string; at: number | 'end' };
 export function resolveAnchor(anchor: Anchor): number {
   if ('sequence' in anchor) {
     const seq = timeline.sequences.find(seq => seq.id === anchor.sequence);
@@ -10,10 +10,10 @@ export function resolveAnchor(anchor: Anchor): number {
   const cue = timeline.cues.find(cue => cue.id === anchor.at);
   if (!cue) throw Error('Unknown picture cue: ' + anchor.at);
   // The recording sheet measures anchors to the millisecond.
-  return Math.round((cue.start + (anchor.offset ?? 0)) * 1000) / 1000;
+  return Math.round(((anchor.edge === 'end' ? cue.end : cue.start) + (anchor.offset ?? 0)) * 1000) / 1000;
 }
 
-type Plate = 'hook' | 'resources' | 'road';
+type Plate = 'hook' | 'resources' | 'road' | 'black' | 'title' | 'briefing' | 'observatory' | 'end' | 'delta';
 type Cut = {
   plate: Plate;
   id: string; from: Anchor; sourceStart: number; sourceEnd: number;
@@ -23,35 +23,45 @@ type Cut = {
 // Each cut ends at the next cut's anchor. Source in/out points are immutable
 // positions in the original v3 animation, independent of the active film clock.
 function v3(id: string, from: Anchor, sourceStart: number, sourceEnd: number, plate: Plate = 'road'): Cut {
-  return { id, plate, from, sourceStart, sourceEnd, fit: 'stretch', render: 'v3' };
+  return { id, plate, from, sourceStart, sourceEnd, fit: 'hold-end', render: 'v3' };
 }
 const cuts = [
-  v3('opening', { sequence: 'discovery', at: 0 }, 0, 29.5, 'hook'),
-  v3('survey', { at: 'hook-07', offset: -2.91 }, 29.5, 67.5, 'hook'),
-  v3('expedition', { sequence: 'expedition', at: 0 }, 67.5, 96.5, 'hook'),
-  v3('dispatch', { sequence: 'resources', at: 0 }, 96.5, 118.75, 'resources'),
-  v3('specimens', { at: 'resources-03', offset: 3.25 }, 118.75, 126, 'resources'),
-  v3('alpha', { sequence: 'industry', at: 0 }, 126, 138),
-  v3('beta', { at: 'industrial-build-up-02' }, 138, 149),
-  v3('gamma', { at: 'industrial-build-up-03', offset: -.3 }, 149, 161),
-  v3('depots', { at: 'industrial-build-up-04', offset: -1 }, 161, 170),
-  v3('delta', { at: 'industrial-build-up-05' }, 170, 177),
-  v3('infrastructure', { sequence: 'infrastructure', at: 0 }, 177, 214),
-  v3('finishing-bay', { at: 'final-staging-01' }, 214, 220),
-  v3('handoff', { at: 'final-staging-02' }, 220, 228),
-  v3('transit', { at: 'final-staging-03' }, 228, 235),
-  v3('orbital-register', { at: 'final-staging-04' }, 235, 242),
-  v3('relay', { at: 'final-staging-05' }, 242, 249),
-  v3('feedstock', { at: 'final-staging-06' }, 249, 256),
-  v3('final-assembly', { at: 'final-staging-07' }, 256, 263),
-  v3('observatory', { at: 'final-staging-08' }, 263, 272),
-  v3('surveillance', { at: 'final-staging-09' }, 272, 280),
-  v3('ground', { at: 'final-staging-10' }, 280, 286),
-  v3('countdown', { at: 'final-staging-11', offset: -1 }, 286, 295),
-  v3('assignment', { at: 'final-staging-12' }, 295, 302),
-  v3('record', { at: 'final-staging-13' }, 302, 309),
-  v3('tableau', { at: 'final-staging-14' }, 309, 317),
-  v3('notification', { sequence: 'notification', at: 0 }, 317, 331),
+  v3('head-black', { sequence: 'h-hour', at: 0 }, 0, 1, 'black'),
+  v3('orbital-register', { at: 'C0-01' }, 235, 242),
+  v3('surveillance', { at: 'C0-02' }, 272, 280),
+  v3('observatory', { at: 'C0-03' }, 214, 222, 'observatory'),
+  v3('order', { at: 'C0-06' }, 0, 1, 'black'),
+  v3('public-channel', { at: 'C0-07' }, 230, 238, 'briefing'),
+  v3('title', { sequence: 'title', at: 0 }, 0, 6, 'title'),
+  v3('galaxy', { sequence: 'record', at: 0 }, 35, 49, 'hook'),
+  v3('survey', { at: 'C1-02' }, 49, 62, 'hook'),
+  v3('charter', { at: 'C1-03' }, 62, 66.5, 'hook'),
+  v3('arrival', { sequence: 'manifest', at: 0 }, 67.5, 81.5, 'hook'),
+  v3('carrier', { at: 'C2-02' }, 81.5, 94, 'hook'),
+  v3('samples', { at: 'C2-05' }, 120, 126, 'resources'),
+  v3('belt', { at: 'C2-06' }, 96.5, 108, 'resources'),
+  v3('foundries', { sequence: 'foundries', at: 0 }, 161, 170),
+  v3('alpha', { at: 'C3-02' }, 126, 138),
+  v3('beta', { at: 'C3-03' }, 138, 149),
+  v3('gamma', { at: 'C3-04' }, 149, 161),
+  v3('delta', { at: 'C3-05' }, 170, 177, 'delta'),
+  v3('network', { at: 'C3-06' }, 161, 170),
+  v3('survey-map', { sequence: 'seen', at: 0 }, 161, 170),
+  v3('catalogue', { at: 'C4-03' }, 196, 206),
+  v3('astronomers', { at: 'C4-04' }, 263, 272),
+  v3('finishing-bay', { sequence: 'staging', at: 0 }, 214, 220),
+  v3('handoff', { at: 'C5-01', offset: 5 }, 220, 228),
+  v3('warden', { at: 'C5-01', offset: 12 }, 242, 246),
+  v3('relay', { at: 'C5-02' }, 246, 249),
+  v3('airspace', { at: 'C5-03' }, 214, 222, 'observatory'),
+  v3('ground', { at: 'C5-04' }, 280, 286),
+  v3('records', { at: 'C5-05' }, 272, 280),
+  v3('descent', { at: 'C5-06' }, 235, 242),
+  v3('descent-black', { at: 'C5-06', edge: 'end' }, 0, 1, 'black'),
+  v3('authenticated-contact', { sequence: 'h-zero', at: 0 }, 230, 238, 'briefing'),
+  v3('warden-contact', { at: 'C6-02' }, 242, 246),
+  v3('historian', { at: 'C6-03' }, 230, 238, 'briefing'),
+  v3('end-card', { at: 'C6-04', edge: 'end', offset: 3 }, 0, 6, 'end'),
 ];
 
 export const edl = cuts.map((cut, i) => {
@@ -60,7 +70,7 @@ export const edl = cuts.map((cut, i) => {
   if (end <= start || cut.sourceEnd <= cut.sourceStart || (i === 0 && start !== 0)) {
     throw Error('Invalid picture range: ' + cut.id);
   }
-  return { ...cut, start, end, rate: (cut.sourceEnd - cut.sourceStart) / (end - start) };
+  return { ...cut, start, end, rate: cut.fit === 'stretch' ? (cut.sourceEnd - cut.sourceStart) / (end - start) : 1 };
 });
 
 export function pictureAt(time: number) {

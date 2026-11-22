@@ -229,3 +229,73 @@ The script-fidelity check compared all 41 cue transcripts, speaker identities an
 ### Editor questions
 
 Which take should B3 use for each of the six cues? A retained v3 sound is also available where preferred. No candidate has been selected automatically.
+
+## Checkpoint B3 · rough cut
+
+Running time is **6:33.235**. Fable + Onyx narrate at 0.96×; Alice begins the Company transmission at 0:53.546. The measured cue table from B2 also applies to this mix. The stereo audition is [road-to-earth.mp3](../../src/media/audio/road-to-earth.mp3).
+
+| Sequence | Duration (s) |
+|---|---:|
+| H-hour | 112.210 |
+| Title | 6.000 |
+| The record | 43.487 |
+| The manifest | 50.804 |
+| The Foundries | 38.930 |
+| Seen, not understood | 27.810 |
+| Final staging | 71.154 |
+| H+0 | 42.840 |
+
+### Sound edit
+
+Editor selections in listening-table order are A3, A1, A2, A1, A1 and A1. The first music entrance is the title. The record uses the archived Hegemony ambience. Flashback A2 resumes in sync with its original through-composed arc at the start of the manifest. The resources drone enters at C2-04. The staging music reaches silence at the end of C5-06. The final six-second card uses the closing six seconds of Ending A1 with a three-second fade. The cold-open room tone also supports the first part of H+0. No new audio was generated.
+
+### Rough picture edit
+
+All moving source intervals play at **1.00×**. An interval longer than its destination is trimmed at the following cut. A shorter interval holds its last frame. Black, type and still plates are marked separately. This edit leaves the final inserts for picture review.
+
+| Segment | Film in–out (s) | Source in–out (s) | Treatment |
+|---|---:|---:|---|
+| head-black | 0.000–2.500 | 0–1 | Static plate |
+| orbital-register | 2.500–9.372 | 235–242 | 1.00× |
+| surveillance | 9.372–19.794 | 272–280 | 1.00× then hold 2.422 s |
+| observatory | 19.794–44.198 | 214–222 | 1.00× then hold 16.404 s |
+| order | 44.198–53.546 | 0–1 | Static plate |
+| public-channel | 53.546–112.210 | 230–238 | 1.00× then hold 50.664 s |
+| title | 112.210–118.210 | 0–6 | 1.00× |
+| galaxy | 118.210–129.818 | 35–49 | 1.00× |
+| survey | 129.818–138.082 | 49–62 | 1.00× |
+| charter | 138.082–161.697 | 62–66.5 | 1.00× then hold 19.115 s |
+| arrival | 161.697–171.954 | 67.5–81.5 | 1.00× |
+| carrier | 171.954–200.921 | 81.5–94 | 1.00× then hold 16.467 s |
+| samples | 200.921–203.534 | 120–126 | 1.00× |
+| belt | 203.534–212.501 | 96.5–108 | 1.00× |
+| foundries | 212.501–218.396 | 161–170 | 1.00× |
+| alpha | 218.396–221.712 | 126–138 | 1.00× |
+| beta | 221.712–227.962 | 138–149 | 1.00× |
+| gamma | 227.962–232.434 | 149–161 | 1.00× |
+| delta | 232.434–240.646 | 170–177 | Static plate |
+| network | 240.646–251.431 | 161–170 | 1.00× then hold 1.785 s |
+| survey-map | 251.431–263.432 | 161–170 | 1.00× then hold 3.001 s |
+| catalogue | 263.432–270.110 | 196–206 | 1.00× |
+| astronomers | 270.110–279.241 | 263–272 | 1.00× then hold 0.131 s |
+| finishing-bay | 279.241–285.741 | 214–220 | 1.00× then hold 0.500 s |
+| handoff | 285.741–292.741 | 220–228 | 1.00× |
+| warden | 292.741–296.830 | 242–246 | 1.00× then hold 0.089 s |
+| relay | 296.830–304.723 | 246–249 | 1.00× then hold 4.893 s |
+| airspace | 304.723–318.375 | 214–222 | 1.00× then hold 5.652 s |
+| ground | 318.375–328.350 | 280–286 | 1.00× then hold 3.975 s |
+| records | 328.350–343.283 | 272–280 | 1.00× then hold 6.933 s |
+| descent | 343.283–347.395 | 235–242 | 1.00× |
+| descent-black | 347.395–350.395 | 0–1 | Static plate |
+| authenticated-contact | 350.395–361.114 | 230–238 | 1.00× then hold 2.719 s |
+| warden-contact | 361.114–369.271 | 242–246 | 1.00× then hold 4.157 s |
+| historian | 369.271–387.235 | 230–238 | 1.00× then hold 9.964 s |
+| end-card | 387.235–393.235 | 0–6 | Static plate |
+
+### Verification
+
+All four decoded tracks measure 393.235 s. The music stem is silent during the cold open, the record, the survey sequence and the final staging hold. The decoded master contains silence across the interior of the two-second handover into C0-07. All 41 recordings passed the locked-script and timing check. The largest measured pause deviation is 12 ms. Chromium exercised all eight sequences forward and backward at desktop and mobile widths, cue-aligned captions, pause/resume, independent gains, mute, restart and missing-stem fallback. TypeScript and the production build passed with the existing React Three Fiber chunk-size advisory. Listening is reserved for the editor.
+
+### Editor questions
+
+Do the voice and bed levels work for you during the transmission, flashback and ending? The briefing and observatory images currently stand in for new inserts, and the provisional Delta exterior appears without its obsolete v3 role label. Final picture work follows the B3 listening review.

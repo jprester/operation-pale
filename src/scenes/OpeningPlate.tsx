@@ -99,6 +99,20 @@ export function OpeningPlate({ plate, time, scene, seconds, started, reduced, vi
   const branch = foundryBranches.findIndex(b=>b.key===shot.view);
   const render3D = started && !reduced && visible;
   const photo = shot.view==='photo' ? documentaryPhotos.find(item=>time>=item.start && time<item.end) : undefined;
+  if (!started || plate === 'title') return <div className="plate"><SpaceView carrier={false} seconds={started?time:0} render3D={render3D}/>
+    {started && <div className="film-cover"><h1>Operation: Pale</h1><p className="cover-line">The acquisition of Earth.</p></div>}</div>;
+  if (plate === 'black') return <div style={{position:'absolute',inset:0,background:'black'}}/>;
+  if (plate === 'end') return <div className="plate"><RecordPlate eyebrow="Episode 1" title="The first forty-eight hours." detail=""/></div>;
+  if (plate === 'briefing' || plate === 'observatory') {
+    const id = plate === 'briefing' ? 'intelligence-briefing' : 'observatory-night';
+    const photo = documentaryPhotos.find(item => item.id === id)!;
+    return <div className="plate photo-full-plate"><DocumentaryInsert photo={{...photo,composition:'full'}} time={time} reduced={reduced} externalFade/></div>;
+  }
+  if (plate === 'delta') {
+    const delta = foundryBranches.find(branch => branch.key === 'delta')!;
+    return <div className="plate foundry-environment"><img className="carrier-poster" src={posterUrl(delta)} alt="Foundry Delta exterior"/>
+      <span className="plate-caption">Foundry Delta · Artistic reconstruction</span></div>;
+  }
   if (started && plate === 'hook') return <OpeningHook time={time} reduced={reduced} live={render3D}/>;
   if (shot.view==='staging' || shot.view==='notice' && local<4) {
     return <StagingPlate time={time} reduced={reduced} visible={visible} assembly={t=><FoundrySequence index={2} seconds={t} reduced={reduced} visible={visible}/>}/>;

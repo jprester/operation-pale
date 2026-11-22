@@ -23,7 +23,7 @@
       "path": "assets/audio/generated/bed-cold-open/bed-cold-open-a1.wav",
       "sha256": "66a759b8c563e1cda71abe7ab578690ff185fad90f91bfc0e5020033a9fd80e9",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "bed-cold-open-a2",
@@ -43,7 +43,7 @@
       "path": "assets/audio/generated/bed-cold-open/bed-cold-open-a2.wav",
       "sha256": "d505f1baba9a37010f0315c0659791eb4d1cb91dc89f5254524b4ce42cba1323",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "bed-cold-open-a3",
@@ -63,7 +63,7 @@
       "path": "assets/audio/generated/bed-cold-open/bed-cold-open-a3.wav",
       "sha256": "daeea59a29a799538fb466a98fc97d5ab0b40263b9a5a6d5e875bb7ea91ac4c2",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "selected by editor"
     },
     {
       "id": "hit-title-a1",
@@ -83,7 +83,7 @@
       "path": "assets/audio/generated/hit-title/hit-title-a1.wav",
       "sha256": "aa1383bc1f008ea05712eafc19e352aa52638c7e8f995c97603d6ef2536d7a4c",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "selected by editor"
     },
     {
       "id": "hit-title-a2",
@@ -103,7 +103,7 @@
       "path": "assets/audio/generated/hit-title/hit-title-a2.wav",
       "sha256": "ed70bffc2fad1375f525f561ad067554b65c6e6655c962a31fae40f3800e11f8",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "hit-title-a3",
@@ -123,7 +123,7 @@
       "path": "assets/audio/generated/hit-title/hit-title-a3.wav",
       "sha256": "0117a57bd04394d3af13d7a37a97636079b56d3ab2f1b2002780fe4d397fb97d",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "score-flashback-a1",
@@ -143,7 +143,7 @@
       "path": "assets/audio/generated/score-flashback/score-flashback-a1.wav",
       "sha256": "a520051664bdf3add4d795af88a733b6e76c7dd5dc7600cee558e253bea839c9",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "score-flashback-a2",
@@ -163,7 +163,7 @@
       "path": "assets/audio/generated/score-flashback/score-flashback-a2.wav",
       "sha256": "44c6709983ca936ed5519d623308204c0c98ed6fd411da49a9ca811b975dc4b2",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "selected by editor"
     },
     {
       "id": "score-flashback-a3",
@@ -183,7 +183,7 @@
       "path": "assets/audio/generated/score-flashback/score-flashback-a3.wav",
       "sha256": "fe9a600c1174fff9b3cd90e32e05ec7a05f8d75ff383f7561e5100c4521ba48c",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "bed-seen-a1",
@@ -203,7 +203,7 @@
       "path": "assets/audio/generated/bed-seen/bed-seen-a1.wav",
       "sha256": "eec6b71d40554170afd8d1ce8834fc4f23b87f3467d9e1f87e1438b85a23b7f8",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "selected by editor"
     },
     {
       "id": "bed-seen-a2",
@@ -223,7 +223,7 @@
       "path": "assets/audio/generated/bed-seen/bed-seen-a2.wav",
       "sha256": "272e32b40b538c8a629a9dd00103b58dc412dbfbe6a4aa3acc6b8e23d3450d34",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "bed-seen-a3",
@@ -243,7 +243,7 @@
       "path": "assets/audio/generated/bed-seen/bed-seen-a3.wav",
       "sha256": "1a9fa8dba59067de65ae65b005988a5a1dea93a558435cebfed86b460c70ac40",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "score-staging-a1",
@@ -263,7 +263,7 @@
       "path": "assets/audio/generated/score-staging/score-staging-a1.wav",
       "sha256": "e51d224f665b424408c847f69d6eff3e5f5e668bf076a7bf5b754408435e0df1",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "selected by editor"
     },
     {
       "id": "score-staging-a2",
@@ -283,7 +283,7 @@
       "path": "assets/audio/generated/score-staging/score-staging-a2.wav",
       "sha256": "7fcda9bf364156bf6c7b3f90467c58053fa6eac98295b4ff86f869dd021feb8c",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "score-staging-a3",
@@ -303,7 +303,7 @@
       "path": "assets/audio/generated/score-staging/score-staging-a3.wav",
       "sha256": "d32a4d32785678566a058588d54d447998cad56eadcc247e789889de221db0eb",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "score-end-a1",
@@ -323,7 +323,7 @@
       "path": "assets/audio/generated/score-end/score-end-a1.wav",
       "sha256": "848e877793931b9bce6d68fad69ebf65fbb774f11a15cef655d8ccaa27a7c7de",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "selected by editor"
     },
     {
       "id": "score-end-a2",
@@ -343,7 +343,7 @@
       "path": "assets/audio/generated/score-end/score-end-a2.wav",
       "sha256": "2b1353b62adb41ed26e0c2ea532c379c2fdc18d66ea481fef5819da77a42b762",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     },
     {
       "id": "score-end-a3",
@@ -363,7 +363,7 @@
       "path": "assets/audio/generated/score-end/score-end-a3.wav",
       "sha256": "9673127e170e053cf0c7d028bb3fdfd66a0d2be012350675cbf6667e9939ad21",
       "license": "Stability AI Community License",
-      "approval": "candidate"
+      "approval": "rejected"
     }
   ],
   "segments": [
@@ -828,5 +828,188 @@
     "torchThreads": 4,
     "seedPerCue": 42,
     "loudness": "loudnorm=I=-18:TP=-2:LRA=8"
+  },
+  "mix": {
+    "narratorGainLinear": 0.8,
+    "placements": [
+      {
+        "asset": "bed-cold-open",
+        "bus": "effects",
+        "start": {
+          "sequence": "h-hour",
+          "at": 0
+        },
+        "end": {
+          "at": "C0-06",
+          "edge": "end"
+        },
+        "levelLUFS": -35,
+        "fadeIn": 0.3,
+        "fadeOut": 0.65,
+        "sourceIn": 0
+      },
+      {
+        "asset": "bed-cold-open",
+        "bus": "effects",
+        "start": {
+          "at": "C0-07",
+          "edge": "start"
+        },
+        "end": {
+          "sequence": "title",
+          "at": 0
+        },
+        "levelLUFS": -37,
+        "fadeIn": 0.8,
+        "fadeOut": 1,
+        "sourceIn": 54
+      },
+      {
+        "asset": "music",
+        "bus": "music",
+        "start": {
+          "sequence": "title",
+          "at": 0
+        },
+        "end": {
+          "sequence": "record",
+          "at": 0
+        },
+        "levelLUFS": -27,
+        "fadeIn": 0.25,
+        "fadeOut": 0.85,
+        "sourceIn": 0
+      },
+      {
+        "asset": "hit-title",
+        "bus": "effects",
+        "start": {
+          "sequence": "title",
+          "at": 0
+        },
+        "end": {
+          "sequence": "record",
+          "at": 2
+        },
+        "levelLUFS": -24,
+        "fadeIn": 0.01,
+        "fadeOut": 0.7,
+        "sourceIn": 0
+      },
+      {
+        "asset": "hegemonyFx",
+        "bus": "effects",
+        "start": {
+          "sequence": "record",
+          "at": 0
+        },
+        "end": {
+          "sequence": "manifest",
+          "at": 0
+        },
+        "levelLUFS": -35,
+        "fadeIn": 1.5,
+        "fadeOut": 1.5,
+        "sourceIn": 0
+      },
+      {
+        "asset": "score-flashback",
+        "bus": "music",
+        "start": {
+          "sequence": "manifest",
+          "at": 0
+        },
+        "end": {
+          "sequence": "seen",
+          "at": 0
+        },
+        "levelLUFS": -30,
+        "fadeIn": 1.2,
+        "fadeOut": 2,
+        "sourceIn": 0,
+        "sourceInSequenceDuration": "record"
+      },
+      {
+        "asset": "resourcesDrone",
+        "bus": "effects",
+        "start": {
+          "at": "C2-04",
+          "edge": "start"
+        },
+        "end": {
+          "sequence": "seen",
+          "at": 2
+        },
+        "levelLUFS": -38,
+        "fadeIn": 2,
+        "fadeOut": 2,
+        "sourceIn": 0
+      },
+      {
+        "asset": "bed-seen",
+        "bus": "effects",
+        "start": {
+          "sequence": "seen",
+          "at": 0
+        },
+        "end": {
+          "sequence": "staging",
+          "at": 0
+        },
+        "levelLUFS": -36,
+        "fadeIn": 1,
+        "fadeOut": 1.2,
+        "sourceIn": 0
+      },
+      {
+        "asset": "score-staging",
+        "bus": "music",
+        "start": {
+          "sequence": "staging",
+          "at": 0
+        },
+        "end": {
+          "at": "C5-06",
+          "edge": "end"
+        },
+        "levelLUFS": -29,
+        "fadeIn": 1.5,
+        "fadeOut": 2.5,
+        "sourceIn": 0
+      },
+      {
+        "asset": "bed-cold-open",
+        "bus": "effects",
+        "start": {
+          "sequence": "h-zero",
+          "at": 0
+        },
+        "end": {
+          "at": "C6-04",
+          "edge": "end"
+        },
+        "levelLUFS": -37,
+        "fadeIn": 1.2,
+        "fadeOut": 1,
+        "sourceIn": 25
+      },
+      {
+        "asset": "score-end",
+        "bus": "music",
+        "start": {
+          "at": "C6-04",
+          "edge": "end",
+          "offset": 3
+        },
+        "end": {
+          "sequence": "h-zero",
+          "at": "end"
+        },
+        "levelLUFS": -29,
+        "fadeIn": 1,
+        "fadeOut": 3,
+        "sourceIn": 24
+      }
+    ]
   }
 }
