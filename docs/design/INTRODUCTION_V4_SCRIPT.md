@@ -1,6 +1,6 @@
 # Introduction v4: script and recording sheet
 
-**Status:** proposed, 22 November 2026. Not yet recorded or implemented.
+**Status:** locked, with revision R1 (see *Revisions* at the end). Recorded draft in Kokoro; picture pass pending.
 **Supersedes:** the narration in `src/data/audio/dialogue.json` and the narration sections of `OPENING_HOOK.md` (v3.2), `FINAL_STAGING.md` (v3.1) and `INTRODUCTION_V2*.md`. Picture and engineering notes in those files still apply where this script reuses their shots.
 **Canon:** `docs/canon/CURRENT_CANON.md`, including decisions D1 (v2.4 opening, no demonstrations) and D2 (historian narrator).
 
@@ -15,7 +15,7 @@
 
 **Narrator.** Lower-middle register, dry and unhurried, about 135–145 words per minute. Read it as a lecture by someone who has read every file, not as a trailer. No upward inflection at line ends and no dramatic emphasis on numbers. Let the short sentences land flat. Pauses marked ‖ are about 0.8 s; ‖‖ is about 2 s.
 
-**Company transmission.** A different, neutral synthetic voice, slightly faster and evenly stressed. Captions carry the speaker label "Company transmission · reconstructed". The text below is canonical and verbatim; do not paraphrase it.
+**Company transmission (R1).** Not voiced. The Notification appears as silent on-screen text in the emergency receiver, over room tone only. The text is canonical and verbatim; do not paraphrase it. The narrator's voice is the only voice in the introduction.
 
 ## Structure
 
@@ -51,15 +51,15 @@ The marked pauses are generous on purpose. Expect about 6:15 after the first edi
 | C0-05 | Narrator | The other explanation was institutionally absurd, until it stopped being optional. ‖‖ |
 | C0-06 | Narrator | In Washington, the first order of the day was a negative one. ‖ No strategic launch without proof of a human nuclear attack. ‖‖ |
 
-**Picture.** Timestamp changes to `H+0:00 · PUBLIC CHANNEL`. The `notice` plate: people reading. Transmission text appears line by line in the emergency-receiver treatment and is held on screen.
+**Picture.** Timestamp changes to `H+0:00 · PUBLIC CHANNEL`. The `notice` plate: people reading. Transmission text appears line by line in the emergency-receiver treatment and is held on screen. **Silent (R1):** no voice and no music, only room tone and a faint receiver carrier. Each line holds long enough to read: about 1.2 s plus 0.28 s per word, roughly 23 s in all.
 
 | ID | Speaker | Line |
 |---|---|---|
-| C0-07 | Company transmission | This transmission is not of human origin. ‖ Military forces worldwide are being neutralized now. ‖ This is not an attack by any human state. ‖ Civilian population centres, hospitals, food systems, water systems, and electrical infrastructure are not targets. ‖ Do not launch strategic weapons. ‖ Leave disabled military facilities and equipment immediately. ‖ Further instructions will follow. ‖‖ |
+| C0-07 | On-screen text, not voiced | This transmission is not of human origin. ‖ Military forces worldwide are being neutralized now. ‖ This is not an attack by any human state. ‖ Civilian population centres, hospitals, food systems, water systems, and electrical infrastructure are not targets. ‖ Do not launch strategic weapons. ‖ Leave disabled military facilities and equipment immediately. ‖ Further instructions will follow. ‖‖ |
 | C0-08 | Narrator | It was the first thing the Company said to humanity. ‖ Every statement in it was true. ‖‖ |
 | C0-09 | Narrator | Within the hour, strategic launch, air defence and combat aviation had ceased to function as systems across most of the planet. |
 | C0-10 | Narrator | Some aircraft got into the air. Some crews fought, and a few of them won their fights. ‖ None of it added up to a war. ‖ |
-| C0-11 | Narrator | Around the bases, the cities kept their lights. ‖‖ |
+| C0-11 | Narrator | Around the bases, the cities kept their lights. ‖ In most of them, people did not yet understand what had been taken. ‖‖ Not their homes. ‖ Not their lives. ‖ Only the ability to defend them. ‖‖ |
 
 **Title.** Cover globe, *Operation: Pale*, subtitle *The acquisition of Earth.* First music entrance.
 
@@ -195,3 +195,12 @@ Every factual claim above traces to `CURRENT_CANON.md`:
 - The unasked question: v1.5 epilogue.
 
 The line "No one on Earth saw it come" (C2-01) rests on v1.5, where the Caravan's insertion is not detected; the Foundries' infrared sources are what was later seen.
+
+---
+
+## Revisions
+
+**R1 · 2026-11-22 (editor).**
+- **C0-07:** the Company transmission is no longer voiced. A second voice broke the mood of the narrated cold open. The canonical text stays on screen as silent receiver text with room tone, and C0-08 ("It was the first thing the Company said to humanity…") still follows it. The Alice take is retired, not deleted.
+- **C0-11:** extended to give the cold open a closing beat before the title: the cities keep their lights, people don't yet understand what was taken, and what was taken was the ability to defend them. This rests on the realisation in Opening 48 Hours, H+1–3: the Company was attacking the state's ability to use organised force, not the country.
+
