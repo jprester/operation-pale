@@ -104,6 +104,8 @@ The v3 cut should play **exactly as before** through the new timeline, EDL and a
 
 ## 3. Narration and audio (Phase 2)
 
+**Read `assets/audio/LOCAL_TOOLCHAIN.md` before starting this phase.** All speech and any new music or sound design are generated locally: Kokoro through Podcast Studio's Python environment, and Stable Audio 3 through its MLX environment. Paid generation stays off. You cannot hear the output, so every generation step ends with a list of files, commands and settings for the editor to audition.
+
 ### 3.1 Ingest the script
 
 Parse the cue tables in `INTRODUCTION_V4_SCRIPT.md` (IDs `C0-01` … `C6-04`) into `timeline.json`. Text goes in exactly as written. The markers become timing, never text:
@@ -119,7 +121,8 @@ Further split any subtitle phrase longer than about 70 characters at a comma. Th
 
 ### 3.2 Voices
 
-- Narrator: Kokoro `bm_george`. Company transmission: Kokoro `bf_emma`, one cue, `C0-07`, read verbatim.
+- Narrator: Kokoro, default `bm_george`; the final voice is chosen at the audition in §3.3. Company transmission: Kokoro `bf_emma` by default, one cue, `C0-07`, read verbatim.
+- Run `kokoro_takes.py` with Podcast Studio's interpreter: `~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python`. Replace the docstring's reference to "Podcast Studio's Kokoro environment" with that exact path, and document it in `PRODUCTION.md`.
 - **Retire the ElevenLabs Adam opening.** Remove it from the mix path in `master.py`. Keep the file, and mark its manifest entry `retired: v3 opening, superseded by Introduction v4`. The old `pauseEdits` logic goes with it.
 - Update `manifest.json`: set `edition` to `Introduction v4`, add one segment per cue, set budget `authorizedSpend: 0`, and leave no ElevenLabs takes in use.
 
@@ -128,6 +131,7 @@ Further split any subtitle phrase longer than about 70 characters at a comma. Th
 Change `kokoro_takes.py`:
 
 - **Synthesise phrase by phrase** (split at `‖`) and join with the authored silences, so the pauses are real and caption entrances are exact. Caption `at` values come from the phrase joins, refined by onset detection as now.
+- **Trim each phrase's edge silence** to about 50 ms before inserting authored pauses. Kokoro's own padding otherwise lengthens every pause (see `LOCAL_TOOLCHAIN.md` §1). Keep each synthesis call under about 250 characters; Kokoro rushes longer inputs.
 - **Remove the speed-up-to-fit loop.** The timeline flexes to the recording, not the reverse. Cue starts are laid out in order: sequence head hold + cue durations + authored gaps. Sequence durations are the sum, plus the tail holds below. The script writes the results into `timeline.json`.
 
 Head and tail holds (editor-adjustable constants, kept in one place):
@@ -141,11 +145,34 @@ Head and tail holds (editor-adjustable constants, kept in one place):
 | Every other sequence head | 1.5 s |
 | `h-zero` tail | 6.0 s hold on the end card |
 
-**Narrator speed audition (do this first).** Render C0-01 to C0-03 at Kokoro speed 0.92, 0.96 and 1.00 into `assets/audio/voices/kokoro/audition/`. The voice direction is lower-middle register, dry and unhurried, about 135–145 words per minute. Render the full set only after the editor picks a speed. Company speed: start at 1.00.
+**Voice audition (do this first; Checkpoint B1).** Render C0-01 to C0-03 into `assets/audio/voices/kokoro/audition/` as:
+- `bm_george` at speed 0.92, 0.96 and 1.00;
+- the blends `bm_george*2+am_onyx` and `bm_fable*2+am_onyx` at 0.96.
 
-### 3.4 Mix
+Also render C0-07 (the Company transmission) with `bf_emma` and one other British female voice of your choice, at 1.00.
 
-Re-author `master.py` placements relative to sequences or cues, not absolute seconds. Move the procedural `events` list to sequence-relative times and drop the `+22` offset hack.
+The narrator direction is lower-middle register, dry and unhurried, about 135–145 words per minute. For each file, report the voice, speed, duration and measured words per minute. Stop. Render the full set only after the editor picks the voices and speed.
+
+### 3.4 Score and sound-design candidates (Stable Audio 3; Checkpoint B2)
+
+The v3 bed is a single 30-second ElevenLabs track (Approach Vector) looped with crossfades. The other effects are ElevenLabs downloads with no licence records. Generate local alternatives with Stable Audio 3, following `LOCAL_TOOLCHAIN.md` §2: three takes each, provenance in the manifest's `generated` list, files in `assets/audio/generated/<cue>/`.
+
+The existing ElevenLabs assets stay available. The editor chooses per cue at Checkpoint B2.
+
+| Cue | Model | Length | Starting prompt (adjust freely; describe sound, not scene) |
+|---|---|---|---|
+| `bed-cold-open` | `sm-sfx` | measured `h-hour` length + 10 s | Low steady room tone with a faint sub-bass vibration, distant ventilation hum, very sparse, no melody, no drums, no pulses. |
+| `hit-title` | `sm-sfx` | 8 s | Single deep sub-bass impact with a long dark decay, no reverb tail brightness, no melody. |
+| `score-flashback` | `medium` | measured `record`+`manifest`+`foundries` length | Slow, restrained orchestral-electronic score. Begins with sparse low strings and a cold synth pad, steady and patient, gradually adds soft repeating mechanical textures, never triumphant. No drums, no vocals, no melody lead. |
+| `bed-seen` | `sm-sfx` | measured `seen` length + 10 s | Thin high air tone with very faint static, almost silent, uneasy, no melody, no drums. |
+| `score-staging` | `medium` | measured `staging` length + 10 s | Dark ambient composition. Begins with a low drone and slow pulsing pad, gradually builds dissonant bowed strings and deep swells toward a restrained peak, then thins abruptly to a single held low tone. No drums, no vocals. |
+| `score-end` | `sm-music` | 30 s | Sparse cold piano-like tones over a low pad, slow, unresolved, no drums. |
+
+Where a cue has to fit a measured sequence length, generate after the full narration takes exist, so that lengths are known.
+
+### 3.5 Mix
+
+Re-author `master.py` placements relative to sequences or cues, not absolute seconds. Move the procedural `events` list to sequence-relative times and drop the `+22` offset hack. Each row below names the v3 asset; the Stable Audio candidate selected at B2 replaces it where the editor says so.
 
 | Element | Placement |
 |---|---|
@@ -159,9 +186,13 @@ Re-author `master.py` placements relative to sequences or cues, not absolute sec
 
 Keep dialogue ducking, the three stems (dialogue, music, effects), the fallback master, the narrator fader and the in-player Audio settings. `master.py` must still fail loudly if a cue overruns its sequence.
 
-### 3.5 Checkpoint B
+### 3.6 Checkpoint B (three stops)
 
-Deliver a **rough cut**: the full new narration and mix over the existing picture, mapped through the EDL. Placeholder plates are fine where new inserts don't exist yet. The editor listens before any picture work. Report the measured duration of each sequence and the total. Commit.
+- **B1, voice audition:** the audition files and the report from §3.3. Stop for the editor's choice.
+- **B2, score and sound candidates:** after the full narration is rendered, the §3.4 takes, with a listening list (cue, take, path, model, prompt, seconds). Stop for the editor's choice.
+- **B3, rough cut:** the full new narration and the chosen mix over the existing picture, mapped through the EDL. Placeholder plates are fine where new inserts don't exist yet. Report the measured duration of each sequence and the total. The editor listens before any picture work.
+
+Commit at each stop.
 
 ---
 
@@ -320,7 +351,7 @@ These texts are editor-approved archive copy. Use them verbatim.
 
 - Changing any script line or canon decision.
 - **Remodelling Foundry Delta in Blender.** That is a separate task: change the label now and leave the model.
-- ElevenLabs or any paid takes.
+- ElevenLabs or any paid takes. Local Kokoro and Stable Audio 3 only.
 - Any H+0 to H+1 combat content beyond what the script shows.
 - Episode 1.
 

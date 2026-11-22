@@ -21,6 +21,7 @@ Build an interactive, cinematic documentary archive about **Operation: Pale**. I
 - Avoid adding dependencies without a concrete reason.
 - Do not copy third-party images, proprietary music, or real footage without clear licensing.
 - Run `npm run build` after changes (or report installation/network blockers).
+- Audio is generated locally (Kokoro TTS, Stable Audio 3); see `assets/audio/LOCAL_TOOLCHAIN.md`. No paid generation without the editor's explicit approval. You cannot hear audio: report commands, settings and file paths for the editor to audition.
 
 ## Editorial principles
 - Documentary restraint: observational, analytically precise, understated.
