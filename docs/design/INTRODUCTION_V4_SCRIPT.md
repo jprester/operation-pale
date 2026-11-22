@@ -23,7 +23,7 @@ Durations are estimates at 140 wpm plus marked pauses and holds. Re-measure afte
 
 | # | Sequence label | Cut title | Est. duration | Existing shots reused | New or changed picture |
 |---|---|---|---|---|---|
-| 0 | H-hour | — | 2:05 | `staging` dock (Earth orbital register, now with uncorrelated-object tags), `surveillance`, `astronomers`, `notice` | Optional H−20 operations-room plate (photographic reconstruction, human side) |
+| 0 | H-hour | — | 2:20 | `surveillance`, `observatory-night`, `notice` (`intelligence-briefing`) | **R2:** night-sky plate with moving points and entry streaks; HTML catalogue list; tracking-display overlay; night-city plate (CR-1). No Company hardware. |
 | — | Title | *Operation: Pale* | 0:06 | Cover globe | — |
 | 1 | The record | The record. | 0:55 | Galaxy plate, survey glyphs, charter record | — |
 | 2 | The manifest | What could not be made here. | 1:05 | Solar atlas, Caravan broadside, `extraction`, asteroid specimens | Manifest card (HTML) |
@@ -39,7 +39,15 @@ The marked pauses are generous on purpose. Expect about 6:15 after the first edi
 
 ## 0 · H-hour
 
-**Picture.** Black. Small amber timestamp: `H−36 H · SPACE CATALOGUE`. Fade up on the Earth orbital register: new objects appear one by one, each tagged `UNCORRELATED`. Cut to the surveillance plate (unassigned tracks). Timestamp changes to `H−20 MIN · TRACKING RECORD`: the same objects begin to show re-entry arcs. Astronomers plate. Hold on black for the order.
+**Visual rule for the cold open (R2).** Everything is seen from the ground, through human eyes and human instruments. No Company hardware appears: no Quivers, Coffers, Wardens or orbital renders. The hardware is revealed in the flashback, and sequence 5 ends on the Coffers descending, seen from the Company's side. That mirrors the cold open's opening image.
+
+**Picture.**
+- Black. Small amber timestamp: `H−36 H · SPACE CATALOGUE`.
+- Fade up on a **night sky over a dark horizon**: a still with a long-exposure feel. Faint points of light cross it slowly, one after another, at C0-01. Beside it, an HTML **catalogue list** builds line by line: `UNCORRELATED TRACK · NO LAUNCH RECORD · NO OWNER`.
+- The timestamp changes to `H−20 MIN · TRACKING RECORD`. Cut to the surveillance plate with a plain **tracking display**: an Earth limb with dashed predicted re-entry arcs, labelled `PREDICTED RE-ENTRY · MULTIPLE OBJECTS`. No spacecraft symbols.
+- C0-04 and C0-05: the observatory-night plate.
+- Hold on black for the order.
+
 **Sound.** Room tone, then low contact vibration. No music until the title.
 
 | ID | Speaker | Line |
@@ -57,6 +65,11 @@ The marked pauses are generous on purpose. Expect about 6:15 after the first edi
 |---|---|---|
 | C0-06a | Narrator | On the hour, the same message began on open frequencies around the world. ‖ The recording survives in thousands of copies. ‖ This is one of them. ‖‖ |
 | C0-07 | Company transmission | This transmission is not of human origin. ‖ Military forces worldwide are being neutralized now. ‖ This is not an attack by any human state. ‖ Civilian population centres, hospitals, food systems, water systems, and electrical infrastructure are not targets. ‖ Do not launch strategic weapons. ‖ Leave disabled military facilities and equipment immediately. ‖ Further instructions will follow. ‖‖ |
+
+**Picture (R2).** From C0-08, back to the **night sky**, now crossed by **entry streaks**: thin, fast trails, mostly from one shared direction, some faint and some briefly very bright. Sparse at first, a steady fall by C0-09. Nothing explodes in frame, and the streaks make no sound. At C0-11, cut to the **night city** (lights on, a dark airbase at the edge of frame) from its first word. Hold through the final phrase with a slow push, then black into the title.
+
+| ID | Speaker | Line |
+|---|---|---|
 | C0-08 | Narrator | It was the first thing the Company said to humanity. ‖ Every statement in it was true. ‖‖ |
 | C0-09 | Narrator | Within the hour, strategic launch, air defence and combat aviation had ceased to function as systems across most of the planet. |
 | C0-10 | Narrator | Some aircraft got into the air. Some crews fought, and a few of them won their fights. ‖ None of it added up to a war. ‖ |
@@ -205,3 +218,6 @@ The line "No one on Earth saw it come" (C2-01) rests on v1.5, where the Caravan'
 - **C0-06a (new):** the narrator announces the transmission as a surviving recording, so the Company voice arrives as an archival artefact rather than an abrupt second narrator. The ID is inserted, not renumbered, so that existing cue anchors stay valid.
 - **C0-07:** stays voiced (Alice, as selected at B2), with broadcast treatment and a carrier pre-roll, as described under *Voice direction*.
 - **C0-11:** extended to give the cold open a closing beat before the title: the cities keep their lights, people don't yet understand what was taken, and what was taken was the ability to defend them. This rests on the realisation in Opening 48 Hours, H+1–3: the Company was attacking the state's ability to use organised force, not the country.
+
+**R2 · 2026-11-22 (editor).** The cold-open picture moves from the Company's orbital view to the human ground view: a night sky with slow uncatalogued points, screens, then entry streaks. The 3D orbital register and the uncorrelated-object tags drawn on it are removed from the cold open. Text is unchanged.
+

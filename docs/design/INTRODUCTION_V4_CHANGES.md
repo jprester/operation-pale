@@ -70,3 +70,69 @@ The new text, from the script and verbatim:
 - No cue was renumbered.
 - `npm run typecheck` and `npm run build` pass.
 - Commit as `CR-1: announced Notification and extended cold-open ending`.
+
+---
+
+## CR-2 · Cold-open picture from the ground (script R2)
+
+**Issued:** 2026-11-22. Apply it in the Phase 3 picture pass, after CR-1.
+
+**Supersedes:**
+- the cold-open (`h-hour`) bullets in brief §4.1;
+- the C0-11 picture bullet in CR-1 §3. The night city now starts at C0-11's first word, not on "Not their homes".
+
+### Principle
+
+The cold open is told from the human side. Everything is seen from the ground, through human eyes and instruments. **No Company hardware appears in `h-hour`:** no Quiver, Coffer or Warden models, no OrbitalPass or Journey 3D, and no Earth orbital register. Remove the uncorrelated-object tags drawn on the orbital register. The Company's own view is revealed in the flashback, and `staging` still ends on the Coffers descending, a deliberate mirror of the cold open's first image.
+
+### 1. New component: `NightSky`
+
+**Base image.** One still: a night sky over a dark horizon. Generate two candidates with the built-in image tool, log the prompts in `public/art/documentary/manifest.json`, tag them *artistic reconstruction*, and let the editor choose. Starting prompt:
+
+> Wide 16:9 photographic reconstruction, documentary restraint. Clear moonless night sky over a low dark horizon (flat farmland or high desert, a few small distant lights on the horizon line), dense natural star field, faint Milky Way band low to one side, slight long-exposure softness. No satellites, no meteors, no aircraft, no text, no people, no foreground buildings. Cold blue-black grade, muted.
+
+The sky must be clean, because everything that moves is drawn on top.
+
+**Overlay.** A 2D canvas, or SVG if it performs, driven by mapped film time. No independent clock. It has two modes:
+
+- **`catalogue`** (C0-01 and C0-02):
+  - 6–10 faint points, each entering at its own time, the first at the start of C0-01. Each crosses on a slow straight path, taking 20–40 s to cross the frame. Steady brightness, no twinkle.
+  - On the right, an HTML **catalogue list** adds one row per point: `UNCORRELATED TRACK <id> · NO LAUNCH RECORD · NO OWNER`. Use monospace, small, porcelain on charcoal, amber for the newest row.
+  - IDs are illustrative four-digit numbers. **No altitudes, inclinations or counts** (CURRENT_CANON §7).
+- **`entries`** (C0-08 to C0-10):
+  - Thin streaks, 0.4–1.2 s long, fading tails. Most share one radiant, entering from one side of the frame; a minority scatter.
+  - Brightness varies; an occasional longer, brighter trail, no more than one every 6–8 s.
+  - The rate builds from sparse at C0-08 to a steady 1–3 per second by C0-09, and holds through C0-10.
+  - **No explosions, ground flashes or debris clouds in frame.**
+
+**Reduced motion:**
+- `catalogue`: a static composite with the points drawn as short time-lapse arcs, and the list fully shown.
+- `entries`: a static long-exposure composite with about 20 frozen streaks, like a meteor-shower photograph.
+
+### 2. Shot list for `h-hour`
+
+| Cue | Picture | Timestamp slate |
+|---|---|---|
+| head hold, C0-01, C0-02 | `NightSky` in `catalogue` mode, with the catalogue list | `H−36 H · SPACE CATALOGUE` |
+| C0-03 | `orbital-surveillance` plate, with a new **tracking display** overlay (SVG): an Earth limb arc and 5–8 dashed predicted re-entry arcs converging on it, labelled `PREDICTED RE-ENTRY · MULTIPLE OBJECTS`. No spacecraft symbols, no numbers. | `H−20 MIN · TRACKING RECORD` |
+| C0-04, C0-05 | `observatory-night` plate | unchanged |
+| C0-06 | black | unchanged |
+| C0-06a, C0-07 | `intelligence-briefing` plate with the receiver (CR-1) | `H+0:00 · PUBLIC CHANNEL` |
+| C0-08 to C0-10 | `NightSky` in `entries` mode | `H+0 · FIRST HOUR` |
+| C0-11 | **night city plate** (CR-1 prompt or an existing reconstruction), from the first word; slow push; black after the trailing pause, into the title | unchanged |
+
+Transitions are cuts or short dissolves (≤ 0.8 s). Avoid zooms between plates.
+
+### 3. Sound
+
+- The streaks are **silent**. No whooshes or impacts; entries at that altitude are not heard on the ground.
+- *Optional:* an open-air night ambience under the `NightSky` shots, instead of room tone. Generate three Stable Audio 3 candidates (`sm-sfx`, about 60 s, prompt *"quiet open-air night ambience, very light wind, distant low hum, no insects, no birds, no voices, no melody"*). Log them per `LOCAL_TOOLCHAIN.md` and list them for the editor. Default: the existing room-tone bed.
+
+### 4. Acceptance
+
+- The `h-hour` sequence renders no Company models or 3D orbital scenes. Check by inspecting which components are mounted at every cue in `h-hour`.
+- No numbers appear on the catalogue list or the tracking display apart from illustrative track IDs.
+- Reduced-motion composites exist for both `NightSky` modes.
+- Review frames: `docs/design/cinematic-review/v4-cold-open-*.jpg`, covering one frame per row of the shot list on desktop, plus mobile and reduced motion for the two `NightSky` modes.
+- `npm run typecheck` and `npm run build` pass.
+- Commit as `CR-2: cold open seen from the ground`.
