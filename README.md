@@ -18,7 +18,7 @@ Open the local URL printed by Vite (typically `http://localhost:5173`). To build
 - A visitor-started 5:31 introduction with seven selectable sequences, imported and local draft voices, timed captions, the approved “Approach Vector” score and an original environmental mix. Playback can be paused, continued, skipped or replayed.
 - Seven sequences follow scientific discovery, charter formation, arrival, the nineteen-month industrial build-up and first public contact. The interactive atlas connects the overview to Earth–Moon detail. Planet and carrier shots use React Three Fiber with illustrated fallbacks. Reduced motion uses still compositions and complete caption lines.
 - A responsive chapter index with the original five chapter records, status labels and keyboard-operable navigation.
-- A proposed caption transcript for the Notification and the eight communication stages from canon v2.0.
+- The Notification chapter record, with the canonical v2.4 transmission text and the H-hour to H+48 sequence.
 
 The opening is an editorial prototype. The globe is an artistic reconstruction. The synchronized audio master is included. The full 8–12-minute first episode remains future work.
 
@@ -27,7 +27,8 @@ The opening is an editorial prototype. The globe is an artistic reconstruction. 
 1. Read [`AGENTS.md`](./AGENTS.md) (guidance for Codex).
 2. Read [`docs/design/CREATIVE_DIRECTION.md`](./docs/design/CREATIVE_DIRECTION.md) and [`docs/design/EPISODE_01.md`](./docs/design/EPISODE_01.md).
 3. Read [`docs/design/CODEX_FIRST_TASK.md`](./docs/design/CODEX_FIRST_TASK.md) and have Codex implement it incrementally.
-4. Treat `docs/canon/Operation_Pale_Canon_Handoff_v2_0.md` as authoritative when old documents disagree.
+4. Read [`docs/canon/CURRENT_CANON.md`](./docs/canon/CURRENT_CANON.md) before writing narration or data. It ranks the canon sources and records decisions.
+5. The current introduction script is [`docs/design/INTRODUCTION_V4_SCRIPT.md`](./docs/design/INTRODUCTION_V4_SCRIPT.md) (proposed; not yet recorded or implemented).
 
 This repo includes copies of the user's source documents as project references. These documents are fiction and contain fictional operational estimates, some of which are explicitly marked provisional.
 

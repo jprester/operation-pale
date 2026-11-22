@@ -2,11 +2,15 @@ import dialogue from './audio/dialogue.json';
 import subtitles from './audio/subtitles.json';
 import recordedEnds from './audio/ends.json';
 
+// Canonical text: Canon Handoff v2.4 §6 (docs/canon/CURRENT_CANON.md §5).
 export const publicNotice: string[] = [
-  'This transmission is of nonhuman origin.',
-  'Leave military equipment and military structures.',
-  'Cities, hospitals, utilities and food systems are not targets.',
-  'Do not launch strategic weapons. Further instructions will follow.',
+  'This transmission is not of human origin.',
+  'Military forces worldwide are being neutralized now.',
+  'This is not an attack by any human state.',
+  'Civilian population centres, hospitals, food systems, water systems, and electrical infrastructure are not targets.',
+  'Do not launch strategic weapons.',
+  'Leave disabled military facilities and equipment immediately.',
+  'Further instructions will follow.',
 ];
 
 type Speaker = 'Narrator' | 'Company transmission';
@@ -48,14 +52,15 @@ export function frameAt(elapsed: number) {
   return { index, scene, seconds, cue };
 }
 
+// H-hour to H+48 per Canon Handoff v2.4 and Opening 48 Hours v2.0 (CURRENT_CANON.md §4).
+// The v2.0 demonstration timetable is superseded (decision D1).
 export const schedule: { time: string; event: string; detail: string }[] = [
-  { time: 'T+0:00', event: 'Public emergency notice', detail: 'The public warning runs for 45–90 seconds.' },
-  { time: 'T+0:02', event: 'Government contact notice', detail: 'Authorities, observatories and telecommunications operators receive separate contact instructions.' },
-  { time: 'T+0:05', event: 'Demonstration bulletin', detail: 'A distinct channel repeats the location, time and safety perimeter.' },
-  { time: 'T+0:10', event: 'Inert demonstration', detail: 'An inert projectile reaches the announced empty shelter.' },
-  { time: 'T+0:12', event: 'Technical identity package', detail: 'Specialists receive the information needed to authenticate later messages.' },
-  { time: 'T+0:15', event: 'Destructive demonstration', detail: 'An evacuated military complex is demolished.' },
-  { time: 'T+0:18', event: 'Military power denial', detail: 'Dedicated military supplies are interrupted. Adjacent civilian grids remain active.' },
-  { time: 'T+0:20–0:30', event: 'Regional Wave begins', detail: 'Regional bulletins repeat local timing and safety instructions.' },
+  { time: 'H−20 min', event: 'Orbital anomalies', detail: 'Tracking networks report mass re-entry commitments that fit no human launch pattern.' },
+  { time: 'H+0', event: 'Notification and first strikes', detail: 'The public transmission and the opening operation begin at the same moment.' },
+  { time: 'H+0–1 h', event: 'Global strategic suppression', detail: 'Strategic launch, integrated air defence, combat aviation, major naval and military-space functions cease to work as systems.' },
+  { time: 'H+1–3 h', event: 'Authenticated contact', detail: 'A government sends a challenge; the signed reply arrives while a Warden performs an independently observable manoeuvre.' },
+  { time: 'H+1–6 h', event: 'Bulk military dismantling', detail: 'The remaining exposed military inventory is serviced. Later hours become assessment and pursuit.' },
+  { time: 'H+12', event: 'Interim terms', detail: 'No strategic launch or dispersal, no unauthorized military take-off, no armed naval sortie; grids, water, hospitals, food distribution and reactors stay staffed.' },
+  { time: 'H+30', event: 'Movement categories', detail: 'Military movement is sorted into compliant, safety-authorized and hostile.' },
+  { time: 'H+30–48', event: 'Airfield Qualification Protocol', detail: 'Governments and regional authorities begin nominating sites for Company logistics.' },
 ];
-

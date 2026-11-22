@@ -20,9 +20,9 @@ export function ChapterArchive({reduced}:{reduced:boolean}) {
           <div className="meta"><span>{chapter.eyebrow}</span><span>{chapter.status==='planned'?'Editorial preview':'Prototype'}</span></div>
           <h2 id="chapter-title">{chapter.title}</h2><p className="lead">{chapter.summary}</p>
           {chapter.narrative.map(p=><p key={p}>{p}</p>)}
-          {chapter.id==='notification' && <section className="transcript"><p className="micro">PUBLIC CHANNEL &nbsp; / &nbsp; T+0:00</p><h3>Emergency transmission</h3><small>Proposed caption transcript · 45–90 seconds</small><blockquote>{publicNotice.map(line=><p key={line}>{line}</p>)}</blockquote>
+          {chapter.id==='notification' && <section className="transcript"><p className="micro">PUBLIC CHANNEL &nbsp; / &nbsp; H+0:00</p><h3>Emergency transmission</h3><small>Canonical text · Canon Handoff v2.4</small><blockquote>{publicNotice.map(line=><p key={line}>{line}</p>)}</blockquote>
             <VerificationRecord reduced={reduced}/>
-            <h3>Transmission schedule</h3><ol>{schedule.map(row=><li key={row.time}><time>{row.time}</time><div><strong>{row.event}</strong><p>{row.detail}</p></div></li>)}</ol></section>}
+            <h3>The first forty-eight hours</h3><ol>{schedule.map(row=><li key={row.time}><time>{row.time}</time><div><strong>{row.event}</strong><p>{row.detail}</p></div></li>)}</ol></section>}
           <div className="chapter-actions"><button disabled={!active} onClick={()=>openChapter(active-1)}>← Previous</button><span>{pad(active+1)} / 05</span><button disabled={active===4} onClick={()=>openChapter(active+1)}>Next →</button></div>
         </article></div>
     </section>);

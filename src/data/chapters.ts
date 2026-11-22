@@ -8,45 +8,51 @@ export type Chapter = {
   status: 'prototype' | 'planned';
 };
 
-// Editorial condensation of the v2.0 canon handoff, not verbatim narration.
+// Editorial condensation of docs/canon/CURRENT_CANON.md (v2.4 canon), not verbatim narration.
 export const chapters: Chapter[] = [
   {
     id: 'arrival', date: 'T−19 MONTHS', eyebrow: '01 / EMPLACEMENT', title: 'Before the First Signal',
-    summary: 'The Company enters the Solar System. Industrial infrastructure takes shape beyond the Moon.',
+    summary: 'The Caravan enters the Solar System unseen. An industry takes shape between the Earth and the Moon.',
     narrative: [
-      'Earth is not the destination of an exploratory voyage. It is the subject of a chartered acquisition.',
-      'In cislunar space, the Foundry network begins converting local resources into the machinery of an occupation. What cannot be manufactured there has already arrived on a finite manifest.',
-      'Human observers register anomalies. None of them becomes a warning the world can act upon.'
+      'Earth is not the destination of an exploratory voyage. It is the subject of a chartered acquisition with a six-year deadline.',
+      'The Foundry network turns asteroidal rock into propellant, structure and munition bodies. What it cannot make — compact fusion cores, beam directors, high-grade seekers, dense compute — arrived once, on a finite manifest.',
+      'Six unexplained infrared sources at lunar distance enter survey data. A working group files them as probably instrumental.'
     ], status: 'prototype'
   },
   {
-    id: 'notification', date: 'T+00:00', eyebrow: '02 / FIRST CONTACT', title: 'The Notification',
-    summary: 'A nonhuman authority announces the destruction of military equipment. Instructions arrive before the first strikes.',
+    id: 'notification', date: 'H+0:00', eyebrow: '02 / FIRST CONTACT', title: 'The Notification',
+    summary: 'A nonhuman transmission announces that military forces are being neutralized, at the same moment the strikes begin.',
     narrative: [
-      'The first public contact is not a greeting. It is an emergency notice with a schedule.',
-      'Technical identity packages and two demonstrations follow. States are offered ways to verify that the sender controls the objects above them.',
-      'The regional Wave begins shortly afterwards. Its published sequence becomes, unexpectedly, a public safety resource.'
+      'The first public contact is not a greeting. It states what is already happening, and what will not be targeted.',
+      'Its purpose is to prevent a nuclear misreading: no human state is attacking another. Within minutes, observatories and military sensors can confirm that the objects overhead are not human.',
+      'Within hours, a government can send a challenge through an authenticated channel and watch a Warden answer it with an observable manoeuvre.'
     ], status: 'prototype'
   },
   {
-    id: 'wave', date: 'T+30 HOURS', eyebrow: '03 / THE WAVE', title: 'The Disarmament',
-    summary: 'The opening campaign is complete. Many machines are disabled; many surviving forces have disappeared from the target catalogue.',
+    id: 'first-hour', date: 'H+0 TO H+6', eyebrow: '03 / GLOBAL SUPPRESSION', title: 'The First Cut',
+    summary: 'Within the hour, strategic launch, air defence, combat aviation and major naval forces stop working as systems. Bulk dismantling follows.',
     narrative: [
-      'Quivers release their payloads into the upper atmosphere. Light Scythes attack exposed mechanical functions while Mattocks address protected structures.',
-      'The campaign is designed to render military equipment unusable, not to make the planet uninhabitable.',
-      'The surviving forces learn that dispersion, concealment, and imperfect coverage still matter.'
+      'Quivers release Scythes and Mattocks after atmospheric entry. Aegis and Picket cover strategic launches; Merlins, Snares and Shrikes cover the sky.',
+      'Some aircraft get airborne and some local engagements succeed. They do not restore an integrated air picture.',
+      'Cities, hospitals, grids and water systems keep working. The Company needs them to.'
     ], status: 'planned'
   },
   {
-    id: 'pause', date: 'DAY 2', eyebrow: '04 / THE PAUSE', title: 'The Test of Authority',
-    summary: 'The Company waits for human authorities to demonstrate effective control before committing high-value transports.',
-    narrative: ['The first landings are freight deliveries, not ceremonies.', 'A site that cannot secure its own perimeter cannot yet receive a Kestrel.'],
-    status: 'planned'
+    id: 'terms', date: 'H+12 TO H+48', eyebrow: '04 / TERMS', title: 'Restrictions, Not Surrender',
+    summary: 'Governments accept operational restrictions while refusing to recognise Company sovereignty.',
+    narrative: [
+      'Interim terms forbid strategic launch, unauthorized military take-off and armed naval sorties, and require that grids, water, hospitals, food distribution and reactors stay staffed.',
+      'At H+30 the Company sorts military movement into compliant, safety-authorized and hostile. The world acquires a de facto military air-traffic-control regime.',
+      'Human governments survive because the Company needs their administrative capacity.'
+    ], status: 'planned'
   },
   {
-    id: 'day30', date: 'DAY 30', eyebrow: '05 / FIRST FOOTHOLDS', title: 'A Network, Not a Planet',
-    summary: 'The Company has qualified logistics sites and operating agreements, but it does not control all of Earth.',
-    narrative: ['Physical military superiority does not immediately create political legitimacy.', 'The first month ends with the harder part of the acquisition still ahead.'],
-    status: 'planned'
+    id: 'footholds', date: 'DAY 2 TO DAY 30', eyebrow: '05 / FIRST FOOTHOLDS', title: 'A Network, Not a Planet',
+    summary: 'Airfield access becomes the first reward for cooperation. Refusing a site does not keep Company aircraft away; it moves the benefits next door.',
+    narrative: [
+      'Nominated airfields pass through expendable qualification packages and robotic conversion before the first reusable aircraft lands.',
+      'A Kestrel never creates a site. It rewards one that already works.',
+      'By Day 30 the Company runs a logistics and administrative network. It does not control the planet\'s territory.'
+    ], status: 'planned'
   }
 ];

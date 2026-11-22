@@ -1,9 +1,27 @@
 # Canon provenance
 
-- `Operation_Pale_Canon_Handoff_v2_0.md` — highest-priority bundled source, dated 26 July 2026.
-- `operation_pale_narrative_v1_5.md` — earlier full narrative baseline.
-- `operation_pale_equipment_directory_v1.md` — legacy equipment reference, superseded in names and some quantities.
+Start with [`CURRENT_CANON.md`](./CURRENT_CANON.md). It ranks the sources below, gives current names, the film timeline, what is superseded and what is unresolved, and the decision log.
 
-**Later naming decisions from project conversation:** Caravan (formerly Wain), Legate (formerly Seneschal), Foundry network (formerly Works), Foundry Alpha/Beta/Gamma/Delta. These changes were made after the bundled v2.0 handoff. Keep original source files unedited; add explicit mappings in derived content.
+## `sources/` (verbatim copies; do not edit)
 
-The later v2.1 equipment directory and Day 30 prose are not present as complete files among the currently bundled inputs. Import them when available and revisit any derived details. Some numeric values are known to require reconciliation (e.g. the Domesday element mass/count/total mismatch in v1.5).
+| File | Date | Role |
+|---|---|---|
+| `Operation_Pale_Canon_Handoff_v2_4.md` | 20 Aug 2026 | Highest-ranked source: names, constraints, compressed H-hour doctrine, Notification text, political response, airfield access |
+| `Operation_Pale_Opening_48_Hours_v2_0.md` | Aug 2026 | Narrative reconstruction of H−20 to H+48, mainly from the US President's side |
+| `Operation_Pale_Airfield_Acquisition_and_Activation_v1_0.md` | Aug 2026 | Airfield classes and activation stages |
+| `Operation_Pale_Complete_Equipment_Directory_v2_3.md` | 28 Jul 2026 | Equipment roles and H-hour order of battle |
+| `Operation_Pale_Equipment_Directory_v2_1.md` | 26 Jul 2026 | Machine-ecology pass; platforms not restated in v2.3 |
+| `Operation_Pale_Canon_Handoff_v2_0.md` | 26 Jul 2026 | Older handoff. Use only for topics v2.4 does not address (see CURRENT_CANON §1). |
+| `operation_pale_narrative_v1_5.md` | Jul 2026 | Long-campaign baseline and prose voice |
+
+## `superseded/`
+
+| File | Note |
+|---|---|
+| `operation_pale_equipment_directory_v1.md` | Old names and quantities. Historical reference only. |
+
+## Missing
+
+The Equipment Addendum v2.4, Canon Handoff v2.1 (Name Clarity), Equipment Directory v2.2, and the Day 30 and Month 51 narratives are referenced elsewhere but not bundled. Import them if they turn up. Until then, do not reconstruct them.
+
+Some numbers remain unreconciled, for example the Domesday element mass/count/total mismatch in v1.5, and the casualty and seeker figures that predate the compressed opening.

@@ -2,7 +2,7 @@
 
 The four models represent separate working sites across cislunar space. Each is a visual reconstruction at a proposed metre scale. Relative orbits, branch separation, plant capacity, equipment quantities and thermal or power ratings remain unresolved.
 
-The v2.0 handoff assigns water and propellant to Alpha, metals and bulk structures to Beta, and higher-complexity assembly to Gamma. The later naming record identifies Delta. Its industrial assignment is absent from the bundled equipment sources. Delta’s cargo-exchange role is a provisional design choice, also identified in its metadata and documentary shot. [Canon handoff](../../../docs/canon/Operation_Pale_Canon_Handoff_v2_0.md) · [Naming record](../../../docs/canon/README.md)
+The v2.0 handoff assigns water and propellant to Alpha, metals and bulk structures to Beta, and higher-complexity assembly to Gamma. The later naming record identifies Delta. Its industrial assignment is absent from the bundled equipment sources. Delta’s cargo-exchange role is a provisional design choice, also identified in its metadata and documentary shot. **Superseded:** Canon Handoff v2.4 defines Delta as precision maintenance, calibration and salvage of manifest-grade components (see `docs/canon/CURRENT_CANON.md` §3). The model and shot need revisiting. [Canon handoff](../../../docs/canon/sources/Operation_Pale_Canon_Handoff_v2_0.md) · [Naming record](../../../docs/canon/README.md)
 
 | Branch | Architectural read | Editable source | Preview plates |
 | --- | --- | --- | --- |

@@ -4,12 +4,11 @@
 Build an interactive, cinematic documentary archive about **Operation: Pale**. Its primary mode is narrative exploration, not combat simulation or a game.
 
 ## Canon hierarchy
-1. `docs/canon/Operation_Pale_Canon_Handoff_v2_0.md` — highest authority in this repo.
-2. `docs/canon/operation_pale_narrative_v1_5.md` — older narrative; use only where v2.0 does not supersede it.
-3. `docs/canon/operation_pale_equipment_directory_v1.md` — legacy equipment detail; many names/quantities obsolete.
-4. New creative material must be labelled as **proposed**, never silently declared canon.
-
-**Naming note:** later conversation decisions renamed Wain → Caravan, Seneschal → Legate, Works → Foundry network (Alpha/Beta/Gamma/Delta). The bundled v2.0 document still uses older names. In UI use newer names; preserve original document copies unchanged. More recent v2.1 equipment discussion exists but its full directory is not bundled; do not fabricate its final figures.
+1. `docs/canon/CURRENT_CANON.md`: **read first.** Precedence between sources, current names, the film timeline, superseded and unresolved items, and the decision log.
+2. Source documents in `docs/canon/sources/`, ranked in CURRENT_CANON §1. `Operation_Pale_Canon_Handoff_v2_4.md` is the highest-ranked source. Keep source files verbatim.
+3. `docs/canon/superseded/`: historical reference only.
+4. New creative material must be labelled **proposed**, never silently declared canon.
+5. If canon is missing or contradictory, say so in your report. Do not invent figures or reconstruct missing documents (CURRENT_CANON §1 lists them).
 
 ## Engineering principles
 - React + TypeScript + Vite + React Three Fiber.
@@ -27,5 +26,7 @@ Build an interactive, cinematic documentary archive about **Operation: Pale**. I
 - Documentary restraint: observational, analytically precise, understated.
 - Do not turn every chapter into a dramatic battle; show administration, logistics, and human perspective.
 - Preserve physical limits, finite manifest, technology-gap ceiling, imperfect intel, and human competence.
+- The narrator is a human historian writing after the charter ended (CURRENT_CANON §8). The narrator knows outcomes, marks the limits of the record, and never states why Earth was acquired.
+- The current introduction script is `docs/design/INTRODUCTION_V4_SCRIPT.md`. It supersedes the narration in earlier introduction documents.
 - In technical visualizations distinguish *canonical figures*, *estimates*, and *artistic representation*.
 - The opening Episode 1 should be built as a vertical slice before expanding to six years.
