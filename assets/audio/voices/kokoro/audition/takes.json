@@ -1,0 +1,328 @@
+{
+  "sampleRate": 24000,
+  "seed": 42,
+  "takes": [
+    {
+      "file": "bm_george-0.92.wav",
+      "voices": [
+        "bm_george"
+      ],
+      "speed": 0.92,
+      "words": 76,
+      "seconds": 33.4,
+      "wpm": 136.5,
+      "phrases": [
+        {
+          "cue": "C0-01",
+          "onsetSample": 1200,
+          "endSample": 188534,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 207734,
+          "endSample": 279371,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 298571,
+          "endSample": 459471,
+          "pauseSeconds": 2.0
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 507471,
+          "endSample": 618581,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 637781,
+          "endSample": 782411,
+          "pauseSeconds": 0.8
+        }
+      ]
+    },
+    {
+      "file": "bm_george-0.96.wav",
+      "voices": [
+        "bm_george"
+      ],
+      "speed": 0.96,
+      "words": 76,
+      "seconds": 32.437,
+      "wpm": 140.6,
+      "phrases": [
+        {
+          "cue": "C0-01",
+          "onsetSample": 1200,
+          "endSample": 183789,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 202989,
+          "endSample": 272055,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 291255,
+          "endSample": 447419,
+          "pauseSeconds": 2.0
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 495419,
+          "endSample": 603085,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 622285,
+          "endSample": 759294,
+          "pauseSeconds": 0.8
+        }
+      ]
+    },
+    {
+      "file": "bm_george-1.00.wav",
+      "voices": [
+        "bm_george"
+      ],
+      "speed": 1.0,
+      "words": 76,
+      "seconds": 31.69,
+      "wpm": 143.9,
+      "phrases": [
+        {
+          "cue": "C0-01",
+          "onsetSample": 1200,
+          "endSample": 176755,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 195955,
+          "endSample": 263229,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 282429,
+          "endSample": 436625,
+          "pauseSeconds": 2.0
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 484625,
+          "endSample": 588091,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 607291,
+          "endSample": 741362,
+          "pauseSeconds": 0.8
+        }
+      ]
+    },
+    {
+      "file": "bm_george-bm_george-am_onyx-0.96.wav",
+      "voices": [
+        "bm_george",
+        "bm_george",
+        "am_onyx"
+      ],
+      "speed": 0.96,
+      "words": 76,
+      "seconds": 30.749,
+      "wpm": 148.3,
+      "phrases": [
+        {
+          "cue": "C0-01",
+          "onsetSample": 1200,
+          "endSample": 169557,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 188757,
+          "endSample": 255456,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 274656,
+          "endSample": 421290,
+          "pauseSeconds": 2.0
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 469290,
+          "endSample": 571279,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 590479,
+          "endSample": 718776,
+          "pauseSeconds": 0.8
+        }
+      ]
+    },
+    {
+      "file": "bm_fable-bm_fable-am_onyx-0.96.wav",
+      "voices": [
+        "bm_fable",
+        "bm_fable",
+        "am_onyx"
+      ],
+      "speed": 0.96,
+      "words": 76,
+      "seconds": 27.549,
+      "wpm": 165.5,
+      "phrases": [
+        {
+          "cue": "C0-01",
+          "onsetSample": 1200,
+          "endSample": 146923,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 166123,
+          "endSample": 224687,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-02",
+          "onsetSample": 243887,
+          "endSample": 368234,
+          "pauseSeconds": 2.0
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 416234,
+          "endSample": 509517,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-03",
+          "onsetSample": 528717,
+          "endSample": 641980,
+          "pauseSeconds": 0.8
+        }
+      ]
+    },
+    {
+      "file": "bf_emma-1.00.wav",
+      "voices": [
+        "bf_emma"
+      ],
+      "speed": 1.0,
+      "words": 53,
+      "seconds": 27.798,
+      "wpm": 114.4,
+      "phrases": [
+        {
+          "cue": "C0-07",
+          "onsetSample": 1200,
+          "endSample": 56458,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 75658,
+          "endSample": 143800,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 163000,
+          "endSample": 218306,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 237506,
+          "endSample": 397685,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 416885,
+          "endSample": 461441,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 480641,
+          "endSample": 559142,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 578342,
+          "endSample": 619149,
+          "pauseSeconds": 2.0
+        }
+      ]
+    },
+    {
+      "file": "bf_alice-1.00.wav",
+      "voices": [
+        "bf_alice"
+      ],
+      "speed": 1.0,
+      "words": 53,
+      "seconds": 29.91,
+      "wpm": 106.3,
+      "phrases": [
+        {
+          "cue": "C0-07",
+          "onsetSample": 1200,
+          "endSample": 63541,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 82741,
+          "endSample": 158385,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 177585,
+          "endSample": 235976,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 255176,
+          "endSample": 426581,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 445781,
+          "endSample": 495541,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 514741,
+          "endSample": 604664,
+          "pauseSeconds": 0.8
+        },
+        {
+          "cue": "C0-07",
+          "onsetSample": 623864,
+          "endSample": 669828,
+          "pauseSeconds": 2.0
+        }
+      ]
+    }
+  ]
+}

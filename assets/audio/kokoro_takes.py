@@ -1,7 +1,8 @@
-"""Regenerate the local replacement takes with Podcast Studio's Kokoro environment."""
+"""Run with ~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python."""
 import json
 import math
 import os
+import re
 import sys
 from pathlib import Path
 import tempfile
@@ -20,13 +21,17 @@ MANIFEST = ROOT / 'assets/audio/manifest.json'
 CAST = {'Narrator': 'bm_george', 'Company transmission': 'bf_emma'}
 
 
-def generate(ids=()):
+def pipeline():
     cache = Path.home() / '.cache/espeak-ng-data'
     if cache.is_dir():
         EspeakWrapper.set_data_path(str(cache))
     torch.manual_seed(42)
     torch.set_num_threads(4)
-    pipe = KPipeline(lang_code='b', repo_id='hexgrad/Kokoro-82M', device='cpu')
+    return KPipeline(lang_code='b', repo_id='hexgrad/Kokoro-82M', device='cpu')
+
+
+def generate(ids=()):
+    pipe = pipeline()
     timeline = load()
     manifest = json.loads(MANIFEST.read_text())
     for cue, seg, boundary in recording_windows(timeline, manifest['segments']):
@@ -85,5 +90,80 @@ def generate(ids=()):
     save(timeline)
 
 
+AUDITION = ROOT / 'assets/audio/voices/kokoro/audition'
+SCRIPT = ROOT / 'docs/design/INTRODUCTION_V4_SCRIPT.md'
+PAUSES = {'‖': .8, '‖‖': 2.0, '‖‖‖': 3.0, '': .5}
+
+
+def audition_phrases(ids):
+    rows = dict(re.findall(r'^\| (C\d+-\d+) \| [^|]+ \| ([^|]+) \|$', SCRIPT.read_text(), re.M))
+    for cue_id in ids:
+        for text, mark in re.findall(r'([^‖]+)(‖*)', rows[cue_id]):
+            text = text.strip()
+            if text:
+                yield cue_id, text, PAUSES[mark]
+
+
+def audition_take(pipe, ids, voices, speed, target):
+    torch.manual_seed(42)
+    pieces = []
+    timings = []
+    cursor = 0
+    previous_tail = 0
+    gap = 0
+    words = 0
+    for cue_id, text, pause in audition_phrases(ids):
+        if len(text) > 250:
+            raise ValueError(f'Review phrase length in {cue_id}')
+        audio = np.concatenate([c.audio.numpy() for c in pipe(text, voice=voices, speed=speed)])
+        active = np.flatnonzero(np.abs(audio) >= .01)
+        if not active.size:
+            raise ValueError(f'Silent phrase in {cue_id}')
+        onset, end = int(active[0]), int(active[-1]) + 1
+        head = min(onset, round(.05 * RATE))
+        tail = min(len(audio) - end, round(.05 * RATE))
+        if pieces:
+            # Retained room at both edges counts towards the authored silence.
+            silence = round(gap * RATE) - previous_tail - head
+            pieces.append(np.zeros(silence, dtype=np.float32))
+            cursor += silence
+        phrase = audio[onset-head:end+tail]
+        timings.append(dict(cue=cue_id, onsetSample=cursor+head, endSample=cursor+len(phrase)-tail,
+                            pauseSeconds=pause))
+        pieces.append(phrase)
+        cursor += len(phrase)
+        previous_tail, gap = tail, pause
+        words += len(text.split())
+    pieces.append(np.zeros(round(gap * RATE) - previous_tail, dtype=np.float32))
+    with tempfile.TemporaryDirectory() as tmp:
+        raw = Path(tmp) / 'raw.wav'
+        sf.write(raw, np.concatenate(pieces), RATE, subtype='PCM_24')
+        ff('-i', raw, '-af', 'loudnorm=I=-18:TP=-2:LRA=8', '-ar', RATE, '-c:a', 'pcm_s16le', target)
+    info = sf.info(target)
+    if abs(info.frames - sum(map(len, pieces))) > RATE * .01:
+        raise ValueError(f'Unexpected encoded length: {target}')
+    return dict(file=target.name, voices=voices.split(','), speed=speed, words=words,
+                seconds=round(info.duration, 3), wpm=round(60 * words / info.duration, 1),
+                phrases=timings)
+
+
+def audition():
+    pipe = pipeline()
+    AUDITION.mkdir(exist_ok=True, parents=True)
+    takes = []
+    for voice, speed in [('bm_george', .92), ('bm_george', .96), ('bm_george', 1.0),
+                         ('bm_george,bm_george,am_onyx', .96), ('bm_fable,bm_fable,am_onyx', .96),
+                         ('bf_emma', 1.0), ('bf_alice', 1.0)]:
+        ids = ['C0-07'] if voice.startswith('bf_') else ['C0-01', 'C0-02', 'C0-03']
+        name = f"{voice.replace(',', '-')}-{speed:.2f}.wav"
+        take = audition_take(pipe, ids, voice, speed, AUDITION / name)
+        print(name, take['seconds'], 'seconds', take['wpm'], 'wpm', flush=True)
+        takes.append(take)
+    (AUDITION / 'takes.json').write_text(json.dumps(dict(sampleRate=RATE, seed=42, takes=takes), indent=2)+'\n')
+
+
 if __name__ == '__main__':
-    generate(sys.argv[1:])
+    if sys.argv[1:] == ['--audition']:
+        audition()
+    else:
+        generate(sys.argv[1:])

@@ -113,3 +113,24 @@ The film and source intervals are identical. Out-points cut to the next segment.
 
 - C0-03 picture notes in the recording sheet call for the astronomers plate before the President’s order. The implementation brief reserves that plate for C4-04 and names the observatory-night plate for the cold open. Suggested reading for the picture pass: use observatory-night at H−20 and keep astronomers-anomaly for C4-04.
 - C3-05 calls for Delta to show calibration and salvage. The approved v3 exterior depicts exchange berths and the remodel is outside this milestone. Suggested picture treatment for the later pass: frame a neutral detail under the approved role label until the revised model is available.
+
+## Checkpoint B1 · voice audition
+
+Five narrator readings cover C0-01 through C0-03 (76 words). Two Company readings cover C0-07 (53 words). The Company text matches Current Canon §5 after removing the recording markers. The editor chooses both performances by listening.
+
+| Voice | Speed | Duration (s) | WPM including pauses | Audition |
+|---|---:|---:|---:|---|
+| bm_george | 0.92 | 33.400 | 136.5 | [WAV](../../assets/audio/voices/kokoro/audition/bm_george-0.92.wav) |
+| bm_george | 0.96 | 32.437 | 140.6 | [WAV](../../assets/audio/voices/kokoro/audition/bm_george-0.96.wav) |
+| bm_george | 1.00 | 31.690 | 143.9 | [WAV](../../assets/audio/voices/kokoro/audition/bm_george-1.00.wav) |
+| bm_george, am_onyx (2:1) | 0.96 | 30.749 | 148.3 | [WAV](../../assets/audio/voices/kokoro/audition/bm_george-bm_george-am_onyx-0.96.wav) |
+| bm_fable, am_onyx (2:1) | 0.96 | 27.549 | 165.5 | [WAV](../../assets/audio/voices/kokoro/audition/bm_fable-bm_fable-am_onyx-0.96.wav) |
+| bf_emma | 1.00 | 27.798 | 114.4 | [WAV](../../assets/audio/voices/kokoro/audition/bf_emma-1.00.wav) |
+| bf_alice | 1.00 | 29.910 | 106.3 | [WAV](../../assets/audio/voices/kokoro/audition/bf_alice-1.00.wav) |
+
+All seven files decoded as 24 kHz mono PCM16. Across 39 phrase windows, measured onsets in the normalized WAVs were within 42 ms of the recorded edit positions at an absolute amplitude threshold of 0.01. The authored gap lengths matched the recorded positions to within 10 ms including each trailing pause. TypeScript and the production build passed with the existing Three.js bundle advisory. No listening assessment was made. The audition command, seed and normalization settings are in [audio production](../../assets/audio/PRODUCTION.md#introduction-v4--b1-voice-audition).
+
+### Editor questions
+
+- C0-01 through C0-03: all three George speeds fall within the requested 135–145 WPM range when measured with pauses. Both blends read faster at their specified audition speed. Which voice and speed should carry the film?
+- C0-07: which Company reading should carry the transmission, Emma or Alice at 1.00×?

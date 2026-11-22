@@ -85,3 +85,15 @@ To change the authored balance for everyone, edit `currentMaster.narratorGainLin
 The generative stage uses the same Kokoro-82M model and British English pipeline as Podcast Studio. All cues after the imported opening have individual lossless takes in `assets/audio/voices/kokoro/`. The manifest's `localTake` field identifies the recording, voice preset and synthesis speed used in the mix. The imported ElevenLabs opening keeps its edit and caption timings.
 
 To regenerate an existing v3 take, run `assets/audio/kokoro_takes.py <cue-id>` with Podcast Studio's virtual-environment Python (Kokoro 0.9.4, cached model and voices, English G2P and soundfile), then run `python3 assets/audio/master.py` and `npm run build`. The generator uses offline model loading, measures each cue against its shot, and derives caption entrances from Kokoro's token timings. For mix-only edits, run the mixer directly. Both the mixer and browser use rendered audio files.
+
+## Introduction v4 · B1 voice audition
+
+From the repository root, render the seven comparison WAVs with Podcast Studio’s interpreter:
+
+```sh
+HF_HUB_OFFLINE=1 ~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python -B assets/audio/kokoro_takes.py --audition
+```
+
+The audition reads C0-01 through C0-03 and C0-07 directly from the locked recording sheet. Each narrator WAV contains the same three consecutive cues. Each Company WAV contains the entire transmission. The audition uses British-English Kokoro-82M on CPU with four threads and Torch seed 42 per take. A weighted blend averages two copies of the British voice embedding and one of Onyx. Alice is the alternate British Company voice. Her voice pack was cached from `hexgrad/Kokoro-82M/voices/bf_alice.pt` before offline synthesis.
+
+The renderer synthesizes each marked phrase at the specified speed. It retains up to 50 ms of edge padding and counts that padding toward the authored gaps. The audition starts at the first cue and includes the final marked pause. FFmpeg applies `loudnorm=I=-18:TP=-2:LRA=8` to each assembled take and writes 24 kHz mono 16-bit PCM. Files and measured phrase positions are in `assets/audio/voices/kokoro/audition/`. Words per minute counts whitespace-separated words over the full WAV, including pauses. Auditions are separate from the active v3 mix.
