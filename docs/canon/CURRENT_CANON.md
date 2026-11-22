@@ -67,7 +67,8 @@ Unchanged names: Warden (22), Coffer, Picket, Stork, Merlin, Scythe, Mattock, Ha
 | Pre-contact | The Survey Authority catalogues Earth. Expansion Assessment weighs contact, preservation, quarantine and acquisition. The Hegemony charters the Company. Red teams attack the plan. | v2.0, uncontested |
 | T−19 months | The Caravan arrives in the outer system undetected, and later holds station in distant cislunar space. Its cislunar, resource and reserve branches separate: mining goes to the belt, a small Belt Reserve stays there as insurance, and the Foundry network grows in cislunar space from asteroidal feedstock. | v1.5 / v2.0 |
 | T−14 to T−3 months | Six anomalous infrared sources at lunar distance enter survey data. A working group twice files them as *uncharacterised, probably instrumental*. An astronomer in the Atacama is certain they are artificial. She is right, and it changes nothing. | v1.5 |
-| T−90 days to T−1 | Final intelligence cycle and target catalogue. Quivers staged by tugs and Coffers. Wardens coordinate. Lanterns deployed. Domesday seeded **against a map**: dense along roads, installations, chokepoints and dispersal terrain, nothing across most of the land. Before T−0, Lampreys tag four of the fourteen SSBNs at sea. | v1.5 / v2.3 / v2.4 |
+| T−90 days to T−1 | Final intelligence cycle and target catalogue. Quivers loaded on Coffers and held at cislunar distance. Wardens coordinate. Sounder grid laid. Domesday seeded **against a map**: dense along roads, installations, chokepoints and dispersal terrain, nothing across most of the land. Before T−0, Lampreys tag four of the fourteen SSBNs at sea. What enters the atmosphere, when, and what humans noticed: **§4a**. | v1.5 / v2.3 / v2.4 / D4–D6 |
+| T−36 h | Coffers descend to release orbits. The space catalogue fills with objects no state claims (§4a). | D6 |
 | H−20 min | Human tracking sees mass deorbit commitments that fit no human pattern. The first hypotheses are human ones. The President's first order is negative: **no strategic launch without verified evidence of a human nuclear attack.** | Opening 48h |
 | **H+0** | The Notification (§5) goes out **at the same moment** as the first operational actions. | v2.4 |
 | H+0 to H+60 min | Global strategic suppression: coherent strategic launch, integrated air defence, combat aviation, major naval and military-space functions. Aegis and Picket cover launches. Quiver-M Merlins and Snares cover scrambles; Shrikes cover clear high air. Some human aircraft get airborne; local successes do not regenerate a theatre-wide air picture. | v2.4 / Opening 48h |
@@ -78,6 +79,28 @@ Unchanged names: Warden (22), Coffer, Picket, Stork, Merlin, Scythe, Mattock, Ha
 | Day 2 onward | Airfield activation stages A–F: nomination, expendable qualification package, robotic conversion, first reusable landing, routine Stork/Harrow operations, Kestrel gateway. **Kestrels never create a site; they reward one that already works.** | Airfield v1.0 |
 | Day 30 | A qualified logistics and administrative network exists, not territorial control. | v2.0, **inherited; full H+48 to Day 30 narrative not yet rewritten** (v2.4 open Q8) |
 | Month 2 to Year 6 | The Hunt; satellite ground segment rebuilt over about 5 months; submarine search (one boat surfaces in month 9 out of food); the weather gap kept by human air forces; seeker magazine exhausted (**Month 14**); organised resistance above battalion scale ends (**Month 19**); industrial output above baseline (**Month 51**); civil administration without Company staffing (**Month 62**); charter met (**Month 71**, one month inside schedule). | v1.5, retained by v2.4 §12, **pending re-derivation** after the compressed opening |
+
+## 4a. Before H-hour: deployment and detection (D4–D6)
+
+**Rule (D4).** Before H-hour, the only systems in Earth's atmosphere are ones that watch, or that defend against strategic launch, and only where they are unlikely to be noticed. Everything that fights tactically arrives with the strike. This extends v1.5's ground rule (nothing on the surface before T−0 except sensors) to the air.
+
+| System | Before H-hour | From H-hour |
+|---|---|---|
+| **Lanterns** (unarmed ISR/relay) | Enter from orbit in multi-unit entry shells over the final ~60 days, within their 40–90-day endurance. A few entries per night, mostly over open ocean, polar ice and empty land. Most hold over oceans and remote regions; a minority over continental interiors. | Spread inland as air defences fragment. |
+| **Aegis** (38) | Enter in the final ~10 days, at night, over remote regions. Station in **thinly watched airspace within reach of the missile fields**, not over them: chiefly the Mongolian and Kazakh steppe (China's western and northern silo fields; much of Russia's Siberian and Volga–Urals force) and the Canadian interior north of the US fields. | Close toward overhead positions as air defence collapses. |
+| **Shrike** | Co-located with Aegis at standoff stations. | Clear high-air coverage builds over the first hours. |
+| **Picket racks** (aerostats) | Deploy at the Aegis standoff stations in the final 72–36 h. They only reach trajectories that pass near their racks. | Later from secure ground launchers. |
+| **Harrows, Snares, Merlins, Vultures** | **Not in the atmosphere.** | Delivered by Quiver-type entry packages from H+0 and released above their sectors once the first strikes open the air-defence picture. Harrow coverage builds over roughly H+0 to H+2. |
+| **Storks** | Not in the atmosphere (v2.4). | Staggered echelons from about H+1. |
+| **Coffers** | Held at cislunar distance with the Anchor depots for most of staging. Descend over the final ~36 h to release orbits roughly 1,500–3,000 km up. | Release Quivers. Deorbit burns of a few hundred m/s, about 45–70 min before entry. Human tracking resolves the commitments into re-entry trajectories at about H−20. |
+
+**What standoff costs (D5).** These figures are approximate. From the steppe, the Chinese western fields are a few hundred km away and the geometry is close to overhead. From farther out, up to about 1,000–1,200 km, the beam's path clears the dense lower atmosphere only once a missile is above roughly 100 km. For solid-fuel ICBMs that is about the last minute of boost; liquid-fuel missiles burn longer. Per-platform capacity in the first salvo window falls to roughly half the overhead figure. The weakest-covered fields at H-hour are those with no nearby gap, **chiefly European Russia and central China's road-mobile brigades.** In the first hour, strategic restraint therefore rests more on the Notification, human command decisions and Pickets than on Aegis. This raises the first-hour launch risk without settling it (§7).
+
+**What humans saw (D6), in order:**
+1. **T−14 to T−3 months:** six unexplained infrared sources at lunar distance; *uncharacterised, probably instrumental* (v1.5).
+2. **Final weeks:** military early-warning satellites log unexplained re-entry flashes over open ocean. Air-defence radars log slow, very high returns, and a few sightings are reported; most are filed as balloons or clutter. Nothing is correlated across agencies or states.
+3. **Final ~36 h:** the Coffer descent fills the space catalogue with uncorrelated objects that no state claims. Capitals query each other privately. In at least two, the working assumption is that a third has done something and is not admitting it (v1.5, compressed from T−4 days). Some militaries quietly raise readiness, which puts more crews at their stations in the first hour. Nobody goes public.
+4. **H−20 min:** deorbit commitments resolve into mass re-entry trajectories (Opening 48h).
 
 ## 5. The Notification (canonical text, v2.4 §6)
 
@@ -95,6 +118,9 @@ Its purpose is nuclear deconfliction and public order. It does **not** give mili
 - The T+30 h Pause and landing Classes 0–3. Use airfield activation stages A–F instead.
 - Bounds or Monoliths over every capital at contact.
 - Storks pre-positioned 6–18 h before H-hour. They now arrive after H-hour in staggered echelons.
+- Harrows, Snares (and any other tactical system) in the atmosphere before H-hour (v2.3 §12.1). Superseded by D4.
+- Aegis and Picket racks stationed directly over launch regions before H-hour (v2.1, v2.3). Superseded by D5: standoff in thinly watched airspace.
+- Eleven thousand Quivers as an independent low-orbit constellation visible for weeks, and the capitals' suspicion "by T−4 days" (v1.5). Superseded by Coffers at cislunar distance and the final ~36 h descent (D6).
 - Wave casualties of ~340,000 and ~140,000 surviving platforms. Both were derived from the warned 30-hour Wave and need re-derivation.
 - All old names in §3.
 - Foundry Delta as a "cargo-exchange" facility or "role uncertain". Its canonical role is in §3.
@@ -109,7 +135,8 @@ Its purpose is nuclear deconfliction and public order. It does **not** give mili
 | Merlin, Stork and Quiver counts; orbital phasing; Coffer numbers | No figures on screen. |
 | Day 30 situation | The broad shape only (network, not territory). |
 | Strategic launches and regional nuclear use (v1.5: four launches; a South Asian exchange in month 3) | Not in Episode 1. Revisit before any later episode. |
-| Whether the Quiver staging was visible as a constellation | Say *observed and unexplained*. No object count. |
+| First-hour strategic launches under standoff Aegis coverage (consequence of D5) | Not settled. Decide before any episode shows H+0 to H+1 in detail. |
+| Exact entry counts, standoff distances, Coffer release altitudes | Figures in §4a are approximate planning values; no precise numbers on screen. |
 
 ## 8. Documentary editorial frame
 
@@ -124,3 +151,6 @@ Its purpose is nuclear deconfliction and public order. It does **not** give mili
 | D1 | 2026-11-22 | The documentary follows the v2.4 opening. The v2.0 public demonstrations are **removed from canon**. Verification comes from independent tracking and the authenticated challenge plus Warden manoeuvre. | §5, §6. `data/verification.ts` and `scenes/VerificationRecord.tsx` need rework. |
 | D2 | 2026-11-22 | The narrator is a human historian writing after the charter ended. | §8 and the Introduction v4 script |
 | D3 | 2026-11-22 | `docs/canon/CURRENT_CANON.md` is the agents' entry point. Source files are kept verbatim in `sources/`. | `AGENTS.md`, `README.md` |
+| D4 | 2026-11-22 | Before H-hour only watching and strategic-defence systems are in the atmosphere, placed where they are unlikely to be noticed. Tactical systems (Harrows, Snares, Merlins, Vultures) arrive with the strike by entry package. | §4a, §6. Proposed by Claude, adopted under Janko's delegation. |
+| D5 | 2026-11-22 | Aegis, Shrike and Picket racks hold at standoff in thinly watched airspace before H-hour and close in afterwards. The first-hour boost-phase capacity is reduced, and European Russia and central China are the weakest-covered. | §4a, §7. Proposed by Claude, adopted under Janko's delegation. Figures approximate. |
+| D6 | 2026-11-22 | Coffers hold at cislunar distance and descend over the final ~36 h. Human detection is a sequence of uncorrelated anomalies ending in a catalogue full of unclaimed objects and mutual suspicion between capitals. | §4, §4a, Introduction v4 cold open. Proposed by Claude, adopted under Janko's delegation. |

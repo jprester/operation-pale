@@ -55,6 +55,7 @@ export function frameAt(elapsed: number) {
 // H-hour to H+48 per Canon Handoff v2.4 and Opening 48 Hours v2.0 (CURRENT_CANON.md §4).
 // The v2.0 demonstration timetable is superseded (decision D1).
 export const schedule: { time: string; event: string; detail: string }[] = [
+  { time: 'H−36 h', event: 'Unclaimed objects', detail: 'Staging carriers descend to release orbits. The space catalogue fills with objects no state claims; capitals query each other privately.' },
   { time: 'H−20 min', event: 'Orbital anomalies', detail: 'Tracking networks report mass re-entry commitments that fit no human launch pattern.' },
   { time: 'H+0', event: 'Notification and first strikes', detail: 'The public transmission and the opening operation begin at the same moment.' },
   { time: 'H+0–1 h', event: 'Global strategic suppression', detail: 'Strategic launch, integrated air defence, combat aviation, major naval and military-space functions cease to work as systems.' },

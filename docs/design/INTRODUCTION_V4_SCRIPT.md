@@ -8,7 +8,7 @@
 
 1. **Cold open on H-hour.** The v3 cut spent about five minutes on logistics before anything happened to people, and reached the Notification at 05:17. v4 opens with the twenty minutes before contact and the transmission itself, then goes back nineteen months to explain them.
 2. **One narrator with a fixed position.** A human historian writing after the charter ended. Most of what the narrator knows came from the Company, which answered questions precisely and volunteered almost nothing. The narrator knows outcomes and is plain about the limits of the record. The narrator never knows why Earth was acquired.
-3. **Canon brought up to date.** The opening follows v2.4: the Notification text is canonical, and strikes begin at the same moment. Demonstrations, the regional schedule and the 30-hour Wave are gone. Foundry Delta has its canonical role.
+3. **Canon brought up to date.** The opening follows v2.4: the Notification text is canonical, and strikes begin at the same moment. Demonstrations, the regional schedule and the 30-hour Wave are gone. Foundry Delta has its canonical role. Pre-contact staging and detection follow CURRENT_CANON §4a (D4–D6).
 4. **Fewer, more specific sentences.** The generic opening ("For hundreds of thousands of years…") and the explanation of the Hegemony's motives are cut. Every line now carries a specific fact, a consequence, or a limit on knowledge.
 
 ## Voice direction
@@ -23,42 +23,43 @@ Durations are estimates at 140 wpm plus marked pauses and holds. Re-measure afte
 
 | # | Sequence label | Cut title | Est. duration | Existing shots reused | New or changed picture |
 |---|---|---|---|---|---|
-| 0 | H-hour | — | 1:45 | `staging` dock (Earth orbital register), `surveillance`, `astronomers`, `notice` | Optional H−20 operations-room plate (photographic reconstruction, human side) |
+| 0 | H-hour | — | 2:05 | `staging` dock (Earth orbital register, now with uncorrelated-object tags), `surveillance`, `astronomers`, `notice` | Optional H−20 operations-room plate (photographic reconstruction, human side) |
 | — | Title | *Operation: Pale* | 0:06 | Cover globe | — |
 | 1 | The record | The record. | 0:55 | Galaxy plate, survey glyphs, charter record | — |
 | 2 | The manifest | What could not be made here. | 1:05 | Solar atlas, Caravan broadside, `extraction`, asteroid specimens | Manifest card (HTML) |
 | 3 | The Foundries | Four Foundries. | 0:45 | `alpha`, `beta`, `gamma`, `delta` | Delta shot revised to the calibration and salvage role |
 | 4 | Seen, not understood | Seen, not understood. | 0:30 | Local atlas, `photo` (catalogue review), `astronomers` | — |
-| 5 | Final staging | The last ninety days. | 0:50 | `staging`: handover, architecture, freight, dock, relay, ground, tableau | Remove `assignment` and `record` (demonstration shots, D1) |
+| 5 | Final staging | The last ninety days. | 1:20 | `staging`: handover, architecture, freight, dock, relay, ground, tableau | Remove `assignment` and `record` (D1); add Lantern-entry insert and Aegis standoff map |
 | 6 | H+0 | — | 0:45 | `notice` | End card |
-| | **Total** | | **≈ 6:40** with every marked pause at full length | | |
+| | **Total** | | **≈ 7:35** with every marked pause at full length | | |
 
-The marked pauses are generous on purpose. Expect about 5:45 after the first edit, with sequences 2 and 5 the first places to cut. Runtime matters less than order: the Notification now arrives at about 0:50 instead of 5:17, so the flashback can afford to be slow.
+The marked pauses are generous on purpose. Expect about 6:15 after the first edit, with sequences 2 and 5 the first places to cut. Runtime matters less than order: the Notification now arrives at about 1:10 instead of 5:17, so the flashback can afford to be slow.
 
 ---
 
 ## 0 · H-hour
 
-**Picture.** Black. Small amber timestamp: `H−20 MIN · TRACKING RECORD`. Fade up on the Earth orbital register. Tracked objects multiply and some begin to show re-entry arcs. Cut to the surveillance plate (unassigned tracks), then the astronomers plate. Hold on black for the order.
+**Picture.** Black. Small amber timestamp: `H−36 H · SPACE CATALOGUE`. Fade up on the Earth orbital register: new objects appear one by one, each tagged `UNCORRELATED`. Cut to the surveillance plate (unassigned tracks). Timestamp changes to `H−20 MIN · TRACKING RECORD`: the same objects begin to show re-entry arcs. Astronomers plate. Hold on black for the order.
 **Sound.** Room tone, then low contact vibration. No music until the title.
 
 | ID | Speaker | Line |
 |---|---|---|
-| C0-01 | Narrator | Twenty minutes before the hour, tracking networks in several countries were reporting the same thing. |
-| C0-02 | Narrator | Objects already in orbit were committing to re-entry, in numbers and patterns that matched no human launch. ‖ |
-| C0-03 | Narrator | The first explanations were human ones. ‖ A sensor fault. A classified test. Someone else's first strike. ‖ |
-| C0-04 | Narrator | The other explanation was institutionally absurd, until it stopped being optional. ‖‖ |
-| C0-05 | Narrator | In Washington, the first order of the day was a negative one. ‖ No strategic launch without proof of a human nuclear attack. ‖‖ |
+| C0-01 | Narrator | For a day and a half before contact, the catalogue of objects in orbit had been filling with things no state would claim. ‖ |
+| C0-02 | Narrator | Governments asked each other about them, privately. ‖ In at least two capitals, the working assumption was that a third had done something and was not admitting it. ‖‖ |
+| C0-03 | Narrator | Twenty minutes before the hour, tracking showed them releasing smaller objects, ‖ and those were committing to re-entry, in numbers and patterns that matched no human launch. ‖ |
+| C0-04 | Narrator | The first explanations were human ones. ‖ A sensor fault. A classified test. Someone else's first strike. ‖ |
+| C0-05 | Narrator | The other explanation was institutionally absurd, until it stopped being optional. ‖‖ |
+| C0-06 | Narrator | In Washington, the first order of the day was a negative one. ‖ No strategic launch without proof of a human nuclear attack. ‖‖ |
 
 **Picture.** Timestamp changes to `H+0:00 · PUBLIC CHANNEL`. The `notice` plate: people reading. Transmission text appears line by line in the emergency-receiver treatment and is held on screen.
 
 | ID | Speaker | Line |
 |---|---|---|
-| C0-06 | Company transmission | This transmission is not of human origin. ‖ Military forces worldwide are being neutralized now. ‖ This is not an attack by any human state. ‖ Civilian population centres, hospitals, food systems, water systems, and electrical infrastructure are not targets. ‖ Do not launch strategic weapons. ‖ Leave disabled military facilities and equipment immediately. ‖ Further instructions will follow. ‖‖ |
-| C0-07 | Narrator | It was the first thing the Company said to humanity. ‖ Every statement in it was true. ‖‖ |
-| C0-08 | Narrator | Within the hour, strategic launch, air defence and combat aviation had ceased to function as systems across most of the planet. |
-| C0-09 | Narrator | Some aircraft got into the air. Some crews fought, and a few of them won their fights. ‖ None of it added up to a war. ‖ |
-| C0-10 | Narrator | Around the bases, the cities kept their lights. ‖‖ |
+| C0-07 | Company transmission | This transmission is not of human origin. ‖ Military forces worldwide are being neutralized now. ‖ This is not an attack by any human state. ‖ Civilian population centres, hospitals, food systems, water systems, and electrical infrastructure are not targets. ‖ Do not launch strategic weapons. ‖ Leave disabled military facilities and equipment immediately. ‖ Further instructions will follow. ‖‖ |
+| C0-08 | Narrator | It was the first thing the Company said to humanity. ‖ Every statement in it was true. ‖‖ |
+| C0-09 | Narrator | Within the hour, strategic launch, air defence and combat aviation had ceased to function as systems across most of the planet. |
+| C0-10 | Narrator | Some aircraft got into the air. Some crews fought, and a few of them won their fights. ‖ None of it added up to a war. ‖ |
+| C0-11 | Narrator | Around the bases, the cities kept their lights. ‖‖ |
 
 **Title.** Cover globe, *Operation: Pale*, subtitle *The acquisition of Earth.* First music entrance.
 
@@ -136,15 +137,16 @@ TOTAL ................................ ≈ 3,760 t
 
 ## 5 · The last ninety days
 
-**Picture.** The existing staging sequence: Gamma finishing bay → tug handoff → transport passage → Earth orbital register → relay domains (Wardens above, Lanterns below) → Domesday survey fragments → completed apparatus. Drop "Demonstration reserved" and "Demonstration record" (D1). "Ninety days in review" may stay as a short countdown transition.
+**Picture.** The existing staging sequence: Gamma finishing bay → tug handoff → transport passage (Quivers racked on Coffers at cislunar distance, not in low orbit) → relay domains (Wardens above, Lanterns below) → Domesday survey fragments → completed apparatus. Two new inserts: a Lantern unfolding in the stratosphere after entry, over ocean (*artistic reconstruction*), and an Aegis standoff map in HTML/SVG showing stations over the Mongolian and Kazakh steppe and the Canadian interior, with approximate reach rings around the missile fields (*approximate; canonical placement, figures not shown*). Drop "Demonstration reserved" and "Demonstration record" (D1). End on the Coffers starting their descent, which loops back to the cold open.
 
 | ID | Speaker | Line |
 |---|---|---|
-| C5-01 | Narrator | In the last ninety days, the output moved toward Earth. ‖ Quivers, disposable entry vehicles packed with glide weapons, were towed into position by slow tugs. ‖ |
-| C5-02 | Narrator | Twenty-two Wardens coordinated the traffic. ‖ Below them, in the stratosphere, Lanterns watched and relayed. ‖ |
-| C5-03 | Narrator | On the ground, sensors were scattered along the roads, bases and bridges an army would have to use. ‖ Not across the land. ‖ Along the routes. ‖ |
-| C5-04 | Narrator | Some of this was tracked. ‖ The tracks were sound. ‖ What they meant was never agreed. ‖‖ |
-| C5-05 | Narrator | By the final day, almost everything the first hour required was already above the Earth. ‖‖ |
+| C5-01 | Narrator | In the last ninety days, the output moved toward Earth. ‖ Quivers, disposable entry vehicles packed with glide weapons, were loaded onto staging carriers and held far out, beyond the orbits anyone watched closely. ‖ Twenty-two Wardens coordinated the traffic. ‖ |
+| C5-02 | Narrator | Lanterns came down into the stratosphere a few at a time, over open ocean, ice and empty land, and stayed there, high and quiet. ‖ |
+| C5-03 | Narrator | In the last ten days, thirty-eight Aegis platforms followed. ‖ They were built to destroy ballistic missiles as they climbed, ‖ and they were stationed not over the missile fields, but over the emptiest airspace within reach of them. ‖ |
+| C5-04 | Narrator | On the ground, sensors were scattered along the roads, bases and bridges an army would have to use. ‖ Not across the land. ‖ Along the routes. ‖ |
+| C5-05 | Narrator | Some of this was recorded: ‖ re-entries over the ocean that matched no catalogued object, ‖ slow, very high radar returns filed with the balloons. ‖ Nobody put the records side by side. ‖‖ |
+| C5-06 | Narrator | Thirty-six hours before contact, the staging carriers began their descent. ‖‖‖ |
 
 ---
 
@@ -187,6 +189,7 @@ Every factual claim above traces to `CURRENT_CANON.md`:
 - Foundry roles: v2.4 §3.
 - Infrared sources and the Atacama astronomer: v1.5 Phase 0.
 - 22 Wardens and Lanterns: v2.4 §4.
+- Coffers held at cislunar distance, the 36-hour descent, Lantern and Aegis entry and standoff, tactical systems arriving with the strike, uncorrelated re-entries and radar returns, mutual suspicion between capitals: CURRENT_CANON §4a (D4–D6; the capitals' suspicion is from v1.5, retimed).
 - Domesday as a map: v1.5.
 - Authenticated contact with a Warden manoeuvre: Opening 48h H+1–3.
 - The unasked question: v1.5 epilogue.
