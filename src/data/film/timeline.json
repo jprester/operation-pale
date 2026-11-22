@@ -6,14 +6,14 @@
       "label": "H-hour",
       "cutTitle": "",
       "start": 0.0,
-      "duration": 112.21,
+      "duration": 134.304,
       "indexed": true
     },
     {
       "id": "title",
       "label": "Title",
       "cutTitle": "",
-      "start": 112.21,
+      "start": 134.304,
       "duration": 6.0,
       "indexed": false
     },
@@ -21,15 +21,15 @@
       "id": "record",
       "label": "The record",
       "cutTitle": "The record.",
-      "start": 118.21,
-      "duration": 43.487,
+      "start": 140.304,
+      "duration": 43.486,
       "indexed": true
     },
     {
       "id": "manifest",
       "label": "The manifest",
       "cutTitle": "What could not be made here.",
-      "start": 161.697,
+      "start": 183.79,
       "duration": 50.804,
       "indexed": true
     },
@@ -37,7 +37,7 @@
       "id": "foundries",
       "label": "The Foundries",
       "cutTitle": "Four Foundries.",
-      "start": 212.501,
+      "start": 234.594,
       "duration": 38.93,
       "indexed": true
     },
@@ -45,7 +45,7 @@
       "id": "seen",
       "label": "Seen, not understood",
       "cutTitle": "Seen, not understood.",
-      "start": 251.431,
+      "start": 273.524,
       "duration": 27.81,
       "indexed": true
     },
@@ -53,7 +53,7 @@
       "id": "staging",
       "label": "Final staging",
       "cutTitle": "The last ninety days.",
-      "start": 279.241,
+      "start": 301.334,
       "duration": 71.154,
       "indexed": true
     },
@@ -61,7 +61,7 @@
       "id": "h-zero",
       "label": "H+0",
       "cutTitle": "",
-      "start": 350.395,
+      "start": 372.488,
       "duration": 42.84,
       "indexed": true
     }
@@ -188,44 +188,70 @@
       ]
     },
     {
+      "id": "C0-06a",
+      "sequence": "h-hour",
+      "speaker": "Narrator",
+      "start": 53.546,
+      "end": 62.877,
+      "transcript": "On the hour, the same message began on open frequencies around the world. The recording survives in thousands of copies. This is one of them.",
+      "phrases": [
+        {
+          "text": "On the hour,",
+          "at": 53.546
+        },
+        {
+          "text": "the same message began on open frequencies around the world.",
+          "at": 54.26
+        },
+        {
+          "text": "The recording survives in thousands of copies.",
+          "at": 58.262
+        },
+        {
+          "text": "This is one of them.",
+          "at": 61.663
+        }
+      ]
+    },
+    {
       "id": "C0-07",
       "sequence": "h-hour",
       "speaker": "Company transmission",
-      "start": 53.546,
-      "end": 81.405,
+      "start": 65.877,
+      "end": 93.736,
       "transcript": "This transmission is not of human origin. Military forces worldwide are being neutralized now. This is not an attack by any human state. Civilian population centres, hospitals, food systems, water systems, and electrical infrastructure are not targets. Do not launch strategic weapons. Leave disabled military facilities and equipment immediately. Further instructions will follow.",
       "phrases": [
         {
           "text": "This transmission is not of human origin.",
-          "at": 53.546
+          "at": 65.877
         },
         {
           "text": "Military forces worldwide are being neutralized now.",
-          "at": 56.943
+          "at": 69.274
         },
         {
           "text": "This is not an attack by any human state.",
-          "at": 60.895
+          "at": 73.226
         },
         {
           "text": "Civilian population centres, hospitals, food systems,",
-          "at": 64.128
+          "at": 76.459
         },
         {
           "text": "water systems, and electrical infrastructure are not targets.",
-          "at": 67.607
+          "at": 79.938
         },
         {
           "text": "Do not launch strategic weapons.",
-          "at": 72.07
+          "at": 84.401
         },
         {
           "text": "Leave disabled military facilities and equipment immediately.",
-          "at": 74.943
+          "at": 87.274
         },
         {
           "text": "Further instructions will follow.",
-          "at": 79.49
+          "at": 91.821
         }
       ]
     },
@@ -233,17 +259,17 @@
       "id": "C0-08",
       "sequence": "h-hour",
       "speaker": "Narrator",
-      "start": 83.405,
-      "end": 88.781,
+      "start": 95.736,
+      "end": 101.112,
       "transcript": "It was the first thing the Company said to humanity. Every statement in it was true.",
       "phrases": [
         {
           "text": "It was the first thing the Company said to humanity.",
-          "at": 83.405
+          "at": 95.736
         },
         {
           "text": "Every statement in it was true.",
-          "at": 87.016
+          "at": 99.347
         }
       ]
     },
@@ -251,17 +277,17 @@
       "id": "C0-09",
       "sequence": "h-hour",
       "speaker": "Narrator",
-      "start": 90.781,
-      "end": 97.579,
+      "start": 103.112,
+      "end": 109.91,
       "transcript": "Within the hour, strategic launch, air defence and combat aviation had ceased to function as systems across most of the planet.",
       "phrases": [
         {
           "text": "Within the hour, strategic launch,",
-          "at": 90.781
+          "at": 103.112
         },
         {
           "text": "air defence and combat aviation had ceased to function as systems across most of the planet.",
-          "at": 92.933
+          "at": 105.264
         }
       ]
     },
@@ -269,21 +295,21 @@
       "id": "C0-10",
       "sequence": "h-hour",
       "speaker": "Narrator",
-      "start": 98.079,
-      "end": 104.93,
+      "start": 110.41,
+      "end": 117.261,
       "transcript": "Some aircraft got into the air. Some crews fought, and a few of them won their fights. None of it added up to a war.",
       "phrases": [
         {
           "text": "Some aircraft got into the air. Some crews fought,",
-          "at": 98.079
+          "at": 110.41
         },
         {
           "text": "and a few of them won their fights.",
-          "at": 100.981
+          "at": 113.312
         },
         {
           "text": "None of it added up to a war.",
-          "at": 103.248
+          "at": 115.579
         }
       ]
     },
@@ -291,13 +317,29 @@
       "id": "C0-11",
       "sequence": "h-hour",
       "speaker": "Narrator",
-      "start": 105.73,
-      "end": 108.21,
-      "transcript": "Around the bases, the cities kept their lights.",
+      "start": 118.061,
+      "end": 132.304,
+      "transcript": "Around the bases, the cities kept their lights. In most of them, people did not yet understand what had been taken. Not their homes. Not their lives. Only the ability to defend them.",
       "phrases": [
         {
           "text": "Around the bases, the cities kept their lights.",
-          "at": 105.73
+          "at": 118.061
+        },
+        {
+          "text": "In most of them, people did not yet understand what had been taken.",
+          "at": 121.341
+        },
+        {
+          "text": "Not their homes.",
+          "at": 126.751
+        },
+        {
+          "text": "Not their lives.",
+          "at": 128.596
+        },
+        {
+          "text": "Only the ability to defend them.",
+          "at": 130.413
         }
       ]
     },
@@ -305,21 +347,21 @@
       "id": "C1-01",
       "sequence": "record",
       "speaker": "Narrator",
-      "start": 119.71,
-      "end": 127.818,
+      "start": 141.804,
+      "end": 149.912,
       "transcript": "Most of what is known about the Company comes from the Company. It answered questions precisely when they were asked, and volunteered almost nothing.",
       "phrases": [
         {
           "text": "Most of what is known about the Company comes from the Company.",
-          "at": 119.71
+          "at": 141.804
         },
         {
           "text": "It answered questions precisely when they were asked,",
-          "at": 123.546
+          "at": 145.64
         },
         {
           "text": "and volunteered almost nothing.",
-          "at": 126.323
+          "at": 148.417
         }
       ]
     },
@@ -327,21 +369,21 @@
       "id": "C1-02",
       "sequence": "record",
       "speaker": "Narrator",
-      "start": 129.818,
-      "end": 137.281,
+      "start": 151.912,
+      "end": 159.375,
       "transcript": "The decision to acquire the planet was taken by the Hegemony, and handed to a temporary venture: the Sol Development Company.",
       "phrases": [
         {
           "text": "The decision to acquire the planet was taken by the Hegemony,",
-          "at": 129.818
+          "at": 151.912
         },
         {
           "text": "and handed to a temporary venture:",
-          "at": 133.112
+          "at": 155.206
         },
         {
           "text": "the Sol Development Company.",
-          "at": 135.62
+          "at": 157.714
         }
       ]
     },
@@ -349,21 +391,21 @@
       "id": "C1-03",
       "sequence": "record",
       "speaker": "Narrator",
-      "start": 138.082,
-      "end": 145.531,
+      "start": 160.175,
+      "end": 167.624,
       "transcript": "The charter gave it six years. At the end of them, Earth was to be productive, administered, and no longer in need of an army.",
       "phrases": [
         {
           "text": "The charter gave it six years.",
-          "at": 138.082
+          "at": 160.175
         },
         {
           "text": "At the end of them, Earth was to be productive, administered,",
-          "at": 140.686
+          "at": 162.779
         },
         {
           "text": "and no longer in need of an army.",
-          "at": 144.04
+          "at": 166.133
         }
       ]
     },
@@ -371,25 +413,25 @@
       "id": "C1-04",
       "sequence": "record",
       "speaker": "Narrator",
-      "start": 146.331,
-      "end": 159.697,
+      "start": 168.424,
+      "end": 181.79,
       "transcript": "It set one limit on the cost. Total human deaths were to remain below five per cent. In the Company's own records, that figure is a ceiling, not a target. Below it, deaths are an operating variable.",
       "phrases": [
         {
           "text": "It set one limit on the cost.",
-          "at": 146.331
+          "at": 168.424
         },
         {
           "text": "Total human deaths were to remain below five per cent.",
-          "at": 148.854
+          "at": 170.947
         },
         {
           "text": "In the Company's own records, that figure is a ceiling, not a target.",
-          "at": 152.765
+          "at": 174.858
         },
         {
           "text": "Below it, deaths are an operating variable.",
-          "at": 157.299
+          "at": 179.392
         }
       ]
     },
@@ -397,21 +439,21 @@
       "id": "C2-01",
       "sequence": "manifest",
       "speaker": "Narrator",
-      "start": 163.197,
-      "end": 171.154,
+      "start": 185.29,
+      "end": 193.247,
       "transcript": "The expedition arrived nineteen months before contact, in a single interstellar carrier, the Caravan. No one on Earth saw it come.",
       "phrases": [
         {
           "text": "The expedition arrived nineteen months before contact,",
-          "at": 163.197
+          "at": 185.29
         },
         {
           "text": "in a single interstellar carrier, the Caravan.",
-          "at": 166.402
+          "at": 188.495
         },
         {
           "text": "No one on Earth saw it come.",
-          "at": 169.502
+          "at": 191.595
         }
       ]
     },
@@ -419,17 +461,17 @@
       "id": "C2-02",
       "sequence": "manifest",
       "speaker": "Narrator",
-      "start": 171.954,
-      "end": 176.314,
+      "start": 194.047,
+      "end": 198.407,
       "transcript": "It was not built to fight. It carried only what could not be made here.",
       "phrases": [
         {
           "text": "It was not built to fight.",
-          "at": 171.954
+          "at": 194.047
         },
         {
           "text": "It carried only what could not be made here.",
-          "at": 174.251
+          "at": 196.344
         }
       ]
     },
@@ -437,33 +479,33 @@
       "id": "C2-03",
       "sequence": "manifest",
       "speaker": "Narrator",
-      "start": 177.114,
-      "end": 191.24,
+      "start": 199.207,
+      "end": 213.333,
       "transcript": "Compact fusion cores. Beam directors. Dense compute. And three hundred and forty thousand high-grade seekers: the kind that recognise a vehicle under camouflage, rather than a position on a map.",
       "phrases": [
         {
           "text": "Compact fusion cores.",
-          "at": 177.114
+          "at": 199.207
         },
         {
           "text": "Beam directors.",
-          "at": 179.442
+          "at": 201.535
         },
         {
           "text": "Dense compute.",
-          "at": 181.298
+          "at": 203.391
         },
         {
           "text": "And three hundred and forty thousand high-grade seekers:",
-          "at": 183.129
+          "at": 205.222
         },
         {
           "text": "the kind that recognise a vehicle under camouflage,",
-          "at": 186.72
+          "at": 208.813
         },
         {
           "text": "rather than a position on a map.",
-          "at": 189.704
+          "at": 211.797
         }
       ]
     },
@@ -471,17 +513,17 @@
       "id": "C2-04",
       "sequence": "manifest",
       "speaker": "Narrator",
-      "start": 192.04,
-      "end": 198.921,
+      "start": 214.133,
+      "end": 221.014,
       "transcript": "About three thousand seven hundred tonnes, shipped once. Nothing on the list could be replaced inside six years.",
       "phrases": [
         {
           "text": "About three thousand seven hundred tonnes, shipped once.",
-          "at": 192.04
+          "at": 214.133
         },
         {
           "text": "Nothing on the list could be replaced inside six years.",
-          "at": 195.82
+          "at": 217.913
         }
       ]
     },
@@ -489,13 +531,13 @@
       "id": "C2-05",
       "sequence": "manifest",
       "speaker": "Narrator",
-      "start": 200.921,
-      "end": 202.734,
+      "start": 223.014,
+      "end": 224.827,
       "transcript": "Everything else would come from rock.",
       "phrases": [
         {
           "text": "Everything else would come from rock.",
-          "at": 200.921
+          "at": 223.014
         }
       ]
     },
@@ -503,21 +545,21 @@
       "id": "C2-06",
       "sequence": "manifest",
       "speaker": "Narrator",
-      "start": 203.534,
-      "end": 211.701,
+      "start": 225.627,
+      "end": 233.794,
       "transcript": "Mining equipment went out to the asteroid belt. A small reserve stayed out there with it, so that the expedition could not be lost in one place.",
       "phrases": [
         {
           "text": "Mining equipment went out to the asteroid belt.",
-          "at": 203.534
+          "at": 225.627
         },
         {
           "text": "A small reserve stayed out there with it,",
-          "at": 206.864
+          "at": 228.957
         },
         {
           "text": "so that the expedition could not be lost in one place.",
-          "at": 209.014
+          "at": 231.107
         }
       ]
     },
@@ -525,17 +567,17 @@
       "id": "C3-01",
       "sequence": "foundries",
       "speaker": "Narrator",
-      "start": 214.001,
-      "end": 217.596,
+      "start": 236.094,
+      "end": 239.689,
       "transcript": "Between the Earth and the Moon, four Foundries grew around the delivered rock.",
       "phrases": [
         {
           "text": "Between the Earth and the Moon,",
-          "at": 214.001
+          "at": 236.094
         },
         {
           "text": "four Foundries grew around the delivered rock.",
-          "at": 215.366
+          "at": 237.459
         }
       ]
     },
@@ -543,13 +585,13 @@
       "id": "C3-02",
       "sequence": "foundries",
       "speaker": "Narrator",
-      "start": 218.396,
-      "end": 220.912,
+      "start": 240.489,
+      "end": 243.005,
       "transcript": "Alpha turned ice into water and propellant.",
       "phrases": [
         {
           "text": "Alpha turned ice into water and propellant.",
-          "at": 218.396
+          "at": 240.489
         }
       ]
     },
@@ -557,17 +599,17 @@
       "id": "C3-03",
       "sequence": "foundries",
       "speaker": "Narrator",
-      "start": 221.712,
-      "end": 227.162,
+      "start": 243.805,
+      "end": 249.255,
       "transcript": "Beta turned metal into structure: frames, airframes, the bodies of munitions.",
       "phrases": [
         {
           "text": "Beta turned metal into structure:",
-          "at": 221.712
+          "at": 243.805
         },
         {
           "text": "frames, airframes, the bodies of munitions.",
-          "at": 224.552
+          "at": 246.645
         }
       ]
     },
@@ -575,13 +617,13 @@
       "id": "C3-04",
       "sequence": "foundries",
       "speaker": "Narrator",
-      "start": 227.962,
-      "end": 231.634,
+      "start": 250.055,
+      "end": 253.727,
       "transcript": "Gamma assembled Beta's work around the parts the Caravan had brought.",
       "phrases": [
         {
           "text": "Gamma assembled Beta's work around the parts the Caravan had brought.",
-          "at": 227.962
+          "at": 250.055
         }
       ]
     },
@@ -589,17 +631,17 @@
       "id": "C3-05",
       "sequence": "foundries",
       "speaker": "Narrator",
-      "start": 232.434,
-      "end": 238.646,
+      "start": 254.527,
+      "end": 260.739,
       "transcript": "Delta kept those parts working: calibrating, repairing, and salvaging what could not be replaced.",
       "phrases": [
         {
           "text": "Delta kept those parts working:",
-          "at": 232.434
+          "at": 254.527
         },
         {
           "text": "calibrating, repairing, and salvaging what could not be replaced.",
-          "at": 235.097
+          "at": 257.19
         }
       ]
     },
@@ -607,21 +649,21 @@
       "id": "C3-06",
       "sequence": "foundries",
       "speaker": "Narrator",
-      "start": 240.646,
-      "end": 249.431,
+      "start": 262.739,
+      "end": 271.524,
       "transcript": "The arrangement fixed the shape of the next six years. The Company could build a million simple weapons. It could not build one more good seeker.",
       "phrases": [
         {
           "text": "The arrangement fixed the shape of the next six years.",
-          "at": 240.646
+          "at": 262.739
         },
         {
           "text": "The Company could build a million simple weapons.",
-          "at": 244.065
+          "at": 266.158
         },
         {
           "text": "It could not build one more good seeker.",
-          "at": 247.478
+          "at": 269.571
         }
       ]
     },
@@ -629,13 +671,13 @@
       "id": "C4-01",
       "sequence": "seen",
       "speaker": "Narrator",
-      "start": 252.931,
-      "end": 254.689,
+      "start": 275.024,
+      "end": 276.782,
       "transcript": "The Foundries were not invisible.",
       "phrases": [
         {
           "text": "The Foundries were not invisible.",
-          "at": 252.931
+          "at": 275.024
         }
       ]
     },
@@ -643,17 +685,17 @@
       "id": "C4-02",
       "sequence": "seen",
       "speaker": "Narrator",
-      "start": 255.489,
-      "end": 262.632,
+      "start": 277.582,
+      "end": 284.725,
       "transcript": "Between fourteen and three months before contact, six unexplained infrared sources at lunar distance entered survey data.",
       "phrases": [
         {
           "text": "Between fourteen and three months before contact,",
-          "at": 255.489
+          "at": 277.582
         },
         {
           "text": "six unexplained infrared sources at lunar distance entered survey data.",
-          "at": 258.271
+          "at": 280.364
         }
       ]
     },
@@ -661,21 +703,21 @@
       "id": "C4-03",
       "sequence": "seen",
       "speaker": "Narrator",
-      "start": 263.432,
-      "end": 269.31,
+      "start": 285.525,
+      "end": 291.403,
       "transcript": "A working group reviewed them twice, and filed them as uncharacterised, probably instrumental.",
       "phrases": [
         {
           "text": "A working group reviewed them twice,",
-          "at": 263.432
+          "at": 285.525
         },
         {
           "text": "and filed them as uncharacterised,",
-          "at": 265.398
+          "at": 287.491
         },
         {
           "text": "probably instrumental.",
-          "at": 267.957
+          "at": 290.05
         }
       ]
     },
@@ -683,21 +725,21 @@
       "id": "C4-04",
       "sequence": "seen",
       "speaker": "Narrator",
-      "start": 270.11,
-      "end": 277.241,
+      "start": 292.203,
+      "end": 299.334,
       "transcript": "An astronomer in the Atacama was certain they were artificial. She was right, and it changed nothing.",
       "phrases": [
         {
           "text": "An astronomer in the Atacama was certain they were artificial.",
-          "at": 270.11
+          "at": 292.203
         },
         {
           "text": "She was right,",
-          "at": 274.406
+          "at": 296.499
         },
         {
           "text": "and it changed nothing.",
-          "at": 275.874
+          "at": 297.967
         }
       ]
     },
@@ -705,29 +747,29 @@
       "id": "C5-01",
       "sequence": "staging",
       "speaker": "Narrator",
-      "start": 280.741,
-      "end": 296.03,
+      "start": 302.834,
+      "end": 318.123,
       "transcript": "In the last ninety days, the output moved toward Earth. Quivers, disposable entry vehicles packed with glide weapons, were loaded onto staging carriers and held far out, beyond the orbits anyone watched closely. Twenty-two Wardens coordinated the traffic.",
       "phrases": [
         {
           "text": "In the last ninety days, the output moved toward Earth.",
-          "at": 280.741
+          "at": 302.834
         },
         {
           "text": "Quivers, disposable entry vehicles packed with glide weapons,",
-          "at": 284.463
+          "at": 306.556
         },
         {
           "text": "were loaded onto staging carriers and held far out,",
-          "at": 288.043
+          "at": 310.136
         },
         {
           "text": "beyond the orbits anyone watched closely.",
-          "at": 290.855
+          "at": 312.948
         },
         {
           "text": "Twenty-two Wardens coordinated the traffic.",
-          "at": 293.623
+          "at": 315.716
         }
       ]
     },
@@ -735,17 +777,17 @@
       "id": "C5-02",
       "sequence": "staging",
       "speaker": "Narrator",
-      "start": 296.83,
-      "end": 303.923,
+      "start": 318.923,
+      "end": 326.016,
       "transcript": "Lanterns came down into the stratosphere a few at a time, over open ocean, ice and empty land, and stayed there, high and quiet.",
       "phrases": [
         {
           "text": "Lanterns came down into the stratosphere a few at a time,",
-          "at": 296.83
+          "at": 318.923
         },
         {
           "text": "over open ocean, ice and empty land, and stayed there, high and quiet.",
-          "at": 299.928
+          "at": 322.021
         }
       ]
     },
@@ -753,25 +795,25 @@
       "id": "C5-03",
       "sequence": "staging",
       "speaker": "Narrator",
-      "start": 304.723,
-      "end": 317.575,
+      "start": 326.816,
+      "end": 339.668,
       "transcript": "In the last ten days, thirty-eight Aegis platforms followed. They were built to destroy ballistic missiles as they climbed, and they were stationed not over the missile fields, but over the emptiest airspace within reach of them.",
       "phrases": [
         {
           "text": "In the last ten days, thirty-eight Aegis platforms followed.",
-          "at": 304.723
+          "at": 326.816
         },
         {
           "text": "They were built to destroy ballistic missiles as they climbed,",
-          "at": 308.723
+          "at": 330.816
         },
         {
           "text": "and they were stationed not over the missile fields,",
-          "at": 312.474
+          "at": 334.567
         },
         {
           "text": "but over the emptiest airspace within reach of them.",
-          "at": 314.95
+          "at": 337.043
         }
       ]
     },
@@ -779,25 +821,25 @@
       "id": "C5-04",
       "sequence": "staging",
       "speaker": "Narrator",
-      "start": 318.375,
-      "end": 327.55,
+      "start": 340.468,
+      "end": 349.643,
       "transcript": "On the ground, sensors were scattered along the roads, bases and bridges an army would have to use. Not across the land. Along the routes.",
       "phrases": [
         {
           "text": "On the ground, sensors were scattered along the roads,",
-          "at": 318.375
+          "at": 340.468
         },
         {
           "text": "bases and bridges an army would have to use.",
-          "at": 321.199
+          "at": 343.292
         },
         {
           "text": "Not across the land.",
-          "at": 324.343
+          "at": 346.436
         },
         {
           "text": "Along the routes.",
-          "at": 326.442
+          "at": 348.535
         }
       ]
     },
@@ -805,25 +847,25 @@
       "id": "C5-05",
       "sequence": "staging",
       "speaker": "Narrator",
-      "start": 328.35,
-      "end": 341.283,
+      "start": 350.443,
+      "end": 363.376,
       "transcript": "Some of this was recorded: re-entries over the ocean that matched no catalogued object, slow, very high radar returns filed with the balloons. Nobody put the records side by side.",
       "phrases": [
         {
           "text": "Some of this was recorded:",
-          "at": 328.35
+          "at": 350.443
         },
         {
           "text": "re-entries over the ocean that matched no catalogued object,",
-          "at": 330.778
+          "at": 352.871
         },
         {
           "text": "slow, very high radar returns filed with the balloons.",
-          "at": 335.013
+          "at": 357.106
         },
         {
           "text": "Nobody put the records side by side.",
-          "at": 339.042
+          "at": 361.135
         }
       ]
     },
@@ -831,17 +873,17 @@
       "id": "C5-06",
       "sequence": "staging",
       "speaker": "Narrator",
-      "start": 343.283,
-      "end": 347.395,
+      "start": 365.376,
+      "end": 369.488,
       "transcript": "Thirty-six hours before contact, the staging carriers began their descent.",
       "phrases": [
         {
           "text": "Thirty-six hours before contact,",
-          "at": 343.283
+          "at": 365.376
         },
         {
           "text": "the staging carriers began their descent.",
-          "at": 345.499
+          "at": 367.592
         }
       ]
     },
@@ -849,21 +891,21 @@
       "id": "C6-01",
       "sequence": "h-zero",
       "speaker": "Narrator",
-      "start": 351.895,
-      "end": 360.314,
+      "start": 373.988,
+      "end": 382.407,
       "transcript": "The transmission was meant to be checked, and within minutes, observatories could confirm that the objects overhead were behaving like nothing human.",
       "phrases": [
         {
           "text": "The transmission was meant to be checked,",
-          "at": 351.895
+          "at": 373.988
         },
         {
           "text": "and within minutes,",
-          "at": 354.768
+          "at": 376.861
         },
         {
           "text": "observatories could confirm that the objects overhead were behaving like nothing human.",
-          "at": 355.72
+          "at": 377.813
         }
       ]
     },
@@ -871,17 +913,17 @@
       "id": "C6-02",
       "sequence": "h-zero",
       "speaker": "Narrator",
-      "start": 361.114,
-      "end": 367.271,
+      "start": 383.207,
+      "end": 389.364,
       "transcript": "Within three hours, a government could send the sender a challenge, and watch a Warden answer it in orbit.",
       "phrases": [
         {
           "text": "Within three hours, a government could send the sender a challenge,",
-          "at": 361.114
+          "at": 383.207
         },
         {
           "text": "and watch a Warden answer it in orbit.",
-          "at": 365.166
+          "at": 387.259
         }
       ]
     },
@@ -889,17 +931,17 @@
       "id": "C6-03",
       "sequence": "h-zero",
       "speaker": "Narrator",
-      "start": 369.271,
-      "end": 374.433,
+      "start": 391.364,
+      "end": 396.526,
       "transcript": "The message said what was happening, and what would not be targeted. It did not say why.",
       "phrases": [
         {
           "text": "The message said what was happening, and what would not be targeted.",
-          "at": 369.271
+          "at": 391.364
         },
         {
           "text": "It did not say why.",
-          "at": 373.296
+          "at": 395.389
         }
       ]
     },
@@ -907,20 +949,20 @@
       "id": "C6-04",
       "sequence": "h-zero",
       "speaker": "Narrator",
-      "start": 376.433,
-      "end": 384.235,
+      "start": 398.526,
+      "end": 406.328,
       "transcript": "Six years later, the Company still had not said. No one had asked the question in a form it recognised as requiring an answer.",
       "phrases": [
         {
           "text": "Six years later, the Company still had not said.",
-          "at": 376.433
+          "at": 398.526
         },
         {
           "text": "No one had asked the question in a form it recognised as requiring an answer.",
-          "at": 379.952
+          "at": 402.045
         }
       ]
     }
   ],
-  "duration": 393.235
+  "duration": 415.328
 }

@@ -19,8 +19,15 @@ def render_dialogue(output, narrator_gain=1):
     pcm = bytearray(round(timeline['duration'] * RATE) * 2)
     previous_end = 0
     for cue, take, boundary in recording_windows(timeline, manifest['segments']):
+        filters = []
+        radio = manifest['mix']['broadcast']
+        if cue['id'] == radio['cue']:
+            filters = ['-af', f"highpass=f={radio['highpassHz']},lowpass=f={radio['lowpassHz']},"
+                       f"acompressor=threshold={radio['compressionThreshold']}:ratio={radio['ratio']}:attack={radio['attackMs']}:release={radio['releaseMs']},"
+                       f"aecho=1:1:{radio['slapMs']}:{radio['slapDecay']},"
+                       f"loudnorm=I={radio['targetLUFS']}:TP={radio['truePeakDb']}:LRA={radio['lra']}"]
         samples = subprocess.check_output(['ffmpeg', '-nostdin', '-v', 'error', '-i', ROOT / take['path'],
-                                          '-ar', str(RATE), '-ac', '1', '-f', 's16le', '-'])
+                                          *filters, '-ar', str(RATE), '-ac', '1', '-f', 's16le', '-'])
         start = round(cue['start'] * RATE) - take['onsetSample']
         end = start + len(samples) // 2
         if start < previous_end or end > round(boundary * RATE):
@@ -67,7 +74,6 @@ def render_mix(tmp):
             if clip['bus'] != bus:
                 continue
             key = clip['asset']
-            asset = selected[key] if key not in ('music', 'hegemonyFx', 'resourcesDrone') else archive[key]
             a, b = position(clip['start']), position(clip['end'])
             length = round(b - a, 3)
             offset = clip['sourceIn']
@@ -76,11 +82,18 @@ def render_mix(tmp):
             if not 0 <= a < b <= duration:
                 raise ValueError(f'Invalid placement: {key}')
             i = len(tracks)
-            inputs.extend(['-i', ROOT/asset['path']])
+            if key == 'procedural-carrier':
+                radio = manifest['mix']['broadcast']
+                inputs.extend(['-f','lavfi','-i',f"anoisesrc=color=pink:r=48000:d={length}:seed={radio['carrierSeed']}:a={radio['carrierAmplitude']},"
+                               f"highpass=f={radio['highpassHz']},lowpass=f={radio['lowpassHz']}"])
+                span = length
+            else:
+                asset = selected[key] if key in selected else archive[key]
+                inputs.extend(['-i', ROOT/asset['path']])
+                span = asset.get('seconds', asset.get('durationSeconds'))
             source = f'[{i}:a]'
-            if offset+length > asset.get('seconds', asset.get('durationSeconds', 0))+.001:
+            if offset+length > span+.001:
                 # The short archived atmospheres repeat with equal-power joins.
-                span = asset['durationSeconds']
                 copies = 1 + math.ceil((offset+length-span)/(span-2))
                 graph.append(source+f'asplit={copies}'+''.join(f'[r{i}_{j}]' for j in range(copies)))
                 source = f'[r{i}_0]'

@@ -1,4 +1,5 @@
 """Render B2 listening candidates with local Stable Audio 3 and a measured voice timeline."""
+import argparse
 import hashlib
 import json
 import os
@@ -13,7 +14,7 @@ from film_timeline import ROOT, load
 MLX = Path.home() / 'Projects/software_dev/my_projects/narration-app/code/stable-audio-3/optimized/mlx'
 MANIFEST = ROOT / 'assets/audio/manifest.json'
 CUES = [
-    ('bed-cold-open', 'sm-sfx', ['h-hour'], 10,
+    ('bed-cold-open', 'sm-sfx', [], 122.210,
      'Low steady room tone with a faint sub-bass vibration, distant ventilation hum, very sparse, no melody, no drums, no pulses.'),
     ('hit-title', 'sm-sfx', [], 8,
      'Single deep sub-bass impact with a long dark decay, no reverb tail brightness, no melody.'),
@@ -28,12 +29,21 @@ CUES = [
 ]
 
 
-def main():
+def main(only):
     timeline = load()
     durations = {s['id']: s['duration'] for s in timeline['sequences']}
     manifest = json.loads(MANIFEST.read_text())
     generated = manifest['generated']
-    for i, (cue, model, sequences, padding, prompt) in enumerate(CUES):
+    notice = next(c for c in timeline['cues'] if c['id'] == 'C0-07')
+    recipes = CUES + [
+        ('carrier', 'sm-sfx', [], notice['end']-notice['start']+3,
+         'very faint steady radio carrier hiss with a soft low hum, no tones, no beeps, no melody, no music'),
+        ('night-air', 'sm-sfx', [], 60,
+         'quiet open-air night ambience, very light wind, distant low hum, no insects, no birds, no voices, no melody'),
+    ]
+    for i, (cue, model, sequences, padding, prompt) in enumerate(recipes):
+        if only and cue not in only:
+            continue
         seconds = round(sum(durations[s] for s in sequences) + padding, 3)
         decoder = 'same-l' if model == 'medium' else 'same-s'
         for take in range(1, 4):
@@ -81,4 +91,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("cues", nargs="*")
+    main(parser.parse_args().cues)

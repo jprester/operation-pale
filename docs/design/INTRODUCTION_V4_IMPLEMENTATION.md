@@ -299,3 +299,13 @@ All four decoded tracks measure 393.235 s. The music stem is silent during the c
 ### Editor questions
 
 Do the voice and bed levels work for you during the transmission, flashback and ending? The briefing and observatory images currently stand in for new inserts, and the provisional Delta exterior appears without its obsolete v3 role label. Final picture work follows the B3 listening review.
+
+## CR-1 · announced Notification
+
+H-hour runs 134.304 s and the film runs 415.328 s. C0-06a spans 53.546–62.877 s (9.331 s voiced interval); the revised C0-11 spans 118.061–132.304 s (14.243 s). Both use the approved Fable + Onyx 2:1 blend at 0.96×, seed 42. The audio-first layout reuses every other approved take. Alice's existing FLAC enters at 65.877 s after the authored pause and one second of carrier pre-roll. The new picture holds on the city at the close.
+
+The broadcast uses 250 Hz high-pass and 4.5 kHz low-pass filters, 2:1 compression, a 37 ms slap at 0.075 decay, and a −23 LUFS target. The band-limited pink carrier ends 0.3 s after the last word. The selected cold-open bed can repeat with equal-power joins. The flashback and staging scores retain their original takes and cue-relative placements.
+
+Reproduce with Podcast Studio’s Python running `assets/audio/kokoro_takes.py` offline, followed by `python3 -B assets/audio/master.py`. The three 30.859 s radio auditions are in `assets/audio/generated/carrier/`. Command: `python3 -B assets/audio/score_candidates.py carrier`. Seeds 41061–41063, sm-sfx/same-s, eight steps, CFG 3. Settings and checksums are in the manifest. The 42-cue script, pause, TypeScript and production build checks passed.
+
+**Editor question.** Keep the procedural carrier or select carrier A1, A2 or A3 after listening?

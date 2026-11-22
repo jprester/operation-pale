@@ -36,7 +36,7 @@ PAUSES = {'‖': .8, '‖‖': 2.0, '‖‖‖': 3.0, '': .5}
 
 
 def audition_phrases(ids):
-    rows = dict(re.findall(r'^\| (C\d+-\d+) \| [^|]+ \| ([^|]+) \|$', SCRIPT.read_text(), re.M))
+    rows = dict(re.findall(r'^\| (C\d+-\d+[a-z]?) \| [^|]+ \| ([^|]+) \|$', SCRIPT.read_text(), re.M))
     for cue_id in ids:
         for text, mark in re.findall(r'([^‖]+)(‖*)', rows[cue_id]):
             text = text.strip()
@@ -151,12 +151,15 @@ SEQUENCES = [
     ('staging', 'Final staging', 'The last ninety days.'), ('h-zero', 'H+0', ''),
 ]
 HEAD = {'h-hour': 2.5, 'title': 6}
-TAIL = {'h-hour': 2, 'h-zero': 6}
+TAIL = {'h-zero': 6}
 
 
 def record_film():
-    rows = re.findall(r'^\| (C(\d+)-\d+) \| ([^|]+) \| ([^|]+) \|$', SCRIPT.read_text(), re.M)
-    pipe = pipeline()
+    rows = re.findall(r'^\| (C(\d+)-\d+[a-z]?) \| ([^|]+) \| ([^|]+) \|$', SCRIPT.read_text(), re.M)
+    manifest = json.loads(MANIFEST.read_text())
+    old_cues = {c['id']: c for c in json.loads((ROOT/'src/data/film/timeline.json').read_text())['cues']}
+    old_takes = {s['id']: s for s in manifest['segments']}
+    pipe = None
     folder = AUDITION.parent / 'v4'
     folder.mkdir(exist_ok=True)
     cursor = 0
@@ -169,7 +172,25 @@ def record_film():
         for cue_id, group, speaker, line in rows:
             if int(group) != script_groups.get(seq):
                 continue
-            path = folder / (cue_id + '.flac')
+            if cue_id == 'C0-07':
+                cursor += RATE  # carrier pre-roll after the announcement's authored pause
+            transcript = ' '.join(line.replace('‖', '').split())
+            old = old_cues.get(cue_id)
+            if old and old['transcript'] == transcript:
+                clip = old_takes[cue_id]
+                if hashlib.sha256((ROOT/clip['path']).read_bytes()).hexdigest() != clip['sha256']:
+                    raise ValueError(f'Cached take differs from manifest: {cue_id}')
+                start_seconds = round(cursor/RATE, 3)
+                shift = start_seconds - old['start']
+                end = round(old['end'] + shift, 3)
+                timeline['cues'].append({**old, 'start': start_seconds, 'end': end,
+                    'phrases': [{**p, 'at': round(p['at'] + shift, 3)} for p in old['phrases']]})
+                segments.append(clip)
+                cursor = round((end + PAUSES[re.search(r'‖*$', line)[0]]) * RATE)
+                continue
+            if pipe is None:
+                pipe = pipeline()
+            path = folder / (cue_id + ('-r1' if old else '') + '.flac')
             voice, speed = CAST[speaker]
             take = render_take(pipe, [cue_id], voice, speed, path, production=True)
             origin = cursor - take['phrases'][0]['onsetSample']

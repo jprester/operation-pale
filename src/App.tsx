@@ -84,7 +84,7 @@ function App() {
         {watch && <OpeningPlate plate={cut.plate} time={sourceTime} scene={scene} seconds={seconds} started={started} reduced={reduced} visible={visible}/>}
         {!started ? <div className="film-cover"><p className="kicker"><i/> Speculative documentary</p><h1>Operation<span>:</span> Pale</h1>
           <p className="cover-line">{cover.title}</p><button className="cover-play" onClick={togglePlayback}><FilmIcon name="play"/>Play introduction</button></div> :
-        <><div className="film-clock"><span>{index<0 ? '·' : pad(index+1) + ' / ' + pad(indexedBeats.length)}</span>{scene.label}</div>
+        <><div className="film-clock"><span>{index<0 ? '·' : pad(index+1) + ' / ' + pad(indexedBeats.length)}</span>{scene.id==='h-hour' && ['announcement','public-channel','after-notice','city'].includes(cut.id) ? 'H+0:00 · PUBLIC CHANNEL' : scene.label}</div>
         {scene.title && seconds<4 && <h2 className="cut-title" style={{opacity:titleOpacity}}>{scene.title}</h2>}
         {captions && subtitle && <div className="subtitles"><span>{cue?.speaker==='Company transmission' && <b>Company transmission · reconstructed　</b>}{subtitle.text}</span></div>}</>}
       </div>

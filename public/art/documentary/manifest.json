@@ -83,5 +83,23 @@
     "reconstruction": "AI photographic reconstruction",
     "status": "draft",
     "prompt": "Wide 16:9 candid investigative-documentary photograph. A small civilian scientific briefing in a modest contemporary government meeting room at early morning. Three analysts in ordinary clothes study monochrome printouts around a worn table, blinds and daylight, thoughtful uncertain expressions. Documentary distance, muted neutral tones. No flags, text, logos, dramatic gestures or military spectacle."
+  },
+  {
+    "id": "night-city",
+    "filename": "night-city.webp",
+    "smallFilename": "night-city-640.webp",
+    "sequence": "H-hour",
+    "start": 0,
+    "end": 1,
+    "composition": "full",
+    "aspectRatio": "16:9",
+    "motion": "push",
+    "atmosphere": false,
+    "caption": "City lights · First hour",
+    "description": "Residential lights remain on beneath a dark hillside.",
+    "reconstruction": "Artistic reconstruction",
+    "status": "draft",
+    "tool": "Built-in image generation",
+    "prompt": "Wide 16:9 photographic reconstruction, documentary restraint. A mid-sized city at night seen from a low hill, ordinary residential lights on, streets calm, a distant airbase at the edge of frame dark with a faint thin smoke column. No fire, no explosions, no people in close-up, no text. Muted, cold archival grade."
   }
 ]

@@ -38,16 +38,26 @@ function FoundrySequence({ index, seconds, reduced, visible }: { index: number; 
 type Scene = (typeof beats)[number];
 
 function Broadcast({ scene, seconds, reduced }: { scene: Scene; seconds: number; reduced: boolean }) {
-  const phrases = scene.narration.filter(cue => cue.speaker === 'Company transmission');
-  const page = phrases.filter(cue => seconds >= cue.start).length - 1;
-  if (page < 0) return <RecordPlate eyebrow="PUBLIC CHANNEL" title="Incoming notice" detail="T+0:00 · Public emergency broadcast"/>;
-  const words = phrases[page].transcript.split(' ');
-  const count = reduced ? words.length : 1 + Math.floor((seconds - phrases[page].start) * 7);
-  return <div className="receiver">
-    <div className="receiver-bar"><b>PUBLIC WARNING</b><span>T+0:00</span></div>
-    <div className="receiver-body"><small>EMERGENCY TRANSMISSION</small>
-      <p>{words.slice(0,count).join(' ')}<i aria-hidden="true"/></p></div>
-    <div className="receiver-footer"><span>PROPOSED CAPTIONS</span><span>0{page+1} / 04</span></div>
+  const cue = scene.narration.find(cue => cue.speaker === 'Company transmission')!;
+  const elapsed = seconds + scene.start;
+  const pages: typeof cue.subtitles[] = [];
+  for (const phrase of cue.subtitles) {
+    if (!pages.length || pages.at(-1)!.at(-1)!.text.endsWith('.')) pages.push([]);
+    pages.at(-1)!.push(phrase);
+  }
+  const index = pages.filter(page => page[0].at <= elapsed).length - 1;
+  const page = pages[index] ?? [];
+  const text = page.flatMap((p,i) => {
+    if (elapsed < p.at) return [];
+    const until = page[i+1]?.at ?? pages[index+1]?.[0].at ?? scene.start+cue.end;
+    const progress = Math.min(1,(elapsed-p.at)/Math.max(.1,(until-p.at)*.8));
+    return [reduced ? p.text : p.text.slice(0, Math.ceil(progress*p.text.length))];
+  }).join(' ');
+  return <div className="receiver cold-receiver">
+    <div className="receiver-bar"><b>PUBLIC CHANNEL</b><span>H+0:00</span></div>
+    <div className="receiver-body"><small>EMERGENCY TRANSMISSION</small><p>{text}<i aria-hidden="true"/></p></div>
+    <div className="receiver-footer"><span>COMPANY TRANSMISSION · RECONSTRUCTED</span>
+      <span>{index<0?'—':String(index+1).padStart(2,'0')} / 07</span></div>
   </div>;
 }
 
@@ -103,10 +113,15 @@ export function OpeningPlate({ plate, time, scene, seconds, started, reduced, vi
     {started && <div className="film-cover"><h1>Operation: Pale</h1><p className="cover-line">The acquisition of Earth.</p></div>}</div>;
   if (plate === 'black') return <div style={{position:'absolute',inset:0,background:'black'}}/>;
   if (plate === 'end') return <div className="plate"><RecordPlate eyebrow="Episode 1" title="The first forty-eight hours." detail=""/></div>;
-  if (plate === 'briefing' || plate === 'observatory') {
-    const id = plate === 'briefing' ? 'intelligence-briefing' : 'observatory-night';
+  if (plate === 'city') {
+    const photo = documentaryPhotos.find(p=>p.id==='night-city')!;
+    return <div className="plate photo-full-plate" style={{background:'black'}}><div style={{position:'absolute', inset:0, opacity:clamp((scene.duration-seconds)/.65)}}>
+      <DocumentaryInsert photo={{...photo,start:0,end:25}} time={time} reduced={reduced} externalFade/></div></div>;
+  }
+  if (plate === 'briefing' || plate === 'observatory' || plate === 'receiver') {
+    const id = plate === 'observatory' ? 'observatory-night' : 'intelligence-briefing';
     const photo = documentaryPhotos.find(item => item.id === id)!;
-    return <div className="plate photo-full-plate"><DocumentaryInsert photo={{...photo,composition:'full'}} time={time} reduced={reduced} externalFade/></div>;
+    return <div className="plate photo-full-plate"><DocumentaryInsert photo={{...photo,composition:'full'}} time={time} reduced={reduced} externalFade/>{plate === 'receiver' && <Broadcast scene={scene} seconds={seconds} reduced={reduced}/>}</div>;
   }
   if (plate === 'delta') {
     const delta = foundryBranches.find(branch => branch.key === 'delta')!;

@@ -364,6 +364,66 @@
       "sha256": "9673127e170e053cf0c7d028bb3fdfd66a0d2be012350675cbf6667e9939ad21",
       "license": "Stability AI Community License",
       "approval": "rejected"
+    },
+    {
+      "id": "carrier-a1",
+      "cue": "carrier",
+      "tool": "Stable Audio 3 (local MLX)",
+      "model": "sm-sfx",
+      "decoder": "same-s",
+      "prompt": "very faint steady radio carrier hiss with a soft low hum, no tones, no beeps, no melody, no music",
+      "negativePrompt": "drums, vocals",
+      "cfg": 3,
+      "steps": 8,
+      "seconds": 30.859,
+      "modelSeconds": 30.859,
+      "loopCrossfadeSeconds": 0,
+      "seed": 41061,
+      "generatedAt": "2026-11-22T21:30:57.355196+00:00",
+      "path": "assets/audio/generated/carrier/carrier-a1.wav",
+      "sha256": "5ddb7952724fd872f568ede7863967dafa25f942b4bd38cb27f24c681f94da85",
+      "license": "Stability AI Community License",
+      "approval": "candidate"
+    },
+    {
+      "id": "carrier-a2",
+      "cue": "carrier",
+      "tool": "Stable Audio 3 (local MLX)",
+      "model": "sm-sfx",
+      "decoder": "same-s",
+      "prompt": "very faint steady radio carrier hiss with a soft low hum, no tones, no beeps, no melody, no music",
+      "negativePrompt": "drums, vocals",
+      "cfg": 3,
+      "steps": 8,
+      "seconds": 30.859,
+      "modelSeconds": 30.859,
+      "loopCrossfadeSeconds": 0,
+      "seed": 41062,
+      "generatedAt": "2026-11-22T21:30:59.422727+00:00",
+      "path": "assets/audio/generated/carrier/carrier-a2.wav",
+      "sha256": "d9dc1b3abc6dbf380b0129d1ec4f565374d85e1201af755bdb2e923694e41d62",
+      "license": "Stability AI Community License",
+      "approval": "candidate"
+    },
+    {
+      "id": "carrier-a3",
+      "cue": "carrier",
+      "tool": "Stable Audio 3 (local MLX)",
+      "model": "sm-sfx",
+      "decoder": "same-s",
+      "prompt": "very faint steady radio carrier hiss with a soft low hum, no tones, no beeps, no melody, no music",
+      "negativePrompt": "drums, vocals",
+      "cfg": 3,
+      "steps": 8,
+      "seconds": 30.859,
+      "modelSeconds": 30.859,
+      "loopCrossfadeSeconds": 0,
+      "seed": 41063,
+      "generatedAt": "2026-11-22T21:31:01.602841+00:00",
+      "path": "assets/audio/generated/carrier/carrier-a3.wav",
+      "sha256": "5c3303ddd93b6804d0f039e769f7d731d6e0d14dffed4425c238d2cd2b229abe",
+      "license": "Stability AI Community License",
+      "approval": "candidate"
     }
   ],
   "segments": [
@@ -434,6 +494,17 @@
       "sha256": "300743517e740e872a928cffc7321fc895b206e08d798e0f247a14a513c6cddf"
     },
     {
+      "id": "C0-06a",
+      "speaker": "Narrator",
+      "path": "assets/audio/voices/kokoro/v4/C0-06a.flac",
+      "voice": "bm_fable,bm_fable,am_onyx",
+      "speed": 0.96,
+      "onsetSample": 1200,
+      "seed": 42,
+      "sampleRate": 24000,
+      "sha256": "8d7f560a64e3307a39380135fc9ddcac48572d6cec33710d9b804b28f432e459"
+    },
+    {
       "id": "C0-07",
       "speaker": "Company transmission",
       "path": "assets/audio/voices/kokoro/v4/C0-07.flac",
@@ -480,13 +551,13 @@
     {
       "id": "C0-11",
       "speaker": "Narrator",
-      "path": "assets/audio/voices/kokoro/v4/C0-11.flac",
+      "path": "assets/audio/voices/kokoro/v4/C0-11-r1.flac",
       "voice": "bm_fable,bm_fable,am_onyx",
       "speed": 0.96,
       "onsetSample": 1200,
       "seed": 42,
       "sampleRate": 24000,
-      "sha256": "c22df99fcedc9cf149d3c5353ba087d7fd6605810a0ce0f031aa1d7d5e25adf4"
+      "sha256": "9c4a3851e3846a133fe8e4f812553b84266542f7aefbbd48f14308ced8cdd60c"
     },
     {
       "id": "C1-01",
@@ -819,7 +890,7 @@
       "sha256": "0f45b269070f327ffa7a583209f994235a52dcee6c140ebfd3566910810480c6"
     }
   ],
-  "durationSeconds": 393.235,
+  "durationSeconds": 415.328,
   "localSynthesis": {
     "model": "hexgrad/Kokoro-82M",
     "license": "Apache-2.0",
@@ -1009,7 +1080,41 @@
         "fadeIn": 1,
         "fadeOut": 3,
         "sourceIn": 24
+      },
+      {
+        "asset": "procedural-carrier",
+        "bus": "effects",
+        "start": {
+          "at": "C0-07",
+          "edge": "start",
+          "offset": -1
+        },
+        "end": {
+          "at": "C0-07",
+          "edge": "end",
+          "offset": 0.3
+        },
+        "levelLUFS": -42,
+        "fadeIn": 0.75,
+        "fadeOut": 0.02,
+        "sourceIn": 0
       }
-    ]
+    ],
+    "broadcast": {
+      "cue": "C0-07",
+      "highpassHz": 250,
+      "lowpassHz": 4500,
+      "compressionThreshold": 0.08,
+      "ratio": 2,
+      "attackMs": 12,
+      "releaseMs": 110,
+      "slapMs": 37,
+      "slapDecay": 0.075,
+      "targetLUFS": -23,
+      "truePeakDb": -3,
+      "lra": 8,
+      "carrierSeed": 916,
+      "carrierAmplitude": 0.12
+    }
   }
 }

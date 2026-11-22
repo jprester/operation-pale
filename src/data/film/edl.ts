@@ -1,6 +1,6 @@
 import timeline from './timeline.json';
 
-type Anchor = { at: string; offset?: number; edge?: 'end' } | { sequence: string; at: number | 'end' };
+type Anchor = { at: string; offset?: number; phrase?: number; edge?: 'end' } | { sequence: string; at: number | 'end' };
 export function resolveAnchor(anchor: Anchor): number {
   if ('sequence' in anchor) {
     const seq = timeline.sequences.find(seq => seq.id === anchor.sequence);
@@ -10,10 +10,10 @@ export function resolveAnchor(anchor: Anchor): number {
   const cue = timeline.cues.find(cue => cue.id === anchor.at);
   if (!cue) throw Error('Unknown picture cue: ' + anchor.at);
   // The recording sheet measures anchors to the millisecond.
-  return Math.round(((anchor.edge === 'end' ? cue.end : cue.start) + (anchor.offset ?? 0)) * 1000) / 1000;
+  return Math.round(((anchor.edge === 'end' ? cue.end : anchor.phrase === undefined ? cue.start : cue.phrases[anchor.phrase].at) + (anchor.offset ?? 0)) * 1000) / 1000;
 }
 
-type Plate = 'hook' | 'resources' | 'road' | 'black' | 'title' | 'briefing' | 'observatory' | 'end' | 'delta';
+type Plate = 'hook' | 'resources' | 'road' | 'black' | 'title' | 'briefing' | 'observatory' | 'end' | 'delta' | 'city' | 'receiver';
 type Cut = {
   plate: Plate;
   id: string; from: Anchor; sourceStart: number; sourceEnd: number;
@@ -31,7 +31,10 @@ const cuts = [
   v3('surveillance', { at: 'C0-02' }, 272, 280),
   v3('observatory', { at: 'C0-03' }, 214, 222, 'observatory'),
   v3('order', { at: 'C0-06' }, 0, 1, 'black'),
-  v3('public-channel', { at: 'C0-07' }, 230, 238, 'briefing'),
+  v3('announcement', { at: 'C0-06a' }, 230, 238, 'briefing'),
+  v3('public-channel', { at: 'C0-06a', phrase: 3 }, 230, 238, 'receiver'),
+  v3('after-notice', { at: 'C0-08' }, 230, 238, 'briefing'),
+  v3('city', { at: 'C0-11', phrase: 2 }, 0, 25, 'city'),
   v3('title', { sequence: 'title', at: 0 }, 0, 6, 'title'),
   v3('galaxy', { sequence: 'record', at: 0 }, 35, 49, 'hook'),
   v3('survey', { at: 'C1-02' }, 49, 62, 'hook'),

@@ -10,7 +10,7 @@ from film_timeline import ROOT, load, recording_windows
 timeline = load()
 manifest = json.loads((ROOT / 'assets/audio/manifest.json').read_text())
 script = (ROOT / 'docs/design/INTRODUCTION_V4_SCRIPT.md').read_text()
-rows = re.findall(r'^\| (C\d+-\d+) \| ([^|]+) \| ([^|]+) \|$', script, re.M)
+rows = re.findall(r'^\| (C\d+-\d+[a-z]?) \| ([^|]+) \| ([^|]+) \|$', script, re.M)
 assert [row[0] for row in rows] == [cue['id'] for cue in timeline['cues']]
 pauses = {'‖': .8, '‖‖': 2, '‖‖‖': 3, '': .5}
 previous = None
@@ -32,7 +32,7 @@ for (cue, take, boundary), (_, speaker, line) in zip(recording_windows(timeline,
     assert abs(origin + active[-1] / rate - cue['end']) < .1
     if previous and previous[0] == cue['sequence']:
         gap = origin + active[0]/rate - previous[1]
-        worst_gap = max(worst_gap, abs(gap - previous[2]))
+        worst_gap = max(worst_gap, abs(gap - previous[2] - (1 if cue['id'] == 'C0-07' else 0)))
     j = 0
     for text, marker in re.findall(r'([^‖]+)(‖*)', line):
         words = ''

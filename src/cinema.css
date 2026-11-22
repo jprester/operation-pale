@@ -177,3 +177,6 @@
 .material-assay small,.material-assay strong{display:block}
 .material-assay small{color:#b5c9c3;font:clamp(9px,1cqw,13px) ui-monospace,monospace}
 .material-assay strong{margin-top:.2em;color:#eee7d9;font:normal clamp(13px,2cqw,29px) Georgia,serif}
+
+.film-frame .cold-receiver{transform:none;position:absolute;inset:auto auto 18% 6%;width:min(75%,680px);background:#111716f2;z-index:2;box-sizing:border-box}
+@media(max-width:600px){.film-frame .cold-receiver{inset:24% 4% auto;width:92%}}
