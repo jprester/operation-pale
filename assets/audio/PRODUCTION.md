@@ -1,8 +1,25 @@
 # Pale Archive audio production
 
+## Introduction v4 · B2 dialogue and score review
+
+The editor selected Fable + Onyx (2:1, speed 0.96) and Alice (speed 1.00). The [v4 timeline](../../src/data/film/timeline.json) gives the measured film positions. [Recording and score provenance](manifest.json) lists each file, voice or model, seed and settings. The running player uses the archived v3 timeline and stems through this audition checkpoint.
+
+Run from the repository root:
+
+```sh
+HF_HUB_OFFLINE=1 ~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python -B assets/audio/kokoro_takes.py
+~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python -B assets/audio/check_recordings.py
+python3 -B assets/audio/master.py
+python3 -B assets/audio/score_candidates.py
+```
+
+Kokoro reads each marked phrase at its selected speed. Long captions can split at timed comma boundaries within the same spoken phrase. FLAC takes use 24 kHz mono PCM16, Torch seed 42 per cue, and FFmpeg loudness normalization targeting −18 LUFS. A short fade on retained edge padding after normalization keeps the authored gaps quiet. Cue starts mark speech onsets. The voice-only review aligns the FLAC files using the manifest’s onset samples and includes all intentional gaps, sequence holds, and the silent title.
+
+The score generator invokes the Stable Audio 3 MLX interpreter using cached weights on the local Metal GPU. It uses eight steps, CFG 3 and three distinct seeds per cue. Each seed, model, decoder, prompt, negative prompt, duration and output hash is in the manifest. The listening table in the [implementation report](../../docs/design/INTRODUCTION_V4_IMPLEMENTATION.md#checkpoint-b2--sound-selection) links each lossless WAV. Re-running the command verifies existing candidates and resumes outstanding takes.
+
 ## Checkpoint A · playing the v3 edit
 
-The player and both offline audio tools share [timeline.json](../../src/data/film/timeline.json). It replaces `dialogue.json`, `subtitles.json` and `ends.json`. Cue and phrase times are absolute seconds from film zero, with exclusive cue ends. The timeline retains the v3 words, caption breaks and measured onsets. The recording manifest holds take metadata keyed by cue ID. The locked v4 recording sheet enters the pipeline in Phase 2.
+The player and both offline audio tools share [timeline.json](../../src/data/film/timeline-v3.json). It replaces `dialogue.json`, `subtitles.json` and `ends.json`. Cue and phrase times are absolute seconds from film zero, with exclusive cue ends. The timeline retains the v3 words, caption breaks and measured onsets. The recording manifest holds take metadata keyed by cue ID. The locked v4 recording sheet enters the pipeline in Phase 2.
 
 The mixer resolves a cue ID plus an optional offset, or a sequence ID plus a local time or `end`, against that timeline. Source trim points and pause edits remain relative to the original recording. The [picture edit list](../../src/data/film/edl.ts) uses the same anchor conventions. Each film span runs up to the next anchor and samples an independent interval of the v3 source reel. Watch and Explore use the same mapping.
 
@@ -63,7 +80,7 @@ The supplied doom bass enters at 01:32.22. The edit skips the first 1.4 seconds 
 
 TypeScript and the production build passed. Local Chromium exercised the 331-second draft in desktop and mobile viewport emulation. Checks covered gesture-started playback, pause/resume, restart, forward and backward seeking, the Resources boundary, Company captions, mute and fullscreen. Blocking the MP3 request left the picture and captions running with audio controls disabled. The existing lazy Three.js chunk still triggers Vite’s size advisory. Physical-device listening remains unverified.
 
-The [cue manifest](manifest.json) is the production worksheet and [generation ledger](generation-ledger.json) records paid requests and recoverable output IDs. The runtime script remains the editorial source of truth. Check exact text, timestamps and phrase boundaries against it whenever the film is recut.
+The [cue manifest](manifest-v3.json) is the production worksheet and [generation ledger](generation-ledger.json) records paid requests and recoverable output IDs. The runtime script remains the editorial source of truth for the archived v3 cut. Check exact text, timestamps and phrase boundaries against it whenever the film is recut.
 
 ## Supplied recording edit
 
@@ -78,13 +95,13 @@ The supplied cinematic atmosphere drone enters at the Resources marker (01:36.5)
 
 In Watch, open **Audio settings** beside the master volume. Dialogue (including the Company transmission), Music, and Ambience & effects each have a fader. At 100% each plays at its authored level. Changes apply during playback and are saved in this browser. Reset mix restores all three faders.
 
-To change the authored balance for everyone, edit `currentMaster.narratorGainLinear` or an asset’s `placement.gainDb` in [manifest.json](manifest.json). The former affects only documentary narration. More negative dB values lower individual music and effect cues. The procedural room and machinery levels are defined in [master.py](master.py). From the repository root, run `python3 assets/audio/master.py` with FFmpeg and the saved voice takes, then `npm run build`. The renderer exports dialogue.mp3, music.mp3, effects.mp3 and the stereo fallback into src/media/audio.
+To change the authored balance for everyone, edit `currentMaster.narratorGainLinear` or an asset’s `placement.gainDb` in [manifest.json](manifest-v3.json). The former affects only documentary narration. More negative dB values lower individual music and effect cues. The procedural room and machinery levels are defined in [archived v3 mixer](master_v3.py). From the repository root, run `python3 assets/audio/master_v3.py` with FFmpeg and the saved voice takes, then `npm run build`. The renderer exports dialogue.mp3, music.mp3, effects.mp3 and the stereo fallback into src/media/audio.
 
 ## Regenerate local speech
 
 The generative stage uses the same Kokoro-82M model and British English pipeline as Podcast Studio. All cues after the imported opening have individual lossless takes in `assets/audio/voices/kokoro/`. The manifest's `localTake` field identifies the recording, voice preset and synthesis speed used in the mix. The imported ElevenLabs opening keeps its edit and caption timings.
 
-To regenerate an existing v3 take, run `assets/audio/kokoro_takes.py <cue-id>` with Podcast Studio's virtual-environment Python (Kokoro 0.9.4, cached model and voices, English G2P and soundfile), then run `python3 assets/audio/master.py` and `npm run build`. The generator uses offline model loading, measures each cue against its shot, and derives caption entrances from Kokoro's token timings. For mix-only edits, run the mixer directly. Both the mixer and browser use rendered audio files.
+The Checkpoint A commit `988e06f` preserves the v3 take generator for reproducing the archived voice direction. The current generator reads the locked v4 recording sheet.
 
 ## Introduction v4 · B1 voice audition
 

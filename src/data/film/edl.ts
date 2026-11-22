@@ -1,4 +1,4 @@
-import timeline from './timeline.json';
+import timeline from './timeline-v3.json';
 
 type Anchor = { at: string; offset?: number } | { sequence: string; at: number | 'end' };
 export function resolveAnchor(anchor: Anchor): number {

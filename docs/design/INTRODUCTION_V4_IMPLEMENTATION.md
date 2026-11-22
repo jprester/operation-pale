@@ -134,3 +134,98 @@ All seven files decoded as 24 kHz mono PCM16. Across 39 phrase windows, measured
 
 - C0-01 through C0-03: all three George speeds fall within the requested 135–145 WPM range when measured with pauses. Both blends read faster at their specified audition speed. Which voice and speed should carry the film?
 - C0-07: which Company reading should carry the transmission, Emma or Alice at 1.00×?
+
+## Checkpoint B2 · sound selection
+
+The editor selected Fable + Onyx (2:1) at 0.96× and Alice at 1.00×. The full voice-only cut runs 6:33.235, including the six-second title and all marked silences. The Company enters at 0:53.546. [Play the dialogue review](../../assets/audio/voices/kokoro/v4/dialogue-review.mp3).
+
+### Measured sequence and cue positions
+
+Film times are seconds. Gap is the interval to the next spoken cue, including holds and the title where applicable.
+
+| Sequence | Start | End | Duration |
+|---|---:|---:|---:|
+| H-hour | 0.000 | 112.210 | 112.210 |
+| Title | 112.210 | 118.210 | 6.000 |
+| The record | 118.210 | 161.697 | 43.487 |
+| The manifest | 161.697 | 212.501 | 50.804 |
+| The Foundries | 212.501 | 251.431 | 38.930 |
+| Seen, not understood | 251.431 | 279.241 | 27.810 |
+| Final staging | 279.241 | 350.395 | 71.154 |
+| H+0 | 350.395 | 393.235 | 42.840 |
+
+| Cue | Start | End | Gap |
+|---|---:|---:|---:|
+| C0-01 | 2.500 | 8.572 | 0.800 |
+| C0-02 | 9.372 | 17.794 | 2.000 |
+| C0-03 | 19.794 | 29.201 | 0.800 |
+| C0-04 | 30.001 | 36.877 | 0.800 |
+| C0-05 | 37.677 | 42.198 | 2.000 |
+| C0-06 | 44.198 | 51.546 | 2.000 |
+| C0-07 | 53.546 | 81.405 | 2.000 |
+| C0-08 | 83.405 | 88.781 | 2.000 |
+| C0-09 | 90.781 | 97.579 | 0.500 |
+| C0-10 | 98.079 | 104.930 | 0.800 |
+| C0-11 | 105.730 | 108.210 | 11.500 |
+| C1-01 | 119.710 | 127.818 | 2.000 |
+| C1-02 | 129.818 | 137.281 | 0.801 |
+| C1-03 | 138.082 | 145.531 | 0.800 |
+| C1-04 | 146.331 | 159.697 | 3.500 |
+| C2-01 | 163.197 | 171.154 | 0.800 |
+| C2-02 | 171.954 | 176.314 | 0.800 |
+| C2-03 | 177.114 | 191.240 | 0.800 |
+| C2-04 | 192.040 | 198.921 | 2.000 |
+| C2-05 | 200.921 | 202.734 | 0.800 |
+| C2-06 | 203.534 | 211.701 | 2.300 |
+| C3-01 | 214.001 | 217.596 | 0.800 |
+| C3-02 | 218.396 | 220.912 | 0.800 |
+| C3-03 | 221.712 | 227.162 | 0.800 |
+| C3-04 | 227.962 | 231.634 | 0.800 |
+| C3-05 | 232.434 | 238.646 | 2.000 |
+| C3-06 | 240.646 | 249.431 | 3.500 |
+| C4-01 | 252.931 | 254.689 | 0.800 |
+| C4-02 | 255.489 | 262.632 | 0.800 |
+| C4-03 | 263.432 | 269.310 | 0.800 |
+| C4-04 | 270.110 | 277.241 | 3.500 |
+| C5-01 | 280.741 | 296.030 | 0.800 |
+| C5-02 | 296.830 | 303.923 | 0.800 |
+| C5-03 | 304.723 | 317.575 | 0.800 |
+| C5-04 | 318.375 | 327.550 | 0.800 |
+| C5-05 | 328.350 | 341.283 | 2.000 |
+| C5-06 | 343.283 | 347.395 | 4.500 |
+| C6-01 | 351.895 | 360.314 | 0.800 |
+| C6-02 | 361.114 | 367.271 | 2.000 |
+| C6-03 | 369.271 | 374.433 | 2.000 |
+| C6-04 | 376.433 | 384.235 | 9.000 |
+
+### Listening list
+
+Each row contains three independent renders of the same prompt. File links include the seed. All candidates are 44.1 kHz stereo PCM16. Prompt settings are CFG 3, eight steps and negative prompt `drums, vocals`. Generation used Stable Audio 3 locally under the Stability AI Community License. The manifest records each checksum, command settings and timestamp.
+
+| Cue | Model / decoder | Seconds | A1 | A2 | A3 |
+|---|---|---:|---|---|---|
+| bed-cold-open | sm-sfx / same-s | 122.21 | [41001](../../assets/audio/generated/bed-cold-open/bed-cold-open-a1.wav) | [41002](../../assets/audio/generated/bed-cold-open/bed-cold-open-a2.wav) | [41003](../../assets/audio/generated/bed-cold-open/bed-cold-open-a3.wav) |
+| hit-title | sm-sfx / same-s | 8 | [41011](../../assets/audio/generated/hit-title/hit-title-a1.wav) | [41012](../../assets/audio/generated/hit-title/hit-title-a2.wav) | [41013](../../assets/audio/generated/hit-title/hit-title-a3.wav) |
+| score-flashback | medium / same-l | 133.221 | [41021](../../assets/audio/generated/score-flashback/score-flashback-a1.wav) | [41022](../../assets/audio/generated/score-flashback/score-flashback-a2.wav) | [41023](../../assets/audio/generated/score-flashback/score-flashback-a3.wav) |
+| bed-seen | sm-sfx / same-s | 37.81 | [41031](../../assets/audio/generated/bed-seen/bed-seen-a1.wav) | [41032](../../assets/audio/generated/bed-seen/bed-seen-a2.wav) | [41033](../../assets/audio/generated/bed-seen/bed-seen-a3.wav) |
+| score-staging | medium / same-l | 81.154 | [41041](../../assets/audio/generated/score-staging/score-staging-a1.wav) | [41042](../../assets/audio/generated/score-staging/score-staging-a2.wav) | [41043](../../assets/audio/generated/score-staging/score-staging-a3.wav) |
+| score-end | sm-music / same-s | 30 | [41051](../../assets/audio/generated/score-end/score-end-a1.wav) | [41052](../../assets/audio/generated/score-end/score-end-a2.wav) | [41053](../../assets/audio/generated/score-end/score-end-a3.wav) |
+
+#### Prompts
+
+- **bed-cold-open** — Low steady room tone with a faint sub-bass vibration, distant ventilation hum, very sparse, no melody, no drums, no pulses.
+- **hit-title** — Single deep sub-bass impact with a long dark decay, no reverb tail brightness, no melody.
+- **score-flashback** — Slow, restrained orchestral-electronic score. Begins with sparse low strings and a cold synth pad, steady and patient, gradually adds soft repeating mechanical textures, never triumphant. No drums, no vocals, no melody lead.
+- **bed-seen** — Thin high air tone with very faint static, almost silent, uneasy, no melody, no drums.
+- **score-staging** — Dark ambient composition. Begins with a low drone and slow pulsing pad, gradually builds dissonant bowed strings and deep swells toward a restrained peak, then thins abruptly to a single held low tone. No drums, no vocals.
+- **score-end** — Sparse cold piano-like tones over a low pad, slow, unresolved, no drums.
+
+The cold-open bed calls for 122.210 s, including its 10 s edit handle. The small SFX model generated 120 s for each take. A two-second equal-power overlap extends the handle. The join begins after the 112.210 s sequence ends.
+
+### Verification
+
+The script-fidelity check compared all 41 cue transcripts, speaker identities and assembled caption phrases against the locked sheet, including a verbatim match for C0-07 with canon §5. All 111 caption entrances are within their cue windows. The waveform check passed for speech edges and measured authored pauses at the 50 ms tolerance. All 18 score candidates decoded and matched their recorded durations and SHA-256 checksums. The production build passed with its existing React Three Fiber chunk advisory. Listening remains with the editor. The running film still uses the v3 soundtrack until the B3 rough cut.
+
+### Editor questions
+
+Which take should B3 use for each of the six cues? A retained v3 sound is also available where preferred. No candidate has been selected automatically.

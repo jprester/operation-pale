@@ -1,6 +1,6 @@
 """Run with ~/Projects/software_dev/my_projects/narration-app/code/podcast-studio/.venv/bin/python."""
+import hashlib
 import json
-import math
 import os
 import re
 import sys
@@ -14,11 +14,11 @@ import torch
 from kokoro import KPipeline
 from phonemizer.backend.espeak.wrapper import EspeakWrapper
 
-from film_timeline import ROOT, load, recording_windows, save
-from master import RATE, ff
+from film_timeline import ROOT, save
+from audio_io import RATE, ff
 
 MANIFEST = ROOT / 'assets/audio/manifest.json'
-CAST = {'Narrator': 'bm_george', 'Company transmission': 'bf_emma'}
+CAST = {'Narrator': ('bm_fable,bm_fable,am_onyx', .96), 'Company transmission': ('bf_alice', 1.0)}
 
 
 def pipeline():
@@ -28,66 +28,6 @@ def pipeline():
     torch.manual_seed(42)
     torch.set_num_threads(4)
     return KPipeline(lang_code='b', repo_id='hexgrad/Kokoro-82M', device='cpu')
-
-
-def generate(ids=()):
-    pipe = pipeline()
-    timeline = load()
-    manifest = json.loads(MANIFEST.read_text())
-    for cue, seg, boundary in recording_windows(timeline, manifest['segments']):
-        if seg.get('originalPath') or (ids and seg['id'] not in ids):
-            continue
-        phrases = cue['phrases']
-        assert cue['transcript'] == ' '.join(p['text'] for p in phrases)
-        window = boundary - cue['start'] - .12
-        voice = CAST[cue['speaker']]
-        speed = 1.0
-        while True:
-            chunks = list(pipe(cue['transcript'], voice=voice, speed=speed))
-            audio = np.concatenate([chunk.audio.numpy() for chunk in chunks])
-            duration = len(audio) / RATE
-            if duration <= window:
-                break
-            speed = math.ceil(100 * speed * max(1.03, duration/window)) / 100
-            if speed > 1.25:
-                raise ValueError(f"Review timing for {seg['id']}: {duration:.2f}s in {window:.2f}s")
-        # Match the existing caption breaks to Kokoro's own token timing.
-        offsets = {}
-        chars = 0
-        base = 0
-        for chunk in chunks:
-            for token in chunk.tokens:
-                if token.start_ts is not None:
-                    offsets[chars] = base + token.start_ts
-                chars += len(''.join(token.text.split()))
-            base += len(chunk.audio) / RATE
-        chars = 0
-        for j, phrase in enumerate(phrases):
-            predicted = offsets[chars]
-            # Tokens can include a quiet lead-in. Find the first sustained
-            # speech near the predicted entrance, including the first phrase.
-            start = round(predicted * RATE)
-            stop = min(len(audio), start + round(.45 * RATE))
-            frame = RATE // 100
-            onset = predicted
-            for pos in range(start, stop - frame, frame):
-                if np.sqrt(np.mean(audio[pos:pos+frame] ** 2)) > .006:
-                    onset = pos / RATE
-                    break
-            phrase['at'] = round(cue['start'] + onset, 3)
-            chars += len(''.join(phrase['text'].split()))
-        target = ROOT / 'assets/audio/voices/kokoro' / (seg['id'] + '.flac')
-        target.parent.mkdir(exist_ok=True)
-        with tempfile.TemporaryDirectory() as temp:
-            raw = Path(temp) / 'raw.wav'
-            sf.write(raw, audio, RATE, subtype='PCM_24')
-            ff('-i',raw,'-af','loudnorm=I=-18:TP=-2:LRA=8','-ar',RATE,'-sample_fmt','s16',target)
-        cue['end'] = round(cue['start'] + duration, 3)
-        seg.update(localTake=dict(path=str(target.relative_to(ROOT)), voice=voice, speed=speed),
-                   targetDurationSeconds=round(duration,3))
-        print(seg['id'], voice, speed, round(duration,3), flush=True)
-    MANIFEST.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
-    save(timeline)
 
 
 AUDITION = ROOT / 'assets/audio/voices/kokoro/audition'
@@ -104,10 +44,11 @@ def audition_phrases(ids):
                 yield cue_id, text, PAUSES[mark]
 
 
-def audition_take(pipe, ids, voices, speed, target):
+def render_take(pipe, ids, voices, speed, target, production=False):
     torch.manual_seed(42)
     pieces = []
     timings = []
+    captions = []
     cursor = 0
     previous_tail = 0
     gap = 0
@@ -115,7 +56,8 @@ def audition_take(pipe, ids, voices, speed, target):
     for cue_id, text, pause in audition_phrases(ids):
         if len(text) > 250:
             raise ValueError(f'Review phrase length in {cue_id}')
-        audio = np.concatenate([c.audio.numpy() for c in pipe(text, voice=voices, speed=speed)])
+        chunks = list(pipe(text, voice=voices, speed=speed))
+        audio = np.concatenate([c.audio.numpy() for c in chunks])
         active = np.flatnonzero(np.abs(audio) >= .01)
         if not active.size:
             raise ValueError(f'Silent phrase in {cue_id}')
@@ -130,21 +72,60 @@ def audition_take(pipe, ids, voices, speed, target):
         phrase = audio[onset-head:end+tail]
         timings.append(dict(cue=cue_id, onsetSample=cursor+head, endSample=cursor+len(phrase)-tail,
                             pauseSeconds=pause))
+        captions.append({'text': text, 'sample': cursor + head})
+        if production and len(text) > 70 and ', ' in text:
+            # Keep the spoken phrase intact. Locate caption breaks in Kokoro's
+            # timed tokens, relative to the original (pre-trim) audio.
+            tokens = [(tok, base) for chunk, base in zip(chunks, np.cumsum([0] + [len(c.audio) for c in chunks[:-1]]))
+                      for tok in chunk.tokens]
+            remaining = text
+            consumed = 0
+            while len(remaining) > 70 and ', ' in remaining:
+                commas = [m.end() for m in re.finditer(r',(?= )', remaining)]
+                split = min(commas, key=lambda n: abs(n - 55))
+                left, remaining = remaining[:split], remaining[split:].strip()
+                captions[-1]['text'] = left
+                consumed += len(''.join(left.split()))
+                pos = 0
+                for tok, base in tokens:
+                    if pos >= consumed and tok.start_ts is not None:
+                        predicted = int(base + tok.start_ts * RATE)
+                        window = np.flatnonzero(np.abs(audio[predicted:predicted+int(.45*RATE)]) >= .01)
+                        entrance = predicted + (int(window[0]) if window.size else 0)
+                        captions.append({'text': remaining, 'sample': cursor + head + entrance - onset})
+                        break
+                    pos += len(''.join(tok.text.split()))
+                else:
+                    raise ValueError(f'Cannot align subtitle split in {cue_id}')
         pieces.append(phrase)
         cursor += len(phrase)
         previous_tail, gap = tail, pause
         words += len(text.split())
-    pieces.append(np.zeros(round(gap * RATE) - previous_tail, dtype=np.float32))
+    if not production:
+        pieces.append(np.zeros(round(gap * RATE) - previous_tail, dtype=np.float32))
     with tempfile.TemporaryDirectory() as tmp:
         raw = Path(tmp) / 'raw.wav'
         sf.write(raw, np.concatenate(pieces), RATE, subtype='PCM_24')
-        ff('-i', raw, '-af', 'loudnorm=I=-18:TP=-2:LRA=8', '-ar', RATE, '-c:a', 'pcm_s16le', target)
+        ff('-i', raw, '-af', 'loudnorm=I=-18:TP=-2:LRA=8', '-ar', RATE, '-sample_fmt', 's16', target)
+    if production:
+        # Loudness normalization lifts quiet edge noise. Fade the retained
+        # padding at phrase boundaries so it cannot consume the authored gap.
+        audio, _ = sf.read(target)
+        cleaned = np.zeros_like(audio)
+        for phrase in timings:
+            a, b = phrase['onsetSample'], phrase['endSample']
+            fade = round(.012 * RATE)
+            lo, hi = max(0, a-fade), min(len(audio), b+fade)
+            cleaned[lo:a] = audio[lo:a] * np.linspace(0, 1, a-lo, endpoint=False)
+            cleaned[a:b] = audio[a:b]
+            cleaned[b:hi] = audio[b:hi] * np.linspace(1, 0, hi-b, endpoint=False)
+        sf.write(target, cleaned, RATE, subtype='PCM_16')
     info = sf.info(target)
     if abs(info.frames - sum(map(len, pieces))) > RATE * .01:
         raise ValueError(f'Unexpected encoded length: {target}')
     return dict(file=target.name, voices=voices.split(','), speed=speed, words=words,
                 seconds=round(info.duration, 3), wpm=round(60 * words / info.duration, 1),
-                phrases=timings)
+                phrases=timings, captions=captions)
 
 
 def audition():
@@ -156,14 +137,76 @@ def audition():
                          ('bf_emma', 1.0), ('bf_alice', 1.0)]:
         ids = ['C0-07'] if voice.startswith('bf_') else ['C0-01', 'C0-02', 'C0-03']
         name = f"{voice.replace(',', '-')}-{speed:.2f}.wav"
-        take = audition_take(pipe, ids, voice, speed, AUDITION / name)
+        take = render_take(pipe, ids, voice, speed, AUDITION / name)
+        take.pop('captions')
         print(name, take['seconds'], 'seconds', take['wpm'], 'wpm', flush=True)
         takes.append(take)
     (AUDITION / 'takes.json').write_text(json.dumps(dict(sampleRate=RATE, seed=42, takes=takes), indent=2)+'\n')
 
 
+SEQUENCES = [
+    ('h-hour', 'H-hour', ''), ('title', 'Title', ''), ('record', 'The record', 'The record.'),
+    ('manifest', 'The manifest', 'What could not be made here.'),
+    ('foundries', 'The Foundries', 'Four Foundries.'), ('seen', 'Seen, not understood', 'Seen, not understood.'),
+    ('staging', 'Final staging', 'The last ninety days.'), ('h-zero', 'H+0', ''),
+]
+HEAD = {'h-hour': 2.5, 'title': 6}
+TAIL = {'h-hour': 2, 'h-zero': 6}
+
+
+def record_film():
+    rows = re.findall(r'^\| (C(\d+)-\d+) \| ([^|]+) \| ([^|]+) \|$', SCRIPT.read_text(), re.M)
+    pipe = pipeline()
+    folder = AUDITION.parent / 'v4'
+    folder.mkdir(exist_ok=True)
+    cursor = 0
+    timeline = dict(edition='Introduction v4', sequences=[], cues=[])
+    segments = []
+    script_groups = dict(zip((s[0] for s in SEQUENCES if s[0] != 'title'), range(7), strict=True))
+    for seq, label, title in SEQUENCES:
+        start = round(cursor / RATE, 3)
+        cursor += round(HEAD.get(seq, 1.5) * RATE)
+        for cue_id, group, speaker, line in rows:
+            if int(group) != script_groups.get(seq):
+                continue
+            path = folder / (cue_id + '.flac')
+            voice, speed = CAST[speaker]
+            take = render_take(pipe, [cue_id], voice, speed, path, production=True)
+            origin = cursor - take['phrases'][0]['onsetSample']
+            last = take['phrases'][-1]
+            transcript = ' '.join(line.replace('‖', '').split())
+            phrases = [dict(text=p['text'], at=round((origin+p['sample'])/RATE, 3)) for p in take['captions']]
+            assert ' '.join(p['text'] for p in phrases) == transcript
+            end = origin + last['endSample']
+            timeline['cues'].append(dict(id=cue_id, sequence=seq, speaker=speaker,
+                                         start=round(cursor/RATE, 3), end=round(end/RATE, 3),
+                                         transcript=transcript, phrases=phrases))
+            segments.append(dict(id=cue_id, speaker=speaker, path=str(path.relative_to(ROOT)),
+                                 voice=voice, speed=speed, onsetSample=take['phrases'][0]['onsetSample'],
+                                 seed=42, sampleRate=RATE))
+            cursor = end + round(last['pauseSeconds'] * RATE)
+            print(cue_id, round(end/RATE, 3), flush=True)
+        cursor += TAIL.get(seq, 0) * RATE
+        timeline['sequences'].append(dict(id=seq, label=label, cutTitle=title, start=start,
+                                          duration=round(cursor/RATE-start, 3), indexed=seq!='title'))
+    assert len(segments) == len(rows) == len({s['id'] for s in segments})
+    timeline['duration'] = round(cursor/RATE, 3)
+    manifest = json.loads(MANIFEST.read_text())
+    manifest['localSynthesis'] = dict(model='hexgrad/Kokoro-82M', license='Apache-2.0',
+                                      language='British English', device='cpu', torchThreads=4,
+                                      seedPerCue=42, loudness='loudnorm=I=-18:TP=-2:LRA=8')
+    for segment in segments:
+        segment['sha256'] = hashlib.sha256((ROOT / segment['path']).read_bytes()).hexdigest()
+    manifest.update(edition=timeline['edition'], segments=segments, durationSeconds=timeline['duration'])
+    MANIFEST.write_text(json.dumps(manifest, indent=2, ensure_ascii=False)+'\n')
+    save(timeline)
+
+
 if __name__ == '__main__':
-    if sys.argv[1:] == ['--audition']:
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--audition', action='store_true')
+    if parser.parse_args().audition:
         audition()
     else:
-        generate(sys.argv[1:])
+        record_film()
