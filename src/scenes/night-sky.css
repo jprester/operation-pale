@@ -1,0 +1,15 @@
+.ground-sky{overflow:hidden;background:linear-gradient(#080e18,#1b2937 83%,#101410 84%)}
+.ground-sky>img,.sky-tracks{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sky-catalogue,.ground-tracking{position:absolute;right:3%;top:13%;margin:0;background:#121917e8;border-left:2px solid #bd9768;color:#e0e1d9}
+.sky-catalogue{list-style:none;padding:0 1em;font:clamp(9px,.86cqw,13px)/1.45 ui-monospace,monospace;letter-spacing:.025em}
+.sky-catalogue li{padding:.65em 0;border-bottom:1px solid #adb4b32d}
+.sky-catalogue li:last-child{color:#f0c28b;border:0}
+.sky-catalogue strong{font-weight:600}
+.ground-tracking{width:min(36%,420px);padding:1em;font:clamp(9px,1cqw,13px)/1.4 ui-monospace,monospace}
+.ground-tracking svg{display:block;width:100%;margin-top:6px}
+@container(max-width:620px){
+  .sky-catalogue{font-size:9px;top:14%;right:3%;padding:0 .65em}
+  .sky-catalogue li{padding:.26em 0}
+  .sky-catalogue span{display:block;font-size:8px}
+  .ground-tracking{top:15%;width:48%}
+}

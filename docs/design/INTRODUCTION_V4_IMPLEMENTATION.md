@@ -309,3 +309,17 @@ The broadcast uses 250 Hz high-pass and 4.5 kHz low-pass filters, 2:1 compressio
 Reproduce with Podcast Studio’s Python running `assets/audio/kokoro_takes.py` offline, followed by `python3 -B assets/audio/master.py`. The three 30.859 s radio auditions are in `assets/audio/generated/carrier/`. Command: `python3 -B assets/audio/score_candidates.py carrier`. Seeds 41061–41063, sm-sfx/same-s, eight steps, CFG 3. Settings and checksums are in the manifest. The 42-cue script, pause, TypeScript and production build checks passed.
 
 **Editor question.** Keep the procedural carrier or select carrier A1, A2 or A3 after listening?
+
+## CR-2 · ground observation
+
+The head hold opens on the rural horizon. Seven illustrative catalogue tracks enter on cue time, followed by a surveillance display, the observatory and the order over black. The briefing and archival receiver carry the announcement. The view returns outdoors for the silent entry streaks. The city lights appear at C0-11’s first word, 118.061 s, and hold through the closing pause. The flashback and final staging picture are outside this revision.
+
+[Compare the two horizons, six audio auditions and twelve review frames](cinematic-review/v4-cold-open-review.html). The clean plates are built-in image generations; their full prompts and reconstruction tags are in the documentary manifest. Farmland is the temporary review background. The desert plate is the alternate. Both sky overlays sample the existing film clock. Reduced motion shows time-lapse marks, the complete catalogue and a fixed exposure of twenty streaks.
+
+On the production build, Chromium sought to all twelve H-hour cues and checked the mounted plate and absence of Earth, carrier, Foundry, Journey, atlas and canvas elements. The two reduced-motion SVG composites remained identical across distinct seek positions. The frames cover each shot-list row, with both the waiting and active receiver, plus mobile and reduced-motion views. TypeScript and the production build passed with the existing Three.js size advisory.
+
+The default room tone remains in the film. Optional 60 s outdoor takes are in `assets/audio/generated/night-air/`. Command: `python3 -B assets/audio/score_candidates.py night-air`. Local Stable Audio 3, sm-sfx/same-s, seeds 41071–41073, CFG 3, eight steps. The audio manifest records prompts and hashes. Studio listening remains with the editor.
+
+### Editor questions
+
+Choose farmland or high desert. Keep room tone or choose outdoor A1, A2 or A3. For the separate transmission channel, keep the procedural carrier or choose carrier A1, A2 or A3.

@@ -13,7 +13,7 @@ export function resolveAnchor(anchor: Anchor): number {
   return Math.round(((anchor.edge === 'end' ? cue.end : anchor.phrase === undefined ? cue.start : cue.phrases[anchor.phrase].at) + (anchor.offset ?? 0)) * 1000) / 1000;
 }
 
-type Plate = 'hook' | 'resources' | 'road' | 'black' | 'title' | 'briefing' | 'observatory' | 'end' | 'delta' | 'city' | 'receiver';
+type Plate = 'hook' | 'resources' | 'road' | 'black' | 'title' | 'briefing' | 'observatory' | 'end' | 'delta' | 'city' | 'receiver' | 'catalogue' | 'entries' | 'tracking';
 type Cut = {
   plate: Plate;
   id: string; from: Anchor; sourceStart: number; sourceEnd: number;
@@ -26,15 +26,14 @@ function v3(id: string, from: Anchor, sourceStart: number, sourceEnd: number, pl
   return { id, plate, from, sourceStart, sourceEnd, fit: 'hold-end', render: 'v3' };
 }
 const cuts = [
-  v3('head-black', { sequence: 'h-hour', at: 0 }, 0, 1, 'black'),
-  v3('orbital-register', { at: 'C0-01' }, 235, 242),
-  v3('surveillance', { at: 'C0-02' }, 272, 280),
-  v3('observatory', { at: 'C0-03' }, 214, 222, 'observatory'),
+  v3('catalogue', { sequence: 'h-hour', at: 0 }, 0, 20, 'catalogue'),
+  v3('tracking', { at: 'C0-03' }, 196, 206, 'tracking'),
+  v3('observatory', { at: 'C0-04' }, 214, 222, 'observatory'),
   v3('order', { at: 'C0-06' }, 0, 1, 'black'),
   v3('announcement', { at: 'C0-06a' }, 230, 238, 'briefing'),
   v3('public-channel', { at: 'C0-06a', phrase: 3 }, 230, 238, 'receiver'),
-  v3('after-notice', { at: 'C0-08' }, 230, 238, 'briefing'),
-  v3('city', { at: 'C0-11', phrase: 2 }, 0, 25, 'city'),
+  v3('entries', { at: 'C0-08' }, 0, 30, 'entries'),
+  v3('city', { at: 'C0-11' }, 0, 25, 'city'),
   v3('title', { sequence: 'title', at: 0 }, 0, 6, 'title'),
   v3('galaxy', { sequence: 'record', at: 0 }, 35, 49, 'hook'),
   v3('survey', { at: 'C1-02' }, 49, 62, 'hook'),

@@ -53,7 +53,10 @@ def main(only):
             seed = 41000 + 10*i + take
             negative = 'drums, vocals'
             if existing:
-                if (existing['prompt'], existing['seed'], existing['seconds']) != (prompt, seed, seconds):
+                # Sequence boundaries are stored to the millisecond. A re-layout
+                # of cached narration can round a span one millisecond differently.
+                duration_delta_ms = abs(round(existing['seconds']*1000) - round(seconds*1000))
+                if (existing['prompt'], existing['seed']) != (prompt, seed) or duration_delta_ms > 1:
                     raise ValueError(f'Changed recipe for {name}; preserve the original and use a new ID')
                 if hashlib.sha256(path.read_bytes()).hexdigest() != existing['sha256']:
                     raise ValueError(f'Candidate checksum mismatch: {name}')

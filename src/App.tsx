@@ -11,6 +11,13 @@ import {clock,pad} from './player/filmTime';
 import './styles.css';
 import './cinema.css';
 
+function coldOpenSlate(id:string) {
+  if(id==='catalogue') return 'H−36 H · SPACE CATALOGUE';
+  if(id==='order' || id==='tracking' || id==='observatory') return 'H−20 MIN · TRACKING RECORD';
+  if(id==='announcement' || id==='public-channel') return 'H+0:00 · PUBLIC CHANNEL';
+  return 'H+0 · FIRST HOUR';
+}
+
 function Mark() {
   return <svg className="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
     <circle cx="16" cy="16" r="10" stroke="currentColor" strokeWidth="1.4"/>
@@ -84,7 +91,7 @@ function App() {
         {watch && <OpeningPlate plate={cut.plate} time={sourceTime} scene={scene} seconds={seconds} started={started} reduced={reduced} visible={visible}/>}
         {!started ? <div className="film-cover"><p className="kicker"><i/> Speculative documentary</p><h1>Operation<span>:</span> Pale</h1>
           <p className="cover-line">{cover.title}</p><button className="cover-play" onClick={togglePlayback}><FilmIcon name="play"/>Play introduction</button></div> :
-        <><div className="film-clock"><span>{index<0 ? '·' : pad(index+1) + ' / ' + pad(indexedBeats.length)}</span>{scene.id==='h-hour' && ['announcement','public-channel','after-notice','city'].includes(cut.id) ? 'H+0:00 · PUBLIC CHANNEL' : scene.label}</div>
+        <><div className="film-clock"><span>{index<0 ? '·' : pad(index+1) + ' / ' + pad(indexedBeats.length)}</span>{scene.id==='h-hour' ? coldOpenSlate(cut.id) : scene.label}</div>
         {scene.title && seconds<4 && <h2 className="cut-title" style={{opacity:titleOpacity}}>{scene.title}</h2>}
         {captions && subtitle && <div className="subtitles"><span>{cue?.speaker==='Company transmission' && <b>Company transmission · reconstructed　</b>}{subtitle.text}</span></div>}</>}
       </div>

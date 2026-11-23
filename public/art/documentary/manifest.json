@@ -101,5 +101,41 @@
     "status": "draft",
     "tool": "Built-in image generation",
     "prompt": "Wide 16:9 photographic reconstruction, documentary restraint. A mid-sized city at night seen from a low hill, ordinary residential lights on, streets calm, a distant airbase at the edge of frame dark with a faint thin smoke column. No fire, no explosions, no people in close-up, no text. Muted, cold archival grade."
+  },
+  {
+    "id": "night-farmland",
+    "filename": "night-farmland.webp",
+    "smallFilename": "night-farmland-640.webp",
+    "sequence": "H-hour",
+    "start": 0,
+    "end": 1,
+    "composition": "full",
+    "aspectRatio": "16:9",
+    "motion": "static",
+    "atmosphere": false,
+    "caption": "Ground observation · Night sky",
+    "description": "Moonless sky above a farmland horizon.",
+    "reconstruction": "Artistic reconstruction",
+    "status": "editor candidate",
+    "tool": "Built-in image generation",
+    "prompt": "Wide 16:9 photographic reconstruction, documentary restraint. Clear moonless night above a flat farmland horizon in the bottom sixth of frame, faint hedge silhouettes and three tiny distant warm lights. Dense natural star field, faint Milky Way low to the left, slight long-exposure softness. Cold muted blue-black grade, readable star points and horizon. No satellites, lines, streaks, meteors, aircraft, text, people or foreground buildings."
+  },
+  {
+    "id": "night-desert",
+    "filename": "night-desert.webp",
+    "smallFilename": "night-desert-640.webp",
+    "sequence": "H-hour",
+    "start": 0,
+    "end": 1,
+    "composition": "full",
+    "aspectRatio": "16:9",
+    "motion": "static",
+    "atmosphere": false,
+    "caption": "Ground observation · Night sky",
+    "description": "Moonless sky above a low desert ridge.",
+    "reconstruction": "Artistic reconstruction",
+    "status": "editor candidate",
+    "tool": "Built-in image generation",
+    "prompt": "Wide 16:9 photographic reconstruction, seen from the ground. Clear moonless night over a low distant high-desert ridge in the lower fifth. Very faint low Milky Way at far right, natural uneven star field, a single tiny distant horizon light. Muted blue-black archival exposure, soft starlight, sparse quiet terrain. No meteors, streaks, satellites, aircraft, foreground buildings, text or people."
   }
 ]

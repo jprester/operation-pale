@@ -10,6 +10,7 @@ import { SceneBoundary } from './SceneBoundary';
 import { DocumentaryInsert, documentaryPhotos } from './DocumentaryInsert';
 import {SpaceView} from './SpaceView';
 import {DispatchAtlas} from './DispatchAtlas';
+import {NightSky, TrackingDisplay} from './NightSky';
 import {OpeningHook} from './OpeningHook';
 const FoundryCanvas = lazy(() => import('./FoundryCanvas'));
 const clamp = (n: number) => Math.max(0, Math.min(1, n));
@@ -109,7 +110,9 @@ export function OpeningPlate({ plate, time, scene, seconds, started, reduced, vi
   const branch = foundryBranches.findIndex(b=>b.key===shot.view);
   const render3D = started && !reduced && visible;
   const photo = shot.view==='photo' ? documentaryPhotos.find(item=>time>=item.start && time<item.end) : undefined;
-  if (!started || plate === 'title') return <div className="plate"><SpaceView carrier={false} seconds={started?time:0} render3D={render3D}/>
+  if (started && (plate === 'catalogue' || plate === 'entries')) return <NightSky mode={plate} seconds={seconds} reduced={reduced}/>;
+  if (!started) return <div className="plate ground-sky"><img src="/art/documentary/night-farmland.webp" alt=""/></div>;
+  if (plate === 'title') return <div className="plate"><SpaceView carrier={false} seconds={started?time:0} render3D={render3D}/>
     {started && <div className="film-cover"><h1>Operation: Pale</h1><p className="cover-line">The acquisition of Earth.</p></div>}</div>;
   if (plate === 'black') return <div style={{position:'absolute',inset:0,background:'black'}}/>;
   if (plate === 'end') return <div className="plate"><RecordPlate eyebrow="Episode 1" title="The first forty-eight hours." detail=""/></div>;
@@ -118,10 +121,10 @@ export function OpeningPlate({ plate, time, scene, seconds, started, reduced, vi
     return <div className="plate photo-full-plate" style={{background:'black'}}><div style={{position:'absolute', inset:0, opacity:clamp((scene.duration-seconds)/.65)}}>
       <DocumentaryInsert photo={{...photo,start:0,end:25}} time={time} reduced={reduced} externalFade/></div></div>;
   }
-  if (plate === 'briefing' || plate === 'observatory' || plate === 'receiver') {
-    const id = plate === 'observatory' ? 'observatory-night' : 'intelligence-briefing';
+  if (plate === 'briefing' || plate === 'observatory' || plate === 'receiver' || plate === 'tracking') {
+    const id = plate === 'tracking' ? 'orbital-surveillance' : plate === 'observatory' ? 'observatory-night' : 'intelligence-briefing';
     const photo = documentaryPhotos.find(item => item.id === id)!;
-    return <div className="plate photo-full-plate"><DocumentaryInsert photo={{...photo,composition:'full'}} time={time} reduced={reduced} externalFade/>{plate === 'receiver' && <Broadcast scene={scene} seconds={seconds} reduced={reduced}/>}</div>;
+    return <div className="plate photo-full-plate"><DocumentaryInsert photo={{...photo,composition:'full'}} time={time} reduced={reduced} externalFade/>{plate === 'tracking' && <TrackingDisplay/>}{plate === 'receiver' && <Broadcast scene={scene} seconds={seconds} reduced={reduced}/>}</div>;
   }
   if (plate === 'delta') {
     const delta = foundryBranches.find(branch => branch.key === 'delta')!;
